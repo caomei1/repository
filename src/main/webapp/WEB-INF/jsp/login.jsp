@@ -16,8 +16,8 @@
 
 <body>
  <div class="hrader" id="header">
-  <a href="login.jsp" style="color:#FD7306;margin-left:20px;">请登录</a> 
-  <a href="reg.jsp">注册</a>
+  <a href="login" style="color:#FD7306;margin-left:20px;">请登录</a> 
+  <a href="reg">注册</a>
   <div class="topNav">
    <a href="index.jsp" style="color:#FD7306;">首页</a>
    <a href="buy.jsp">买家</a>
@@ -40,11 +40,16 @@
     <img src="${contextPath}/assets/images/login.jpg" width="567" height="348" />
    </div><!--loginLeft/-->
    <div class="loginRight">
-    <form class="login" action="#" method="get">
+   		<c:if test="${param.error != null}">
+		<h4 style="color: red; text-align: center;">登录失败：用户名或密码错误</h4>
+		</c:if>
+    <form class="login" action="${contextPath}/login" method="post">
+<!--  	防范CSRF攻击 -->
+ 	 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
      <label>邮箱/用户名/已验证手机</label>
-     <input type="text" class="loginName" />
+     <input type="text" id="username" name="username"/>
      <label>密码</label>
-     <input type="password" class="loginPwd" />
+     <input type="password" id="password" name="password"/>
      <div class="jizhu">
       <input type="checkbox" /> 一周内免登陆 <a href="#">忘记密码</a>
      </div><!--jizhu/-->
@@ -54,6 +59,7 @@
      <h2>合作伙伴登录：</h2>
      <img src="${contextPath}/assets/images/hezuo.jpg" width="260" height="30" />
     </form><!--login/-->
+    
    </div><!--loginRight/-->
    <div class="clears"></div>
   </div><!--loginBox/-->

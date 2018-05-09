@@ -18,8 +18,8 @@
 <body>
  <div class="hrader" id="header">
   <div class="top">
-   <a href="login.jsp" style="color:#C94E13;">请登录</a> 
-   <a href="reg.jsp">注册</a>
+   <a href="login" style="color:#C94E13;">请登录</a> 
+   <a href="reg">注册</a>
    <ul class="topNav">
      <li><a href="order.jsp">我的订单 </a></li>
     <li class="gouwuche"><a href="car.jsp">购物车</a> <strong style="color:#C94E13;">3</strong></li>

@@ -7,4 +7,9 @@
 	<select id="findOneByUsername" resultType="User">
 		select * from shopping_user where username = #{username}
 	</select>
+	
+	<insert id="create">
+		insert into shopping_user(id, username, email, phone_number, password) 
+		values(shopping_user_seq.nextval, #{username}, #{email}, #{phone_number}, #{password})
+	</insert>
 </mapper>

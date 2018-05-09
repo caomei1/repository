@@ -16,5 +16,11 @@ public class UserDaoImpl implements UserDao{
 	public User findOneByUsername(String username) {
 		return userMapper.findOneByUsername(username);
 	}
+
+	@Override
+	public void create(User user) {
+		userMapper.create(user);
+		System.out.println("after registerMapperImpl.create: " + user);
+	}
 	
 }
