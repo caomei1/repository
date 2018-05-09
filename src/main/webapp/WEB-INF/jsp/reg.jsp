@@ -2,15 +2,16 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>  
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>unique</title>
-<link type="text/css" href="css/css.css" rel="stylesheet" />
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/js.js"></script>
+<link type="text/css" href="${contextPath}/assets/css/css.css" rel="stylesheet" />
+<script type="text/javascript" src="${contextPath}/assets/js/jquery.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
 </head>
 
 <body>
@@ -32,7 +33,7 @@
  </div><!--hrader/-->
  <div class="mainCont">
   <h1 class="logo" style="text-align:left;">
-  <a href="index.jsp"><img src="images/logo.png" width="304" height="74" /></a>
+  <a href="index.jsp"><img src="${contextPath}/assets/images/logo.png" width="304" height="74" /></a>
   </h1>
   <div class="loginBuy">
   <div class="loginBuyLeft">
@@ -41,7 +42,7 @@
     <li class="regEqBg2">采购商</li>
     <div class="clears"></div>
    </ul><!--regEq/-->
-   <form action="#" method="get" class="regForm">
+   <form action="${contextPath}/reg" method="get" class="regForm">
     <div class="loginBuyList">
      <label for="name">用户名：</label>
      <input type="text" id="name" />
@@ -67,12 +68,12 @@
      <label for="yanzheng">验证码：</label>
      <input type="text" id="yanzheng" />
      <div class="yanzhengma">
-      <img src="images/yanzheng.jpg" width="124" height="52" />
+      <img src="${contextPath}/assets/images/yanzheng.jpg" width="124" height="52" />
       <span>换一张</span>
      </div>
     </div><!--loginBuyList/-->
     <div class="falv">
-     <input type="checkbox" /> <span>我已阅读并同意<a href="xieyi.html" target="_blank">《uniqueZi协议》</a></span>
+     <input type="checkbox" /> <span>我已阅读并同意<a href="xieyi.jsp" target="_blank">《uniqueZi协议》</a></span>
     </div><!--falv/-->
     <div class="regSubs">
      <input type="button" value=" 注 册 " />
@@ -105,7 +106,7 @@
      <label for="yanzheng">验证码：</label>
      <input type="text" id="yanzheng" />
      <div class="yanzhengma">
-      <img src="images/yanzheng.jpg" width="124" height="52" />
+      <img src="${contextPath}/assets/images/yanzheng.jpg" width="124" height="52" />
       <span>换一张</span>
      </div>
     </div><!--loginBuyList/-->
@@ -119,11 +120,11 @@
   </div><!--loginBuyLeft-->
   <div class="loginBuyRight">
    <div class="regDl">
-    <a href="login.jsp"><img src="images/dl.jpg" width="180" height="60" /></a>
+    <a href="login.jsp"><img src="${contextPath}/assets/images/dl.jpg" width="180" height="60" /></a>
     <p>已有<a href="login.jsp">供应商</a>账号点击登录！</p>
    </div><!--regDl/-->
    <div class="regDl">
-    <a href="login.jsp"><img src="images/dl.jpg" width="180" height="60" /></a>
+    <a href="login.jsp"><img src="${contextPath}/assets/images/dl.jpg" width="180" height="60" /></a>
     <p>已有<a href="login.jsp">采购商</a>账号点击登录！</p>
    </div><!--regDl/-->
   </div><!--loginBuyRight/-->
@@ -133,7 +134,7 @@
  <div class="footBox">
   <div class="footers">
    <div class="footersLeft">
-    <a href="index.jsp"><img src="images/ftlogo.jpg" width="240" height="64" /></a>
+    <a href="index.jsp"><img src="${contextPath}/assets/images/ftlogo.jpg" width="240" height="64" /></a>
     <h3 class="ftphone">400 000 0000 </h3>
     <div class="ftKe">
      客服 7x24小时(全年无休)<br />

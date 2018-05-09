@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="ssm.dao.mappers.RegisterMapper">
+	<select id="create" resultType="User">
+		insert into shopping_user(username, password, phone_number, email, role) 
+		values(#{username}, #{password}, #{phone_number}, #{email}, 'USER')
+	</select>
+</mapper>
