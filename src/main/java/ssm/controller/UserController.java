@@ -58,9 +58,4 @@ public class UserController {
 		}
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/prolist")
-	public String prolist() {
-		return "prolist";
-	}
-
 }

@@ -24,6 +24,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/assets/**", "/login").permitAll() //permitAll 全部
 			.antMatchers("/reg/**").permitAll()  //.anonymous 匿名
 			.antMatchers("/prolist/**").permitAll()
+			.antMatchers("/buyinfo/**").permitAll()
+			.antMatchers("/car/**").permitAll()
+			.antMatchers("/order/**").permitAll()
+//			.antMatchers("/success/**").permitAll()
 			.antMatchers("/**").authenticated()
 			
 			.and()

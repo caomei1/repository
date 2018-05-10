@@ -19,13 +19,13 @@
   <a href="login" style="color:#FD7306;margin-left:20px;">请登录</a> 
   <a href="reg">注册</a>
   <div class="topNav">
-   <a href="index.jsp" style="color:#FD7306;">首页</a>
-   <a href="buy.jsp">买家</a>
-   <a href="sell.jsp">卖家</a>
-   <a href="vip.jsp">会员中心</a>
-   <a href="xuanshang.jsp">悬赏榜</a>
-   <a href="luntan.jsp" class="luntan">论坛</a>
-   <a href="help.jsp">帮助</a>
+   <a href="index" style="color:#FD7306;">首页</a>
+   <a href="buy">买家</a>
+   <a href="sell">卖家</a>
+   <a href="vip">会员中心</a>
+   <a href="xuanshang">悬赏榜</a>
+   <a href="luntan" class="luntan">论坛</a>
+   <a href="help">帮助</a>
    <a href="#">&nbsp;</a>
    <a href="#" class="lan">中文</a>
    <a href="#" class="lan">English</a>
@@ -33,7 +33,7 @@
  </div><!--hrader/-->
  <div class="mainCont">
   <h1 class="logo" style="text-align:left;">
-  <a href="index.jsp"><img src="${contextPath}/assets/images/logo.png" width="304" height="74" /></a>
+  <a href="index"><img src="${contextPath}/assets/images/logo.png" width="304" height="74" /></a>
   </h1>
   <div class="loginBox">
    <div class="loginLeft">
@@ -67,7 +67,7 @@
  <div class="footBox">
   <div class="footers">
    <div class="footersLeft">
-    <a href="index.jsp"><img src="${contextPath}/assets/images/ftlogo.jpg" width="240" height="64" /></a>
+    <a href="index"><img src="${contextPath}/assets/images/ftlogo.jpg" width="240" height="64" /></a>
     <h3 class="ftphone">400 000 0000 </h3>
     <div class="ftKe">
      客服 7x24小时(全年无休)<br />
