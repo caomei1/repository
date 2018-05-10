@@ -6,4 +6,6 @@ public interface UserService {
 
 	void create(User user);
 
+	void updatePassword(Integer id, String password);
+
 }

@@ -59,7 +59,7 @@
     <div class="loginBuyList">
      <label for="phone_number">手机号码：</label>
      <form:input type="text" path="phone_number" />
-     <form:errors path="phone_number" cssClass="field-error" color="red"></form:errors>
+     <form:errors path="phone_number" cssClass="field-error"></form:errors>
     </div><!--loginBuyList/-->
     <div class="loginBuyList">
      <label for="password">设置密码：</label>

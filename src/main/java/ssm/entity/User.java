@@ -7,7 +7,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class User {
-	private long id;
+	private Integer id;
 	
 	@Size(min = 2, max = 15, message = "2 ~ 15个字")
 	private String username;
@@ -31,10 +31,10 @@ public class User {
 	public void setPermissions(List<String> permissions) {
 		this.permissions = permissions;
 	}
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getUsername() {

@@ -23,5 +23,10 @@ public class UserDaoImpl implements UserDao{
 		userMapper.create(user);
 		System.out.println("after registerMapperImpl.create: " + user);
 	}
+
+	@Override
+	public void updatePassword(Integer id, String password) {
+		userMapper.updatePassword(id, password);
+	}
 	
 }

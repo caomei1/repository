@@ -92,21 +92,23 @@
   <div class="vipRight">
    <h2 class="vipTitle">密码修改</h2>
    
-   <form action="#" class="registerform">
+   <form action="" class="vipPwd" method="post">
+<!--  	防范CSRF攻击 -->
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
       <table class="grzx" width="705" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td width="90">新密码：</td>
-          <td width="430"><input type="text" class="text inputxt" name="userpassword" datatype="*6-16" nullmsg="请设置密码！" errormsg="密码范围在6~16位之间！" /></td>
+          <td width="430"><input type="text" class="text inputxt" name="password" datatype="*6-16" nullmsg="请设置密码！" errormsg="密码范围在6~16位之间！" /></td>
           <td rowspan="4" valign="top"><div id="tx"><img src="${contextPath}/assets/images/vipImg.jpg" /></div></td>
         </tr>
         <tr>
           <td>确认密码：</td>
-          <td><input type="text" class="text inputxt"  name="userpassword2" datatype="*" recheck="userpassword" nullmsg="请再输入一次密码！" errormsg="您两次输入的账号密码不一致！"  /></td>
+          <td><input type="text" class="text inputxt"  name="password1" datatype="*" recheck="userpassword" nullmsg="请再输入一次密码！" errormsg="您两次输入的账号密码不一致！"  /></td>
         </tr>
-        <tr>
+<!--         <tr>
           <td>验证码：</td>
           <td><input name="" type="text" class="text2" /></td>
-        </tr>
+        </tr> -->
         <tr>
           <td><input name="" value="马上修改" type="submit" class="submit" /></td>
           <td></td>

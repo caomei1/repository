@@ -41,6 +41,11 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 		userDao.create(user);
 	}
 
+	@Override
+	public void updatePassword(Integer id, String password) {
+		userDao.updatePassword(id, password);
+	}
+
 }
 
 class UserDetailsImpl extends org.springframework.security.core.userdetails.User {

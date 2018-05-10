@@ -12,4 +12,8 @@
 		insert into shopping_user(id, username, email, phone_number, password) 
 		values(shopping_user_seq.nextval, #{username}, #{email}, #{phone_number}, #{password})
 	</insert>
+	
+	<update id="updatePassword" parameterType="User">
+		update shopping_user set password = #{password} where id = #{id}
+	</update>
 </mapper>
