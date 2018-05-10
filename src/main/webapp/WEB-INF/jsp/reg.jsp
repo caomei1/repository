@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>  
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -10,6 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>unique</title>
 <link type="text/css" href="${contextPath}/assets/css/css.css" rel="stylesheet" />
+<link type="text/css" href="${contextPath}/assets//css/css/app.css" rel="stylesheet">
 <script type="text/javascript" src="${contextPath}/assets/js/jquery.js"></script>
 <script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
 </head>
@@ -42,28 +43,33 @@
     <li class="regEqBg2">采购商</li>
     <div class="clears"></div>
    </ul><!--regEq/-->
-   <form action="${contextPath}/reg" method="post" class="regForm">
+   <form:form action="${contextPath}/reg" method="post" class="regForm" commandName="user">
 <!--  	防范CSRF攻击 -->
  	 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <div class="loginBuyList">
      <label for="username">用户名：</label>
-     <input type="text" id="username" name="username" />
+     <form:input type="text" path="username" />
+     <form:errors path="username" cssClass="field-error"></form:errors>
     </div><!--loginBuyList/-->
     <div class="loginBuyList">
      <label for="email">邮箱：</label>
-     <input type="text" id="email" name="email" />
+     <form:input type="text" path="email" />
+     <form:errors path="email" cssClass="field-error"></form:errors>
     </div><!--loginBuyList/-->
     <div class="loginBuyList">
      <label for="phone_number">手机号码：</label>
-     <input type="text" id="phone_number" name="phone_number" />
+     <form:input type="text" path="phone_number" />
+     <form:errors path="phone_number" cssClass="field-error" color="red"></form:errors>
     </div><!--loginBuyList/-->
     <div class="loginBuyList">
      <label for="password">设置密码：</label>
-     <input type="text" id="password" name="password" />
+     <form:input type="text" path="password" />
+     <form:errors path="password" cssClass="field-error"></form:errors>
     </div><!--loginBuyList/-->
     <div class="loginBuyList" style="border:#DEDEDE 1px solid;">
      <label for="password1">确认密码：</label>
      <input type="text" id="password1" name="password1" />
+     <p class="field-error" style="color:red;">${error}</p>
     </div><!--loginBuyList/-->
     
  <!--    <div class="loginBuyyan">
@@ -80,7 +86,7 @@
     <div class="regSubs">
      <input type="submit" value=" 注 册 " />
     </div><!--regSub/-->
-   </form><!--/-->
+   </form:form><!--/-->
    
    <form action="${contextPath}/reg" method="post" class="regForm">
 <!--  	防范CSRF攻击 -->
@@ -198,5 +204,11 @@
   <br />
   <span>&copy; 2014 Unqezi 使用前必读 沪ICP备 12007626号-1</span>
  </div><!--footer/-->
+ 
+   <c:if test="${userCreated != null}">
+    <script type="text/javascript">
+    	toastr.success('${userCreated}', '添加成功');
+    </script>
+  </c:if>
 </body>
 </html>
