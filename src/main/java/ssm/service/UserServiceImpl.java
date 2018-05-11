@@ -36,14 +36,22 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 		return userDetailsImpl;
 	}
 
+	//注册
 	@Override
 	public void create(User user) {
 		userDao.create(user);
 	}
 
+	//修改密码
 	@Override
 	public void updatePassword(Integer id, String password) {
 		userDao.updatePassword(id, password);
+	}
+
+	//修改vip信息
+	@Override
+	public void updateVip(User user) {
+		userDao.updateVip(user);
 	}
 
 }

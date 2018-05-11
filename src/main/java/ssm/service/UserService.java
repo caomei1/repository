@@ -8,4 +8,6 @@ public interface UserService {
 
 	void updatePassword(Integer id, String password);
 
+	void updateVip(User user);
+
 }

@@ -10,4 +10,6 @@ public interface UserDao {
 
 	void updatePassword(Integer id, String password);
 
+	void updateVip(User user);
+
 }

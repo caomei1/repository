@@ -16,4 +16,10 @@
 	<update id="updatePassword" parameterType="User">
 		update shopping_user set password = #{password} where id = #{id}
 	</update>
+	
+	<update id="updateVip">
+		update shopping_user set real_name = #{real_name}, city = #{city}, 
+		sex = #{sex}, email = #{email},	id_card = #{id_card}, introduce = #{introduce} 
+		where id = #{id}
+	</update>
 </mapper>

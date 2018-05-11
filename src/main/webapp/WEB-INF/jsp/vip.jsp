@@ -93,51 +93,52 @@
   <div class="vipRight">
    <h2 class="vipTitle">个人中心</h2>
    
-   <form action="#" class="registerform">
+   <form action="" class="vip" method="post">
       <table class="grzx" width="705" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td width="90"><span>*</span>真实姓名：</td>
-          <td width="430"><input name="name" type="text" class="text inputxt" /></td>
+          <td width="430"><input name="real_name" type="text" class="text inputxt" /></td>
           <td rowspan="8" valign="top"><div id="tx"><img src="${contextPath}/assets/images/vipImg.jpg" /></div>
-            <span class="file"><input name="" type="file" class="file1" /></span></td>
+          <span><input type="file" id="file" name="picture" /></span>
+          </td>
         </tr>
         <tr>
           <td><span>*</span>所在城市：</td>
           <td><select name="">
               <option>省</option>
-              <option>上海</option>
+              <option>湖南</option>
             </select>
             <select name="">
               <option>市</option>
-              <option>上海</option>
+              <option>长沙</option>
             </select>
             <select name="">
               <option>区</option>
-              <option>宝山</option>
+              <option>开福</option>
             </select></td>
         </tr>
         <tr>
           <td>&nbsp;性别：</td>
-          <td><input type="radio" name="property" value="person" id="person" class="pr1" datatype="*" nullmsg="请选择性别！"  />
+          <td><input type="radio" name="sex" value="person" id="person" class="pr1" />
             男　
-            <input type="radio" name="property" value="company" id="company" class="pr1" />
+            <input type="radio" name="sex" value="company" id="company" class="pr1" />
             女</td>
         </tr>
         <tr>
           <td>&nbsp;EMAIL:</td>
-          <td><input type="text" class="text1" datatype="e"  /></td>
+          <td><input type="text" class="text1" name="email" /></td>
         </tr>
         <tr>
           <td>&nbsp;身份证:</td>
-          <td><input name="" type="text" class="text1 inputxt" datatype="idcard" nullmsg="请填写身份证号码！" errormsg="您填写的身份证号码不对！必须位数字且不低于18位" /></td>
+          <td><input name="id_card" type="text" class="text1 inputxt"/></td>
         </tr>
         <tr>
           <td>&nbsp;&nbsp;类别：</td>
-          <td>艺术家</td>
+          <td>超级会员</td>
         </tr>
         <tr>
           <td>&nbsp;个人简介：</td>
-          <td><textarea tip="请在这里输入您的简介。" altercss="gray" class="gray" name="msg"  datatype="*"value="">请在这里输入您的简介。</textarea></td>
+          <td><textarea tip="请在这里输入您的简介。" class="gray" name="introduce">请在这里输入您的简介。</textarea></td>
         </tr>
         <tr>
           <td>&nbsp;</td>

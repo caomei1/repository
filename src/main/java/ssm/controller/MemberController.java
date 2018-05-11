@@ -31,6 +31,15 @@ public class MemberController {
 		return "vip";
 	}
 	
+	@RequestMapping(method = RequestMethod.POST, value = "/vip")
+	public String updateVip(@ModelAttribute User user, @AuthenticationPrincipal(expression = "user") User user1) {
+		//user是表单提交的,user1是登录的
+		user.setId(user1.getId());
+		//把我登录的id设进表单，得到要改的id
+		userService.updateVip(user);
+		return "vip";
+	}
+	
 	//会员中心 -密码修改
 	@RequestMapping(method = RequestMethod.GET, value = "/vipPwd")
 	public String vipPwd(@ModelAttribute User user, @AuthenticationPrincipal(expression = "user") User user1) {

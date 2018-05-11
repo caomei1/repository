@@ -27,5 +27,10 @@ public class UserDaoImpl implements UserDao{
 	public void updatePassword(Integer id, String password) {
 		userMapper.updatePassword(id, password);
 	}
+
+	@Override
+	public void updateVip(User user) {
+		userMapper.updateVip(user);
+	}
 	
 }

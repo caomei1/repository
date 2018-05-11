@@ -12,4 +12,6 @@ public interface UserMapper {
 
 	void updatePassword(@Param(value = "id") Integer id,@Param(value = "password") String password);
 
+	void updateVip(User user);
+
 }
