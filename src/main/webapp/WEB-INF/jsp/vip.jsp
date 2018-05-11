@@ -94,18 +94,19 @@
    <h2 class="vipTitle">个人中心</h2>
    
    <form action="" class="vip" method="post">
+   	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
       <table class="grzx" width="705" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td width="90"><span>*</span>真实姓名：</td>
           <td width="430"><input name="real_name" type="text" class="text inputxt" /></td>
           <td rowspan="8" valign="top"><div id="tx"><img src="${contextPath}/assets/images/vipImg.jpg" /></div>
-          <span><input type="file" id="file" name="picture" /></span>
+<!--           <span><input type="file" id="file" name="picture" /></span> -->
           </td>
         </tr>
         <tr>
           <td><span>*</span>所在城市：</td>
-          <td><select name="">
-              <option>省</option>
+          <td><select name="city">
+              <option value="">省</option>
               <option>湖南</option>
             </select>
             <select name="">
