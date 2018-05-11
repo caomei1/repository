@@ -1,10 +1,13 @@
 package ssm.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,18 +33,29 @@ public class MemberController {
 	
 	//会员中心 -密码修改
 	@RequestMapping(method = RequestMethod.GET, value = "/vipPwd")
-	public String vipPwd(@AuthenticationPrincipal(expression = "user") User user) {
-		System.out.println("当前登录用户：" + user);
+	public String vipPwd(@ModelAttribute User user, @AuthenticationPrincipal(expression = "user") User user1) {
+		System.out.println("当前登录用户：" + user1);
 		return "vipPwd";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/vipPwd")
-	public String updatePassword(@RequestParam String password, 
-			@AuthenticationPrincipal(expression = "user") User user, Model model){
-		String encode = passwordEncoder.encode(password);
-		userService.updatePassword(user.getId(), encode);
-		System.out.println("update:" + encode);
-		return "vipPwd";
+	public String updatePassword(
+			@Valid @ModelAttribute User user, BindingResult bindingResult, 
+			@RequestParam String password1, 
+			@AuthenticationPrincipal(expression = "user") User user1){
+		
+		if (bindingResult.hasErrors()) {
+				return "vipPwd";
+		} else if (!user.getPassword().equals(password1)) {
+				bindingResult.rejectValue("password", "error", "密码不一致");
+//				model.addAttribute("error", "修改失败，密码不一致");
+				return "vipPwd";
+		} else {
+				String encode = passwordEncoder.encode(password1);
+				userService.updatePassword(user1.getId(), encode);
+				System.out.println("update:" + encode);
+				return "vip";
+		}
 	}
 	
 	//会员中心 -订单列表

@@ -10,6 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>unique</title>
 <link type="text/css" href="${contextPath}/assets/css/css.css" rel="stylesheet" />
+<link href="${contextPath}/assets/toastr/toastr.min.css" rel="stylesheet"/>
 <script type="text/javascript" src="${contextPath}/assets/js/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
 
@@ -210,5 +211,11 @@
   <br />
   <span>&copy; 2014 Unqezi 使用前必读 沪ICP备 12007626号-1</span>
  </div><!--footer/-->
+ <script src="${contextPath}/assets/toastr/toastr.min.js"></script>
+ 	<c:if test="${user.password != null}">
+     <script type="text/javascript">
+      toastr.success('修改成功');
+     </script>
+    </c:if>
 </body>
 </html>

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>   
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -10,6 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>unique</title>
 <link type="text/css" href="${contextPath}/assets/css/css.css" rel="stylesheet" />
+<link type="text/css" href="${contextPath}/assets//css/css/app.css" rel="stylesheet">
 <script type="text/javascript" src="${contextPath}/assets/js/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
 
@@ -92,18 +94,21 @@
   <div class="vipRight">
    <h2 class="vipTitle">密码修改</h2>
    
-   <form action="" class="vipPwd" method="post">
+   <form:form action="" class="vipPwd" method="post" commandName="user">
 <!--  	防范CSRF攻击 -->
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
       <table class="grzx" width="705" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td width="90">新密码：</td>
-          <td width="430"><input type="text" class="text inputxt" name="password" datatype="*6-16" nullmsg="请设置密码！" errormsg="密码范围在6~16位之间！" /></td>
+          <td width="430"><form:input type="text" path="password" class="text inputxt"/></td>
+          <form:errors path="password" cssClass="field-error"></form:errors>
           <td rowspan="4" valign="top"><div id="tx"><img src="${contextPath}/assets/images/vipImg.jpg" /></div></td>
         </tr>
         <tr>
           <td>确认密码：</td>
-          <td><input type="text" class="text inputxt"  name="password1" datatype="*" recheck="userpassword" nullmsg="请再输入一次密码！" errormsg="您两次输入的账号密码不一致！"  /></td>
+          <td><input type="text" class="text inputxt"  id="password1" name="password1"/>
+          		<p class="field-error" style="color:red;">${error}</p>
+          </td>
         </tr>
 <!--         <tr>
           <td>验证码：</td>
@@ -114,7 +119,7 @@
           <td></td>
         </tr>
       </table>
-      </form>
+      </form:form>
   </div><!--vipRight/-->
   <div class="clears"></div>
  </div><!--vipBox/-->
@@ -181,5 +186,6 @@
   <br />
   <span>&copy; 2014 Unqezi 使用前必读 沪ICP备 12007626号-1</span>
  </div><!--footer/-->
+ 
 </body>
 </html>
