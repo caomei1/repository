@@ -84,7 +84,7 @@
      <input type="checkbox" /> <span>我已阅读并同意<a href="xieyi.html" target="_blank">《uniqueZi协议》</a></span>
     </div><!--falv/-->
     <div class="regSubs">
-     <input type="submit" value=" 注 册 " />
+     <input type="submit" value=" 注 册 " onclick="return checkup()" />
     </div><!--regSub/-->
    </form:form><!--/-->
    
@@ -204,11 +204,9 @@
   <br />
   <span>&copy; 2014 Unqezi 使用前必读 沪ICP备 12007626号-1</span>
  </div><!--footer/-->
- 
-   <c:if test="${userCreated != null}">
-    <script type="text/javascript">
-    	toastr.success('${userCreated}', '添加成功');
-    </script>
-  </c:if>
+ <script language="javascript">
+	function checkup(){ 
+		if(window.confirm("确定要注册吗？"))  {   return true;  }  else  {    return false;  }}
+</script>
 </body>
 </html>
