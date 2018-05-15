@@ -32,6 +32,15 @@ public class User {
 	
 	private List<String> permissions;
 	
+	private List<ReceivingAddress> receivingAddress;//收货地址
+	
+	public List<ReceivingAddress> getReceivingAddress() {
+		return receivingAddress;
+	}
+	public void setReceivingAddress(List<ReceivingAddress> receivingAddress) {
+		this.receivingAddress = receivingAddress;
+	}
+	
 	public List<String> getPermissions() {
 		return permissions;
 	}

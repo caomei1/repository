@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import ssm.dao.UserDao;
+import ssm.entity.ReceivingAddress;
 import ssm.entity.User;
 
 @Service
@@ -52,6 +53,16 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	@Override
 	public void updateVip(User user) {
 		userDao.updateVip(user);
+	}
+
+	@Override
+	public List<ReceivingAddress> findAllAddress(Integer id) {
+		return userDao.findAllAddress(id);
+	}
+
+	@Override
+	public void addAddress(ReceivingAddress address) {
+		userDao.addAddress(address);
 	}
 
 }

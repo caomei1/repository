@@ -1,16 +1,21 @@
 package ssm.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import ssm.entity.ReceivingAddress;
 import ssm.entity.User;
 import ssm.service.UserService;
 
@@ -32,7 +37,8 @@ public class MemberController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/vip")
-	public String updateVip(@ModelAttribute User user, @AuthenticationPrincipal(expression = "user") User user1) {
+	public String updateVip(@ModelAttribute User user, 
+			@AuthenticationPrincipal(expression = "user") User user1) {
 		//user是表单提交的,user1是登录的
 		user.setId(user1.getId());
 		//把我登录的id设进表单，得到要改的id
@@ -42,7 +48,8 @@ public class MemberController {
 	
 	//会员中心 -密码修改
 	@RequestMapping(method = RequestMethod.GET, value = "/vipPwd")
-	public String vipPwd(@ModelAttribute User user, @AuthenticationPrincipal(expression = "user") User user1) {
+	public String vipPwd(@ModelAttribute User user, 
+			@AuthenticationPrincipal(expression = "user") User user1) {
 		System.out.println("当前登录用户：" + user1);
 		return "vipPwd";
 	}
@@ -81,7 +88,21 @@ public class MemberController {
 	
 	//会员中心 -收货地址管理
 	@RequestMapping(method = RequestMethod.GET, value = "/vipAddress")
-	public String vipAddress() {
+	public String vipAddress(@AuthenticationPrincipal(expression = "user") User user, 
+			Model model) {
+		List<ReceivingAddress> vipAddress = userService.findAllAddress(user.getId());
+		model.addAttribute("vipAddress", vipAddress);
 		return "vipAddress";
 	}
+	
+	//增加收货地址
+	@RequestMapping(method = RequestMethod.POST, value = "vipAddress")
+	public String addAddress(@ModelAttribute ReceivingAddress address, 
+			Model model, @AuthenticationPrincipal(expression = "user") User user){
+		address.setUserId(user.getId());
+		userService.addAddress(address);
+		model.addAttribute("Success","添加收货地址成功");
+		return "vip";
+	}
+	
 }

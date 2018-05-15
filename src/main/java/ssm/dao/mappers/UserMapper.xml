@@ -22,4 +22,16 @@
 		sex = #{sex}, email = #{email},	id_card = #{id_card}, introduce = #{introduce} 
 		where id = #{id}
 	</update>
+	
+	<select id="findAllAddress" resultType="ReceivingAddress">
+		select * from receiving_address 
+		where user_id = #{user_id}
+	</select>
+	
+	<insert id="addAddress" parameterType="ReceivingAddress">
+		insert into receiving_address(user_id, consignee, where_city, 
+		street_address, postal_code, phone_number) 
+		values(#{userId}, #{consignee}, #{whereCity}, #{streetAddress}, 
+		#{postalCode}, #{phoneNumber})
+	</insert>
 </mapper>

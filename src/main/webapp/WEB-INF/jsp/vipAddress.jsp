@@ -94,39 +94,45 @@
    <h2 class="vipTitle">收货地址</h2>
    
    <div class="address">
+   <form action="${contextPath}/vipAddress" method="post" >
+   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <div class="addList">
      <label><span class="red">* </span>选择地区:</label>
-     <select>
+     <select name="whereCity">
       <option>请选择省</option>
+      <option>湖南</option>
      </select>
-     <select>
+     <select name="whereCity">
       <option>请选择市</option>
+      <option>长沙</option>
      </select>
-     <select>
+     <select name="whereCity">
       <option>请选择地区</option>
+      <option>开福区</option>
      </select>
     </div><!--addList-->
     <div class="addList">
      <label><span class="red">* </span>详细地址:</label>
-     <input type="text" />
+     <input type="text" name="streetAddress"/>
     </div><!--addList-->
     <div class="addList">
      <label><span class="red">* </span>邮政编码:</label>
-     <input type="text" />
+     <input type="text" name="postalCode"/>
     </div><!--addList-->
     <div class="addList">
      <label><span class="red">* </span>收件人:</label>
-     <input type="text" />
+     <input type="text" name="consignee"/>
     </div><!--addList-->
     <div class="addList">
-     <label><span class="red">* </span>手机号码:</label>
-     <input type="text" /> 或者固定电话 <input type="text" />
+     <label><span class="red">* </span>电话号码:</label>
+     <input type="text" name="phoneNumber"/>
     </div><!--addList--> 
     <div class="addList2">
      <input name="" value=" 确 认 " type="submit" class="submit" />
     </div><!--addList2/-->
+    </form>
    </div><!--address/-->
-   <table class="vipAdress">
+   <table class="vipAddress" style="font-size: 14px;border-collapse:separate; border-spacing:11px 7px;">
     <tr>
      <th>收货人</th>
      <th>所在地区</th>
@@ -135,54 +141,16 @@
      <th>电话/手机</th>
      <th>操作</th>
     </tr>
+    <c:forEach items="${vipAddress}" var="Address">
     <tr>
-     <td>张益达</td>
-     <td>上海 上海市 普陀区</td>
-     <td>曹杨路1040弄中友大厦一号楼19楼</td>
-     <td>200000</td>
-     <td>13569888523</td>
+     <td>${Address.consignee}</td>
+     <td>${Address.whereCity}</td>
+     <td>${Address.streetAddress}</td>
+     <td>${Address.postalCode}</td>
+     <td>${Address.phoneNumber}</td>
      <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
     </tr>
-    <tr>
-     <td>张大炮</td>
-     <td>上海 上海市 普陀区</td>
-     <td>曹杨路1040弄中友大厦一号楼19楼</td>
-     <td>200000</td>
-     <td>13569888523</td>
-     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
-    </tr>
-    <tr>
-     <td>李思明</td>
-     <td>上海 上海市 普陀区</td>
-     <td>曹杨路1040弄中友大厦一号楼19楼</td>
-     <td>200000</td>
-     <td>13569888523</td>
-     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
-    </tr>
-    <tr>
-     <td>成吉思汗</td>
-     <td>上海 上海市 普陀区</td>
-     <td>曹杨路1040弄中友大厦一号楼19楼</td>
-     <td>200000</td>
-     <td>13569888523</td>
-     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
-    </tr>
-    <tr>
-     <td>忽必烈</td>
-     <td>上海 上海市 普陀区</td>
-     <td>曹杨路1040弄中友大厦一号楼19楼</td>
-     <td>200000</td>
-     <td>13569888523</td>
-     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
-    </tr>
-    <tr>
-     <td>乾隆</td>
-     <td>上海 上海市 普陀区</td>
-     <td>曹杨路1040弄中友大厦一号楼19楼</td>
-     <td>200000</td>
-     <td>13569888523</td>
-     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
-    </tr>
+    </c:forEach>
    </table><!--vipAdress/-->
   </div><!--vipRight/-->
   <div class="clears"></div>

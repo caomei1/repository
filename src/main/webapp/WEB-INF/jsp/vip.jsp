@@ -109,20 +109,20 @@
               <option value="">省</option>
               <option>湖南</option>
             </select>
-            <select name="">
+            <select name="city">
               <option>市</option>
               <option>长沙</option>
             </select>
-            <select name="">
+            <select name="city">
               <option>区</option>
               <option>开福</option>
             </select></td>
         </tr>
         <tr>
           <td>&nbsp;性别：</td>
-          <td><input type="radio" name="sex" value="person" id="person" class="pr1" />
+          <td><input type="radio" name="sex" value="男" id="person" class="pr1" />
             男　
-            <input type="radio" name="sex" value="company" id="company" class="pr1" />
+            <input type="radio" name="sex" value="女" id="company" class="pr1" />
             女</td>
         </tr>
         <tr>
