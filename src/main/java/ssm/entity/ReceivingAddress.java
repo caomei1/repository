@@ -1,6 +1,7 @@
 package ssm.entity;
 
 public class ReceivingAddress {
+	private int id;
 	private Integer userId; //用户id
 	private String consignee; //收货人
 	private String whereCity; //所在城市
@@ -8,6 +9,12 @@ public class ReceivingAddress {
 	private String postalCode; //邮政编码
 	private String phoneNumber; //手机号
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public Integer getUserId() {
 		return userId;
 	}
@@ -47,9 +54,9 @@ public class ReceivingAddress {
 	
 	@Override
 	public String toString() {
-		return "ReceivingAddress [userId=" + userId + ", consignee=" + consignee + ", whereCity=" + whereCity
-				+ ", streetAddress=" + streetAddress + ", postalCode=" + postalCode + ", phoneNumber=" + phoneNumber
-				+ "]";
+		return "ReceivingAddress [id=" + id + ", userId=" + userId + ", consignee=" + consignee + ", whereCity="
+				+ whereCity + ", streetAddress=" + streetAddress + ", postalCode=" + postalCode + ", phoneNumber="
+				+ phoneNumber + "]";
 	}
 	
 }

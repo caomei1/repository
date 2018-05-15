@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -86,7 +87,7 @@ public class MemberController {
 		return "vipXiaofei";
 	}
 	
-	//会员中心 -收货地址管理
+	//会员中心 -收货地址详情
 	@RequestMapping(method = RequestMethod.GET, value = "/vipAddress")
 	public String vipAddress(@AuthenticationPrincipal(expression = "user") User user, 
 			Model model) {
@@ -96,13 +97,36 @@ public class MemberController {
 	}
 	
 	//增加收货地址
-	@RequestMapping(method = RequestMethod.POST, value = "vipAddress")
+	@RequestMapping(method = RequestMethod.POST, value = "/vipAddress")
 	public String addAddress(@ModelAttribute ReceivingAddress address, 
 			Model model, @AuthenticationPrincipal(expression = "user") User user){
 		address.setUserId(user.getId());
 		userService.addAddress(address);
 		model.addAttribute("Success","添加收货地址成功");
-		return "vip";
+		return "redirect:/vipAddress";
+	}
+	
+	//修改收货地址
+	@RequestMapping(method = RequestMethod.GET, value = "/vipAddress/{id}/updateVipAddress")
+	public String findOneIdAddress(@PathVariable int id, Model model) {
+		ReceivingAddress address = userService.findOneIdAddress(id);
+		model.addAttribute("address", address);
+		return "updateVipAddress";
+	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/vipAddress/{id}/updateVipAddress")
+	public String updateAddress(@ModelAttribute ReceivingAddress vipAddress, 
+			@PathVariable int id) {
+		vipAddress.setId(id);
+		userService.updateAddress(vipAddress);	
+		return "redirect:/vipAddress";
+	}
+	
+	//删除收货地址
+	@RequestMapping(method = RequestMethod.GET, value = "/vipAddress/{id}")
+	public String deleteAddress(@PathVariable int id) {
+		userService.deleteAddress(id);
+		return "redirect:/vipAddress";
 	}
 	
 }

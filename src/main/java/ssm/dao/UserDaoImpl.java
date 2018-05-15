@@ -45,5 +45,20 @@ public class UserDaoImpl implements UserDao{
 	public void addAddress(ReceivingAddress address) {
 		userMapper.addAddress(address);
 	}
+
+	@Override
+	public void updateAddress(ReceivingAddress vipAddress) {
+		userMapper.updateAddress(vipAddress);
+	}
+
+	@Override
+	public ReceivingAddress findOneIdAddress(int id) {
+		return userMapper.findOneIdAddress(id);
+	}
 	
+	@Override
+	public void deleteAddress(int id) {
+		userMapper.deleteAddress(id);
+	}
+
 }

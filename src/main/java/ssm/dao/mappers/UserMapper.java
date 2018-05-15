@@ -21,4 +21,10 @@ public interface UserMapper {
 
 	void addAddress(ReceivingAddress address);
 
+	void updateAddress(ReceivingAddress vipAddress);
+	
+	ReceivingAddress findOneIdAddress(int id);
+
+	void deleteAddress(int id);
+
 }

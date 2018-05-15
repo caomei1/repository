@@ -28,10 +28,25 @@
 		where user_id = #{user_id}
 	</select>
 	
+	<select id="findOneIdAddress" resultType="ReceivingAddress">
+		select * from receiving_address 
+		where id = #{id}
+	</select>
+	
 	<insert id="addAddress" parameterType="ReceivingAddress">
-		insert into receiving_address(user_id, consignee, where_city, 
+		insert into receiving_address(id, user_id, consignee, where_city, 
 		street_address, postal_code, phone_number) 
-		values(#{userId}, #{consignee}, #{whereCity}, #{streetAddress}, 
+		values(receiving_address_seq.nextval, #{userId}, #{consignee}, #{whereCity}, #{streetAddress}, 
 		#{postalCode}, #{phoneNumber})
 	</insert>
+	
+	<update id="updateAddress" parameterType="ReceivingAddress">
+		update receiving_address set consignee = #{consignee}, where_city = #{whereCity}, 
+		street_address = #{streetAddress}, postal_code = #{postalCode}, phone_number = #{phoneNumber} 
+		where id = #{id}
+	</update>
+	
+	<delete id="deleteAddress" parameterType="ReceivingAddress">
+		delete receiving_address where id = #{id}
+	</delete>
 </mapper>

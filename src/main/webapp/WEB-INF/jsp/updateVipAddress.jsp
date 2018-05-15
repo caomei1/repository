@@ -90,71 +90,37 @@
      <dd><a href="vipTousu.html">我的投诉</a></dd>
    </dl><!--vipNav/-->
   </div><!--vipLeft/-->
-  <div class="vipRight">
-   <h2 class="vipTitle">收货地址 <span class="green add" style="font-weight:bold;" >[添加]</span></h2>
-   
-   <div class="address">
-   <form action="${contextPath}/vipAddress" method="post" >
-   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-    <div class="addList">
-     <label><span class="red">* </span>选择地区:</label>
-     <select name="whereCity">
-      <option>请选择省</option>
-      <option>湖南</option>
-     </select>
-     <select name="whereCity">
-      <option>请选择市</option>
-      <option>长沙</option>
-     </select>
-     <select name="whereCity">
-      <option>请选择地区</option>
-      <option>开福区</option>
-     </select>
-    </div><!--addList-->
-    <div class="addList">
-     <label><span class="red">* </span>详细地址:</label>
-     <input type="text" name="streetAddress"/>
-    </div><!--addList-->
-    <div class="addList">
-     <label><span class="red">* </span>邮政编码:</label>
-     <input type="text" name="postalCode"/>
-    </div><!--addList-->
-    <div class="addList">
-     <label><span class="red">* </span>收件人:</label>
-     <input type="text" name="consignee"/>
-    </div><!--addList-->
-    <div class="addList">
-     <label><span class="red">* </span>电话号码:</label>
-     <input type="text" name="phoneNumber"/>
-    </div><!--addList--> 
-    <div class="addList2">
-     <input name="" value=" 确 认 " type="submit" class="submit" />
-    </div><!--addList2/-->
-    </form>
+	<div class="vipRight">
+	 <h2 class="vipTitle">修改收货地址</h2>
+	  <form action="${contextPath}/vipAddress/${address.id}/updateVipAddress" method="post">
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+		<div class="form-group">
+		<br/><br/>
+		 选择地区:&emsp;<select name="whereCity">
+		 				<option >请选择省</option>
+						<option value="湖南">湖南</option>
+					</select> <select name="whereCity" >
+						<option>请选择市</option>
+						<option value="长沙">长沙</option>
+					</select> <select name="whereCity">
+						<option>请选择地区</option>
+						<option value="开福区">开福区</option>
+						<option value="天心区">天心区</option>
+						<option value="岳麓区">岳麓区</option>
+					</select>
+		<br/><br/><br/>
+		详细地址:&emsp;<input type="text" name="streetAddress" class="form-control" value="${address.streetAddress}"/> 
+		<br/><br/><br/>
+		邮政编码:&emsp;<input type="text" name="postalCode" class="form-control" value="${address.postalCode}"/>
+		<br/><br/><br/>
+		收件人:&emsp;&emsp;<input type="text" name="consignee" class="form-control" value="${address.consignee}">
+		<br/><br/><br/>
+		电话号码:&emsp;<input type="text" name="phoneNumber"  class="form-control" value="${address.phoneNumber}"/>
+		<br/><br/><br/>
+		<input name="" value=" 确 认 " type="submit"  class="submit"/>
+	</div>
+	</form>
    </div><!--address/-->
-   <table class="vipAddress" style="font-size: 14px;border-collapse:separate; border-spacing:11px 7px;">
-    <tr>
-     <th>收货人</th>
-     <th>所在地区</th>
-     <th>街道地址</th>
-     <th>邮编</th>
-     <th>电话/手机</th>
-     <th>操作</th>
-    </tr>
-    <c:forEach items="${vipAddress}" var="Address">
-    <tr>
-     <td>${Address.consignee}</td>
-     <td>${Address.whereCity}</td>
-     <td>${Address.streetAddress}</td>
-     <td>${Address.postalCode}</td>
-     <td>${Address.phoneNumber}</td>    
-     <td><span class="green add" style="font-weight:bold;">[添加]</span>
-     <a href="${contextPath}/vipAddress/${Address.id}/updateVipAddress" style="font-weight: bold;" class="blue upd">[修改]</a>
-     <a href="${contextPath}/vipAddress/${Address.id}" style="color: red;font-weight: bold;">[删除]</a>
-     </td>
-    </tr>
-    </c:forEach>
-   </table><!--vipAdress/-->
   </div><!--vipRight/-->
   <div class="clears"></div>
  </div><!--vipBox/-->

@@ -65,6 +65,20 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 		userDao.addAddress(address);
 	}
 
+	@Override
+	public void updateAddress(ReceivingAddress vipAddress) {
+		userDao.updateAddress(vipAddress);
+	}
+
+	@Override
+	public ReceivingAddress findOneIdAddress(int id) {
+		return userDao.findOneIdAddress(id);
+	}
+
+	@Override
+	public void deleteAddress(int id) {
+		userDao.deleteAddress(id);
+	}
 }
 
 class UserDetailsImpl extends org.springframework.security.core.userdetails.User {
