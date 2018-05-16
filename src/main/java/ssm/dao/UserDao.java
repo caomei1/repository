@@ -2,6 +2,7 @@ package ssm.dao;
 
 import java.util.List;
 
+import ssm.entity.Order;
 import ssm.entity.ReceivingAddress;
 import ssm.entity.User;
 
@@ -24,5 +25,7 @@ public interface UserDao {
 	ReceivingAddress findOneIdAddress(int id);
 
 	void deleteAddress(int id);
+
+	List<Order> findAllOrder(int id);
 
 }

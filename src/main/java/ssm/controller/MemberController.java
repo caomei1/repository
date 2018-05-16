@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import ssm.entity.Order;
 import ssm.entity.ReceivingAddress;
 import ssm.entity.User;
 import ssm.service.UserService;
@@ -31,12 +32,14 @@ public class MemberController {
 	
 	//会员中心 -个人信息
 	@RequestMapping(method = RequestMethod.GET, value = "/vip")
-	public String vip(@AuthenticationPrincipal(expression = "user") User user) {
+	public String vip(
+			@AuthenticationPrincipal(expression = "user") User user) {
 		// @AuthenticationPrincipal默认拿到的是principal(UserDetailsImpl)，所以需要.user获得实体User对象（来自dao层）
 		System.out.println("当前登录用户：" + user);
 		return "vip";
 	}
 	
+	//修改个人信息
 	@RequestMapping(method = RequestMethod.POST, value = "/vip")
 	public String updateVip(@ModelAttribute User user, 
 			@AuthenticationPrincipal(expression = "user") User user1) {
@@ -55,6 +58,7 @@ public class MemberController {
 		return "vipPwd";
 	}
 	
+	//修改密码
 	@RequestMapping(method = RequestMethod.POST, value = "/vipPwd")
 	public String updatePassword(
 			@Valid @ModelAttribute User user, BindingResult bindingResult, 
@@ -77,7 +81,11 @@ public class MemberController {
 	
 	//会员中心 -订单列表
 	@RequestMapping(method = RequestMethod.GET, value = "/vipOrder")
-	public String vipOrder() {
+	public String vipOrder(
+			@AuthenticationPrincipal(expression = "user") User user, 
+			Model model) {
+		List<Order> orders = userService.findAllOrder(user.getId());
+		model.addAttribute("orders", orders);
 		return "vipOrder";
 	}
 	

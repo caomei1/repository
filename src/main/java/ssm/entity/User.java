@@ -34,6 +34,15 @@ public class User {
 	
 	private List<ReceivingAddress> receivingAddress;//收货地址
 	
+	private List<Order> vipOrderList;//vip我的订单
+	
+	public List<Order> getVipOrderList() {
+		return vipOrderList;
+	}
+	public void setVipOrderList(List<Order> vipOrderList) {
+		this.vipOrderList = vipOrderList;
+	}
+	
 	public List<ReceivingAddress> getReceivingAddress() {
 		return receivingAddress;
 	}

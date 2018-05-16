@@ -4,6 +4,7 @@ import java.util.List;
 
 import ssm.entity.ReceivingAddress;
 import ssm.entity.User;
+import ssm.entity.Order;
 
 public interface UserService {
 
@@ -22,4 +23,7 @@ public interface UserService {
 	ReceivingAddress findOneIdAddress(int id);
 
 	void deleteAddress(int id);
+
+	List<Order> findAllOrder(int id);
+
 }

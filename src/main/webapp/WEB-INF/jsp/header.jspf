@@ -9,12 +9,19 @@
 <div class="header" >
 
 <!-- 	principal本质上是我们提供的实现了UserDetails接口的对象 -->
-	 <a style="margin-right: 15px;font-size: 18px">用户：<span><sec:authentication property="principal.user.username" /></span></a>
 	
-	<form action="${contextPath}/logout" method="post" style="display: inline;">
-		<input type="hidden" name="${_csrf.parameterName}"
-			value="${_csrf.token}" />
-		<button type="submit">退出</button>
-	</form>
+	<sec:authorize access="isAuthenticated()">
+		 <a style="margin-right: 15px;font-size: 18px">
+		 	用户：<span><sec:authentication property="principal.user.username" /></span>
+		</a>
 	
+		<form action="${contextPath}/logout" method="post" style="display: inline;">
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
+			<button type="submit">退出</button>
+		</form>
+	</sec:authorize>
+	
+	<sec:authorize access="permitAll">
+	</sec:authorize>	
 </div>

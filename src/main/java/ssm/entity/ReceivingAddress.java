@@ -1,7 +1,9 @@
 package ssm.entity;
 
+import java.util.List;
+
 public class ReceivingAddress {
-	private int id;
+	private Integer id;
 	private Integer userId; //用户id
 	private String consignee; //收货人
 	private String whereCity; //所在城市
@@ -9,10 +11,19 @@ public class ReceivingAddress {
 	private String postalCode; //邮政编码
 	private String phoneNumber; //手机号
 	
-	public int getId() {
+	private List<Order> vipOrderList; //vip我的订单
+	
+	public List<Order> getVipOrderList() {
+		return vipOrderList;
+	}
+	public void setVipOrderList(List<Order> vipOrderList) {
+		this.vipOrderList = vipOrderList;
+	}
+	
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public Integer getUserId() {

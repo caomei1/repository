@@ -49,4 +49,24 @@
 	<delete id="deleteAddress" parameterType="ReceivingAddress">
 		delete receiving_address where id = #{id}
 	</delete>
+	
+	<select id="findAllOrder" resultMap="orderMap">
+		select r.id address_id, r.consignee address_name, v.id order_id, 
+		v.price order_price, v.payment_mode order_pay, v.creation_time order_time, 
+		v.state order_state 
+		from vip_orderlist v join receiving_address r on v.address_id = r.id 
+		where v.user_id = #{userId}
+	</select>
+	<resultMap type="Order" id="orderMap">
+		<id property="id" column="order_id"/>
+		<result property="price" column="order_price"/>
+		<result property="paymentMode" column="order_pay"/>
+		<result property="creationTime" column="order_time"/>
+		<result property="state" column="order_state"/>
+				
+		<association property="receivingAddress" javaType="ReceivingAddress">
+			<id property="id" column="address_id"/>
+			<result property="consignee" column="address_name"/>
+		</association>
+	</resultMap>
 </mapper>

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import ssm.dao.UserDao;
 import ssm.entity.ReceivingAddress;
 import ssm.entity.User;
+import ssm.entity.Order;
 
 @Service
 public class UserServiceImpl implements UserDetailsService, UserService {
@@ -79,6 +80,12 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	public void deleteAddress(int id) {
 		userDao.deleteAddress(id);
 	}
+
+	@Override
+	public List<Order> findAllOrder(int id) {
+		return userDao.findAllOrder(id);
+	}
+
 }
 
 class UserDetailsImpl extends org.springframework.security.core.userdetails.User {

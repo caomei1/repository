@@ -93,51 +93,21 @@
   <div class="vipRight">
    <h2 class="vipTitle">我的订单</h2>
    
-   <h2 class="oredrName">
+<!--    <h2 class="oredrName">
     我的订单 <span style="margin-left:40px;">待发货 <span class="red">10</span> </span>
     <span>待收货 <span class="red">15</span></span>
-    </h2>
+    </h2> -->	
     <table class="vipOrder">
+    <c:forEach items="${orders}" var="order">
      <tr>
       <td><a href="proinfo.html"><img src="${contextPath}/assets/images/phone.png" width="60" height="55"></a></td>
-      <td>张益达</td>
-      <td>￥16.9<br />支付宝支付</td>
-      <td>2014年6月23日11:32:17</td>
-      <td><a href="success.html"><strong>等待付款</strong></a></td>
+      <td>${order.receivingAddress.consignee}</td>
+      <td>${order.price}<br />${order.paymentMode}</td>
+      <td>${order.creationTime}</td>
+      <td><a href="success.html"><strong>${order.state}</strong></a></td>
       <td><a href="vipXiaofei.html">查看</a></td>
      </tr>
-     <tr>
-      <td><a href="proinfo.html"><img src="${contextPath}/assets/images/phone.png" width="60" height="55"></a></td>
-      <td>张益达</td>
-      <td>￥16.9<br />支付宝支付</td>
-      <td>2014年6月23日11:32:17</td>
-      <td><a href="success.html"><strong>等待付款</strong></a></td>
-      <td><a href="vipXiaofei.html">查看</a></td>
-     </tr>
-     <tr>
-      <td><a href="proinfo.html"><img src="${contextPath}/assets/images/phone.png" width="60" height="55"></a></td>
-      <td>张益达</td>
-      <td>￥16.9<br />支付宝支付</td>
-      <td>2014年6月23日11:32:17</td>
-      <td><a href="success.html"><strong>等待付款</strong></a></td>
-      <td><a href="vipXiaofei.html">查看</a></td>
-     </tr>
-     <tr>
-      <td><a href="proinfo.html"><img src="${contextPath}/assets/images/phone.png" width="60" height="55"></a></td>
-      <td>张益达</td>
-      <td>￥16.9<br />支付宝支付</td>
-      <td>2014年6月23日11:32:17</td>
-      <td><a href="success.html"><strong>等待付款</strong></a></td>
-      <td><a href="vipXiaofei.html">查看</a></td>
-     </tr>
-     <tr>
-      <td><a href="proinfo.html"><img src="${contextPath}/assets/images/phone.png" width="60" height="55"></a></td>
-      <td>张益达</td>
-      <td>￥16.9<br />支付宝支付</td>
-      <td>2014年6月23日11:32:17</td>
-      <td><a href="success.html"><strong>等待付款</strong></a></td>
-      <td><a href="vipXiaofei.html">查看</a></td>
-     </tr>
+     </c:forEach>
     </table><!--vipOrder/-->
   </div><!--vipRight/-->
   <div class="clears"></div>

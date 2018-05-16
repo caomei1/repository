@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			
 			.rememberMe() // 记住我配置
-			.tokenValiditySeconds(3 * 24 * 3600) // 有效期3天
+			.tokenValiditySeconds(7 * 24 * 3600) // 有效期7天
 			.userDetailsService(userService);
 	}
 }

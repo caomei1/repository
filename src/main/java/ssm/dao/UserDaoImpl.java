@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import ssm.dao.mappers.UserMapper;
 import ssm.entity.ReceivingAddress;
 import ssm.entity.User;
+import ssm.entity.Order;
 
 @Repository
 public class UserDaoImpl implements UserDao{
@@ -60,5 +61,11 @@ public class UserDaoImpl implements UserDao{
 	public void deleteAddress(int id) {
 		userMapper.deleteAddress(id);
 	}
+
+	@Override
+	public List<Order> findAllOrder(int id) {
+		return userMapper.findAllOrder(id);
+	}
+
 
 }

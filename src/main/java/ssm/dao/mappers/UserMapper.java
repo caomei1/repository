@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import ssm.entity.ReceivingAddress;
 import ssm.entity.User;
+import ssm.entity.Order;
 
 public interface UserMapper {
 
@@ -26,5 +27,7 @@ public interface UserMapper {
 	ReceivingAddress findOneIdAddress(int id);
 
 	void deleteAddress(int id);
+
+	List<Order> findAllOrder(int userId);
 
 }
