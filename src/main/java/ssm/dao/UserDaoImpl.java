@@ -67,5 +67,10 @@ public class UserDaoImpl implements UserDao{
 		return userMapper.findAllOrder(id);
 	}
 
+	@Override
+	public Order Orderdetails(Integer id) {
+		return userMapper.Orderdetails(id);
+	}
+
 
 }

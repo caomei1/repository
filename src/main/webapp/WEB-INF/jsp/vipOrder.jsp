@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>   
+<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>   
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -83,7 +83,7 @@
      <dd><a href="vip.html">个人信息</a></dd>
      <dd><a href="vipPwd.html">密码修改</a></dd>
      <dd><a href="vipAddress.html">收货地址</a></dd>
-     <dd><a href="vipXiaofei.html">消费记录</a></dd>
+<!--      <dd><a href="vipXiaofei.html">消费记录</a></dd> -->
     <dt class="vip_3">客户服务</dt>
      <dd><a href="vipQuxiao.html">取消订单/退货</a></dd>
      
@@ -97,7 +97,7 @@
     我的订单 <span style="margin-left:40px;">待发货 <span class="red">10</span> </span>
     <span>待收货 <span class="red">15</span></span>
     </h2> -->	
-    <table class="vipOrder">
+    <table class="vipOrder" style="font-size: 16px;">
     <c:forEach items="${orders}" var="order">
      <tr>
       <td><a href="proinfo.html"><img src="${contextPath}/assets/images/phone.png" width="60" height="55"></a></td>
@@ -105,7 +105,7 @@
       <td>${order.price}<br />${order.paymentMode}</td>
       <td>${order.creationTime}</td>
       <td><a href="success.html"><strong>${order.state}</strong></a></td>
-      <td><a href="vipXiaofei.html">查看</a></td>
+      <td><a href="${contextPath}/vipXiaofei/${order.id}">查看</a></td>
      </tr>
      </c:forEach>
     </table><!--vipOrder/-->

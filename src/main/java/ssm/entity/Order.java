@@ -8,8 +8,11 @@ public class Order {
 	private String paymentMode; //支付方式
 	private String creationTime; //订单创建时间
 	private String state; //状态
+	private String orderNumber; //订单编号
+	private String commodity; //商品名称
+	private String business; //商家
 	
-	private ReceivingAddress receivingAddress;
+	private ReceivingAddress receivingAddress; //收货地址
 	
 	public Integer getId() {
 		return id;
@@ -54,18 +57,37 @@ public class Order {
 	public void setState(String state) {
 		this.state = state;
 	}
-	
-	@Override
-	public String toString() {
-		return "VipOrderList [id=" + id + ", userId=" + userId + ", addressId=" + addressId + ", price=" + price
-				+ ", paymentMode=" + paymentMode + ", creationTime=" + creationTime + ", state=" + state + "]";
-	}
 	public ReceivingAddress getReceivingAddress() {
 		return receivingAddress;
 	}
 	public void setReceivingAddress(ReceivingAddress receivingAddress) {
 		this.receivingAddress = receivingAddress;
 	}
+	public String getOrderNumber() {
+		return orderNumber;
+	}
+	public void setOrderNumber(String orderNumber) {
+		this.orderNumber = orderNumber;
+	}
+	public String getCommodity() {
+		return commodity;
+	}
+	public void setCommodity(String commodity) {
+		this.commodity = commodity;
+	}
+	public String getBusiness() {
+		return business;
+	}
+	public void setBusiness(String business) {
+		this.business = business;
+	}
 	
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", userId=" + userId + ", addressId=" + addressId + ", price=" + price
+				+ ", paymentMode=" + paymentMode + ", creationTime=" + creationTime + ", state=" + state
+				+ ", orderNumber=" + orderNumber + ", commodity=" + commodity + ", business=" + business
+				+ ", receivingAddress=" + receivingAddress + "]";
+	}
 
 }

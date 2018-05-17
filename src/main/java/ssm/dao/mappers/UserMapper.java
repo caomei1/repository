@@ -30,4 +30,6 @@ public interface UserMapper {
 
 	List<Order> findAllOrder(int userId);
 
+	Order Orderdetails(Integer id);
+
 }

@@ -69,4 +69,33 @@
 			<result property="consignee" column="address_name"/>
 		</association>
 	</resultMap>
+	
+	<select id="Orderdetails" resultMap="orderDetailsMap">
+		select r.id address_id, r.consignee address_name, 
+		r.phone_number address_phone, r.where_city address_city, 
+		r.street_address address_street, r.postal_code address_code, 
+		v.id order_id, v.order_number order_num, v.commodity order_name, 
+		v.price order_price, v.business order_business, 
+		v.payment_mode order_pay, v.state order_state 
+		from vip_orderlist v join receiving_address r on v.address_id = r.id 
+		where v.id = #{id}
+	</select>
+		<resultMap type="Order" id="orderDetailsMap">
+		<id property="id" column="order_id"/>
+		<result property="orderNumber" column="order_num"/>
+		<result property="commodity" column="order_name"/>
+		<result property="price" column="order_price"/>
+		<result property="business" column="order_business"/>
+		<result property="paymentMode" column="order_pay"/>
+		<result property="state" column="order_state"/>
+				
+		<association property="receivingAddress" javaType="ReceivingAddress">
+			<id property="id" column="address_id"/>
+			<result property="consignee" column="address_name"/>
+			<result property="phoneNumber" column="address_phone"/>
+			<result property="whereCity" column="address_city"/>
+			<result property="streetAddress" column="address_street"/>
+			<result property="postalCode" column="address_code"/>
+		</association>
+	</resultMap>
 </mapper>

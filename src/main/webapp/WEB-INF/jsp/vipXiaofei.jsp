@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>   
+<c:set var="contextPath" value="${pageContext.request.contextPath}"></c:set>   
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -77,13 +77,13 @@
    <h3 class="vipName">测试webqin</h3>
    <dl class="vipNav">
     <dt class="vip_1 vipCur">买家中心</dt>
-     <dd><a href="vipOrder.html">我的订单</a></dd>
+     <dd><a href="${contextPath}/vipOrder">我的订单</a></dd>
      <dd><a href="vipShoucang.html">收藏关注</a></dd>
     <dt class="vip_2">账户设置</dt>
-     <dd><a href="vip.html">个人信息</a></dd>
-     <dd><a href="vipPwd.html">密码修改</a></dd>
-     <dd><a href="vipAddress.html">收货地址</a></dd>
-     <dd class="ddCur"><a href="vipXiaofei.html">消费记录</a></dd>
+     <dd><a href="${contextPath}/vip">个人信息</a></dd>
+     <dd><a href="${contextPath}/vipPwd">密码修改</a></dd>
+     <dd><a href="${contextPath}/vipAddress">收货地址</a></dd>
+<!--      <dd class="ddCur"><a href="vipXiaofei.html">消费记录</a></dd> -->
     <dt class="vip_3">客户服务</dt>
      <dd><a href="vipQuxiao.html">取消订单/退货</a></dd>
      
@@ -92,36 +92,40 @@
   </div><!--vipLeft/-->
   <div class="vipRight">
    <h2 class="vipTitle">订单详情</h2>
-   
-   <table class="orderDeatils">
+   <table class="orderDeatils" style="font-size: 14px">
     <tr>
      <th>订单编号</th>
-     <td>465489132154416</td>
+     <td>${orderDetails.orderNumber}</td>
     </tr>
     <tr>
      <th>商品名称</th>
-     <td>妙捷 一次性纸杯</td>
+     <td>${orderDetails.commodity}</td>
     </tr>
     <tr>
      <th>订单价钱</th>
-     <td>￥185.80</td>
+     <td>${orderDetails.price}</td>
     </tr>
     <tr>
      <th>订单信息</th>
      <td> 
-张益达，13572607270，， 陕西省 汉中市 勉县 勉县东方眼科医院，724200</td>
+		${orderDetails.receivingAddress.consignee}， 
+		${orderDetails.receivingAddress.phoneNumber}， 
+		${orderDetails.receivingAddress.whereCity}， 
+		${orderDetails.receivingAddress.streetAddress}， 
+		邮政编码：${orderDetails.receivingAddress.postalCode}
+	</td>
     </tr>
     <tr>
      <th>商家</th>
-     <td>纯绿商城</td>
+     <td>${orderDetails.business}</td>
     </tr>
     <tr>
      <th>支付方式</th>
-     <td>支付宝支付</td>
+     <td>${orderDetails.paymentMode}</td>
     </tr>
     <tr>
      <th>支付状态</th>
-     <td>成功</td>
+     <td>${orderDetails.state}</td>
     </tr>
    </table> 
   </div><!--vipRight/-->

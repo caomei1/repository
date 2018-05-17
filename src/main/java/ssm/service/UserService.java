@@ -26,4 +26,6 @@ public interface UserService {
 
 	List<Order> findAllOrder(int id);
 
+	Order Orderdetails(Integer id);
+
 }

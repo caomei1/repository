@@ -86,6 +86,11 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 		return userDao.findAllOrder(id);
 	}
 
+	@Override
+	public Order Orderdetails(Integer id) {
+		return userDao.Orderdetails(id);
+	}
+
 }
 
 class UserDetailsImpl extends org.springframework.security.core.userdetails.User {

@@ -47,7 +47,7 @@ public class MemberController {
 		user.setId(user1.getId());
 		//把我登录的id设进表单，得到要改的id
 		userService.updateVip(user);
-		return "vip";
+		return "redirect:vip";
 	}
 	
 	//会员中心 -密码修改
@@ -75,7 +75,7 @@ public class MemberController {
 				String encode = passwordEncoder.encode(password1);
 				userService.updatePassword(user1.getId(), encode);
 				System.out.println("update:" + encode);
-				return "vip";
+				return "redirect:/vipPwd";
 		}
 	}
 	
@@ -90,8 +90,12 @@ public class MemberController {
 	}
 	
 	//会员中心 -订单详情
-	@RequestMapping(method = RequestMethod.GET, value = "/vipXiaofei")
-	public String vipXiaofei() {
+	@RequestMapping(method = RequestMethod.GET, value = "/vipXiaofei/{id}")
+	public String vipXiaofei(
+			@AuthenticationPrincipal(expression = "user") User user, 
+			@PathVariable Integer id, Model model) {
+		Order orderDetails = userService.Orderdetails(id);
+		model.addAttribute("orderDetails", orderDetails);
 		return "vipXiaofei";
 	}
 	
