@@ -11,6 +11,8 @@ public interface UserService {
 	void create(User user);
 
 	void updatePassword(Integer id, String password);
+	
+	User findPersonalData(Integer id);
 
 	void updateVip(User user);
 

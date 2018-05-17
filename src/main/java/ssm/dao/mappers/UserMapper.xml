@@ -17,9 +17,13 @@
 		update shopping_user set password = #{password} where id = #{id}
 	</update>
 	
+	<select id="findPersonalData" resultType="User">
+		select * from shopping_user where id = #{id}
+	</select>
+	
 	<update id="updateVip">
-		update shopping_user set real_name = #{real_name}, city = #{city}, 
-		sex = #{sex}, email = #{email},	id_card = #{id_card}, introduce = #{introduce} 
+		update shopping_user set real_name = #{realName}, city = #{city}, 
+		sex = #{sex}, email = #{email},	id_card = #{idCard}, introduce = #{introduce} 
 		where id = #{id}
 	</update>
 	

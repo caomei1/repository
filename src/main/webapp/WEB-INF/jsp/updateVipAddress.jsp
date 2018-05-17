@@ -116,8 +116,8 @@
 		收件人:&emsp;&emsp;<input type="text" name="consignee" class="form-control" value="${address.consignee}">
 		<br/><br/><br/>
 		电话号码:&emsp;<input type="text" name="phoneNumber"  class="form-control" value="${address.phoneNumber}"/>
-		<br/><br/><br/>
-		<input name="" value=" 确 认 " type="submit"  class="submit"/>
+		<br/><br/><br/>&emsp;&emsp;&emsp;&emsp;&emsp;
+		<input name="" value=" 保存 " type="submit"  class="submit"/>
 	</div>
 	</form>
    </div><!--address/-->

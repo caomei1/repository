@@ -49,6 +49,12 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	public void updatePassword(Integer id, String password) {
 		userDao.updatePassword(id, password);
 	}
+	
+	//显示个人资料
+	@Override
+	public User findPersonalData(Integer id) {
+		return userDao.findPersonalData(id);
+	}
 
 	//修改vip信息
 	@Override
@@ -56,36 +62,43 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 		userDao.updateVip(user);
 	}
 
+	//查询所有收货地址
 	@Override
 	public List<ReceivingAddress> findAllAddress(Integer id) {
 		return userDao.findAllAddress(id);
 	}
 
+	//增加收货地址
 	@Override
 	public void addAddress(ReceivingAddress address) {
 		userDao.addAddress(address);
 	}
 
+	//修改收货地址
 	@Override
 	public void updateAddress(ReceivingAddress vipAddress) {
 		userDao.updateAddress(vipAddress);
 	}
 
+	//根据id查询详细地址
 	@Override
 	public ReceivingAddress findOneIdAddress(int id) {
 		return userDao.findOneIdAddress(id);
 	}
 
+	//删除收货地址
 	@Override
 	public void deleteAddress(int id) {
 		userDao.deleteAddress(id);
 	}
 
+	//订单列表
 	@Override
 	public List<Order> findAllOrder(int id) {
 		return userDao.findAllOrder(id);
 	}
 
+	//订单详情
 	@Override
 	public Order Orderdetails(Integer id) {
 		return userDao.Orderdetails(id);

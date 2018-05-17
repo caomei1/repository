@@ -19,12 +19,12 @@
  <div class="hrader" id="header">
   <div class="top">
   <%@ include file="header.jspf" %>
-   <a href="login.html" style="color:#C94E13;">请登录</a> 
-   <a href="reg.html">注册</a>
+   <a href="${contextPath}/login" style="color:#C94E13;">请登录</a> 
+   <a href="${contextPath}/reg">注册</a>
    <ul class="topNav">
-    <li><a href="order.html">我的订单 </a></li>
-    <li class="gouwuche"><a href="car.html">购物车</a> <strong style="color:#C94E13;">3</strong></li>
-    <li class="shoucangjia"><a href="shoucang.html">收藏夹</a></li>
+    <li><a href="${contextPath}/order">我的订单 </a></li>
+    <li class="gouwuche"><a href="${contextPath}/car">购物车</a> <strong style="color:#C94E13;">3</strong></li>
+    <li class="shoucangjia"><a href="${contextPath}/shoucang">收藏夹</a></li>
     <li class="kefus"><a href="#">联系客服</a></li>
 <li><a href="#" class="lan">中文</a></li>
     <li><a href="#" class="lan">English</a></li>
@@ -34,7 +34,7 @@
  </div><!--hrader/-->
  <div class="mid">
   <h1 class="logo" style="text-align:left;">
-  <a href="index.html"><img src="${contextPath}/assets/images/logo.png" width="304" height="74" /></a>
+  <a href="${contextPath}/index"><img src="${contextPath}/assets/images/logo.png" width="304" height="74" /></a>
   </h1>
   <form action="#" method="get" class="subBox">
    <div class="subBox2">
@@ -51,23 +51,23 @@
   </form><!--subBox/-->
   <div class="ding-gou">
    <div class="ding">
-    <a href="order.html"><img src="${contextPath}/assets/images/dingdan.jpg" width="106" height="32" /></a>
+    <a href="${contextPath}/order"><img src="${contextPath}/assets/images/dingdan.jpg" width="106" height="32" /></a>
    </div><!--ding/-->
    <div class="gou">
-    <a href="car.html"><img src="${contextPath}/assets/images/gouwuche.jpg" width="126" height="32" /></a>
+    <a href="${contextPath}/car"><img src="${contextPath}/assets/images/gouwuche.jpg" width="126" height="32" /></a>
    </div><!--gou/-->
    <div class="clears"></div>
   </div><!--ding-gou/-->
  </div><!--mid-->
  <div class="navBox navBg3">
   <ul class="nav">
-   <li><a href="index.html">首页</a></li>
-   <li><a href="buy.html">买家</a></li>
-   <li><a href="sell.html">卖家</a></li>
-   <li class="navCur"><a href="vip.html">会员中心</a></li>
-   <li><a href="xuanshang.html">悬赏榜</a></li>
-   <li><a href="luntan.html" class="luntan">论坛</a></li>
-   <li><a href="help.html">帮助</a></li>
+   <li><a href="${contextPath}/index">首页</a></li>
+   <li><a href="${contextPath}/buy">买家</a></li>
+   <li><a href="${contextPath}/sell">卖家</a></li>
+   <li class="navCur"><a href="${contextPath}/vip">会员中心</a></li>
+   <li><a href="${contextPath}/xuanshang">悬赏榜</a></li>
+   <li><a href="${contextPath}/luntan" class="luntan">论坛</a></li>
+   <li><a href="${contextPath}/help">帮助</a></li>
    <div class="clears"></div>
   </ul><!--nav/-->
  </div><!--navBox/-->
@@ -77,36 +77,38 @@
    <h3 class="vipName">测试webqin</h3>
    <dl class="vipNav">
     <dt class="vip_1 vipCur">买家中心</dt>
-     <dd><a href="vipOrder.html">我的订单</a></dd>
-     <dd><a href="vipShoucang.html">收藏关注</a></dd>
+     <dd><a href="${contextPath}/vipOrder">我的订单</a></dd>
+     <dd><a href="${contextPath}/vipShoucang">收藏关注</a></dd>
     <dt class="vip_2">账户设置</dt>
-     <dd class="ddCur"><a href="#">个人信息</a></dd>
-     <dd><a href="vipPwd.html">密码修改</a></dd>
-     <dd><a href="vipAddress.html">收货地址</a></dd>
+     <dd class="ddCur"><a href="${contextPath}/vip">个人信息</a></dd>
+     <dd><a href="${contextPath}/vipPwd">密码修改</a></dd>
+     <dd><a href="${contextPath}/vipAddress">收货地址</a></dd>
   <!--    <dd><a href="vipXiaofei.html">消费记录</a></dd> -->
     <dt class="vip_3">客户服务</dt>
-     <dd><a href="vipQuxiao.html">取消订单/退货</a></dd>
+     <dd><a href="${contextPath}/vipQuxiao">取消订单/退货</a></dd>
      
-     <dd><a href="vipTousu.html">我的投诉</a></dd>
+     <dd><a href="${contextPath}/vipTousu">我的投诉</a></dd>
    </dl><!--vipNav/-->
   </div><!--vipLeft/-->
   <div class="vipRight">
    <h2 class="vipTitle">个人中心</h2>
-   
-   <form action="" class="vip" method="post">
+   <form action="" class="${contextPath}/vip" method="post">
    	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
       <table class="grzx" width="705" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td width="90"><span>*</span>真实姓名：</td>
-          <td width="430"><input name="real_name" type="text" class="text inputxt" /></td>
+          <td width="90"><span>*&nbsp;</span>真实姓名：</td>
+          <td width="430"><input value="${vipUser.realName}" name="realName" type="text" class="text inputxt"/></td>
           <td rowspan="8" valign="top"><div id="tx"><img src="${contextPath}/assets/images/vipImg.jpg" /></div>
 <!--           <span><input type="file" id="file" name="picture" /></span> -->
           </td>
         </tr>
         <tr>
-          <td><span>*</span>所在城市：</td>
-          <td><select name="city">
-              <option value="">省</option>
+          <td><span>*&nbsp;</span>所在城市：</td>        
+          <td><select>
+              <option>${vipUser.city}</option>
+            </select><span>&nbsp;( 重新选择 )</span>
+            <select name="city">
+              <option>省</option>
               <option>湖南</option>
             </select>
             <select name="city">
@@ -116,30 +118,32 @@
             <select name="city">
               <option>区</option>
               <option>开福</option>
+              <option>雨花</option>
             </select></td>
         </tr>
         <tr>
-          <td>&nbsp;性别：</td>
-          <td><input type="radio" name="sex" value="男" id="person" class="pr1" />
+          <td>&nbsp;&nbsp;性别：&nbsp;${vipUser.sex}</td>
+          <td><input type="radio" name="sex" value="男" id="person" class="pr1"/>
             男　
             <input type="radio" name="sex" value="女" id="company" class="pr1" />
-            女</td>
+            女 <span>&nbsp;&nbsp;( 重新选择 )</span></td>
         </tr>
         <tr>
-          <td>&nbsp;EMAIL:</td>
-          <td><input type="text" class="text1" name="email" /></td>
+          <td>&nbsp;&nbsp;EMAIL:</td>
+          <td><input value="${vipUser.email}" type="text" class="text1" name="email" /></td>
         </tr>
         <tr>
-          <td>&nbsp;身份证:</td>
-          <td><input name="id_card" type="text" class="text1 inputxt"/></td>
+          <td>&nbsp;&nbsp;身份证:</td>
+          <td><input value="${vipUser.idCard}" name="idCard" type="text" class="text1 inputxt"/></td>
         </tr>
         <tr>
-          <td>&nbsp;&nbsp;类别：</td>
-          <td>超级会员</td>
+          <td>&nbsp;<span>*&nbsp;</span>类别：</td>
+          <td><span style="font-weight: bold;">${vipUser.role} ：</span>  
+          	<span style="color: blue;">超</span><span style="color: green;">级</span><span>会</span><span style="color: orange;">员</span></td>
         </tr>
         <tr>
-          <td>&nbsp;个人简介：</td>
-          <td><textarea tip="请在这里输入您的简介。" class="gray" name="introduce">请在这里输入您的简介。</textarea></td>
+          <td>&nbsp;&nbsp;个人简介：</td>
+          <td><textarea tip="请在这里输入您的简介。" class="gray" name="introduce">${vipUser.introduce}</textarea></td>
         </tr>
         <tr>
           <td>&nbsp;</td>

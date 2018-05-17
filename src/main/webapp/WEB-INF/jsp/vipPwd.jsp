@@ -116,8 +116,8 @@
           <td><input name="" type="text" class="text2" /></td>
         </tr> -->
         <tr>
-          <td><input name="" value="马上修改" type="submit" class="submit" /></td>
-          <td></td>
+          <td>&nbsp;</td>
+          <td><input name="" value="确认修改" type="submit" class="submit" /></td>
         </tr>
       </table>
       </form:form>

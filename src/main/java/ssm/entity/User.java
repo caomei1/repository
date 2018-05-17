@@ -23,10 +23,10 @@ public class User {
 	
 	private String role;
 	
-	private String real_name;
+	private String realName;
 	private String city;
 	private String sex;
-	private String id_card;
+	private String idCard;
 	private String introduce;
 	private String picture;
 	
@@ -99,11 +99,11 @@ public class User {
 		this.role = role;
 	}
 	
-	public String getReal_name() {
-		return real_name;
+	public String getRealName() {
+		return realName;
 	}
-	public void setReal_name(String real_name) {
-		this.real_name = real_name;
+	public void setRealName(String real_name) {
+		this.realName = real_name;
 	}
 	
 	public String getCity() {
@@ -120,11 +120,11 @@ public class User {
 		this.sex = sex;
 	}
 	
-	public String getId_card() {
-		return id_card;
+	public String getIdCard() {
+		return idCard;
 	}
-	public void setId_card(String id_card) {
-		this.id_card = id_card;
+	public void setIdCard(String id_card) {
+		this.idCard = id_card;
 	}
 	
 	public String getIntroduce() {
@@ -144,8 +144,8 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", phone_number=" + phone_number
-				+ ", email=" + email + ", role=" + role + ", real_name=" + real_name + ", city=" + city + ", sex=" + sex
-				+ ", id_card=" + id_card + ", introduce=" + introduce + ", picture=" + picture + ", permissions="
+				+ ", email=" + email + ", role=" + role + ", realName=" + realName + ", city=" + city + ", sex=" + sex
+				+ ", idCard=" + idCard + ", introduce=" + introduce + ", picture=" + picture + ", permissions="
 				+ permissions + "]";
 	}
 	

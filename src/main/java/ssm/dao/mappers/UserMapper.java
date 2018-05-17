@@ -16,6 +16,8 @@ public interface UserMapper {
 
 	void updatePassword(@Param(value = "id") Integer id,@Param(value = "password") String password);
 
+	User findPersonalData(Integer id);
+	
 	void updateVip(User user);
 
 	List<ReceivingAddress> findAllAddress(Integer id);

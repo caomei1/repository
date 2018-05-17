@@ -31,6 +31,11 @@ public class UserDaoImpl implements UserDao{
 	public void updatePassword(Integer id, String password) {
 		userMapper.updatePassword(id, password);
 	}
+	
+	@Override
+	public User findPersonalData(Integer id) {
+		return userMapper.findPersonalData(id);
+	}
 
 	@Override
 	public void updateVip(User user) {
@@ -71,6 +76,5 @@ public class UserDaoImpl implements UserDao{
 	public Order Orderdetails(Integer id) {
 		return userMapper.Orderdetails(id);
 	}
-
 
 }
