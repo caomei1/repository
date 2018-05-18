@@ -19,11 +19,11 @@
  <div class="hrader" id="header">
   <div class="top">
   <%@ include file="header.jspf" %>
-   <a href="login.html" style="color:#C94E13;">请登录</a> 
-   <a href="reg.html">注册</a>
+   <a href="${contextPath}/login" style="color:#C94E13;">请登录</a> 
+   <a href="${contextPath}/reg">注册</a>
    <ul class="topNav">
-     <li><a href="order.html">我的订单 </a></li>
-    <li class="gouwuche"><a href="car.html">购物车</a> <strong style="color:#C94E13;">3</strong></li>
+     <li><a href="${contextPath}/order">我的订单 </a></li>
+    <li class="gouwuche"><a href="${contextPath}/car">购物车</a> <strong style="color:#C94E13;">3</strong></li>
     <li class="shoucangjia"><a href="shoucang.html">收藏夹</a></li>
     <li class="kefus"><a href="#">联系客服</a></li>
     <li><a href="#" class="lan">中文</a></li>
@@ -34,7 +34,7 @@
  </div><!--hrader/-->
  <div class="mid">
   <h1 class="logo" style="text-align:left;">
-  <a href="index.html"><img src="${contextPath}/assets/images/logo.png" width="304" height="74" /></a>
+  <a href="${contextPath}/index"><img src="${contextPath}/assets/images/logo.png" width="304" height="74" /></a>
   </h1>
   <form action="#" method="get" class="subBox">
    <div class="subBox2">
@@ -51,23 +51,23 @@
   </form><!--subBox/-->
   <div class="ding-gou">
    <div class="ding">
-    <a href="order.html"><img src="${contextPath}/assets/images/dingdan.jpg" width="106" height="32" /></a>
+    <a href="${contextPath}/order"><img src="${contextPath}/assets/images/dingdan.jpg" width="106" height="32" /></a>
    </div><!--ding/-->
    <div class="gou">
-    <a href="car.html"><img src="${contextPath}/assets/images/gouwuche.jpg" width="126" height="32" /></a>
+    <a href="${contextPath}/car"><img src="${contextPath}/assets/images/gouwuche.jpg" width="126" height="32" /></a>
    </div><!--gou/-->
    <div class="clears"></div>
   </div><!--ding-gou/-->
  </div><!--mid-->
  <div class="navBox navBg1">
   <ul class="nav">
-   <li><a href="index.html">首页</a></li>
-   <li><a href="buy.html">买家</a></li>
-   <li><a href="sell.html">卖家</a></li>
-   <li><a href="vip.html">会员中心</a></li>
-   <li><a href="xuanshang.html">悬赏榜</a></li>
-   <li><a href="luntan.html" class="luntan">论坛</a></li>
-   <li><a href="help.html">帮助</a></li>
+   <li><a href="${contextPath}/inde">首页</a></li>
+   <li><a href="${contextPath}/buy">买家</a></li>
+   <li><a href="${contextPath}/sell">卖家</a></li>
+   <li><a href="${contextPath}/vip">会员中心</a></li>
+   <li><a href="${contextPath}/xuanshang">悬赏榜</a></li>
+   <li><a href="${contextPath}/luntan" class="luntan">论坛</a></li>
+   <li><a href="${contextPath}/help">帮助</a></li>
    <div class="clears"></div>
   </ul><!--nav/-->
  </div><!--navBox/-->
@@ -93,7 +93,7 @@
    <div class="buyDtlRight">
     <h3>联想 A808T 黄金斗士</h3>
     <h4>【赠送精品蓝牙耳机+超大容量移动电源】5.0英寸高清大屏 真八核1.7GHz 1300万像素主摄像头</h4>
-    <h5>价格：<span>￥</span><strong id="price_item_1">1999.00</strong></h5>
+    <h5>价格：<span>￥</span><strong id="price_item_1">2999.00</strong></h5>
     <table class="buyTable">
      <tr>
       <th width="70">商品编号</th>
@@ -150,8 +150,8 @@
      </tr>
     </table><!--buyTable/-->
     <div class="goumai">
-     <a href="car.html" class="buy-gou">立即购买</a>
-     <a href="#" class="buy-mai">加入购物车</a>
+     <a href="${contextPath}/car" class="buy-gou">立即购买</a>
+     <a href="${contextPath}/car" class="buy-mai">加入购物车</a>
     </div><!--goumai/-->
    </div><!--buyDtlRight/-->
    <div class="clears"></div>

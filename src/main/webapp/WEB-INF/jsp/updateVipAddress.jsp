@@ -97,7 +97,7 @@
 		<div class="form-group">
 		<br/><br/>
 		 选择地区:&emsp;<select name="whereCity">
-		 				<option >请选择省</option>
+		 				<option>请选择省</option>
 						<option value="湖南">湖南</option>
 					</select> <select name="whereCity" >
 						<option>请选择市</option>

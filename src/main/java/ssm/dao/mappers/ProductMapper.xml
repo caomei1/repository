@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="ssm.dao.mappers.ProductMapper">
+	<insert id="addProduct" parameterType="Product">
+		insert into product(id, brand, model, title, price, order_number, 
+		freight, body_color, memory, stock, smart_machine, network_mode, business) 
+		values(product_seq.nextval, #{brand}, #{model}, #{title}, #{price}, 
+		#{orderNumber}, #{freight}, #{bodyColor}, #{memory}, #{stock}, 
+		#{smartMachine}, #{networkMode}, #{business})
+	</insert>
+	
+</mapper>

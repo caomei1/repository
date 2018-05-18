@@ -488,17 +488,17 @@
    <dl>
     <dt><a href="${contextPath}/buyinfo"><img src="${contextPath}/assets/images/phone5.png" /></a></dt>
     <dd>
-     <h3>￥4800.00</h3>
+     <h3>￥4800</h3>
      <div class="phonePars">
-      Apple 苹果 iPhone 5s 16G TD-LTE/TD-SCDMA/WCDMA/GSM 4G手机 金
+     Apple 苹果 iPhone 5s 16G TD-LTE/TD-SCDMA/WCDMA/GSM 4G手机 金
      </div><!--phonePar/-->
      <div class="xiaoliang">
       <span class="blue">157451条评价</span>
-      <span class="pad">上海有货</span>
+      <span class="pad" style="color: red;">天猫官方旗舰店</span>
      </div><!--xiaoliang/-->
      <div class="jiaru-shoucang">
       <span class="jiaruCar">加入购物车</span>
-      <span class="shoucangCar"><a href="quanjing/index.jsp">选用此模型</a></span>>
+      <span class="shoucangCar"><a href="quanjing/index.jsp">选用此模型</a></span>
       <div class="clears"></div>
      </div><!--jiaru-shoucang/-->
     </dd>

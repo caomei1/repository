@@ -50,7 +50,7 @@ public class MemberController {
 		user.setId(user1.getId());
 		//把我登录的id设进表单，得到要改的id
 		userService.updateVip(user);
-		return "redirect:vip";
+		return "redirect:/vip";
 	}
 	
 	//会员中心 -密码修改
