@@ -1,5 +1,7 @@
 package ssm.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +17,16 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public void addProduct(Product product) {
 		productMapper.addProduct(product);
+	}
+
+	@Override
+	public List<Product> findAllProduct() {
+		return productMapper.findAllProduct();
+	}
+
+	@Override
+	public Product findOneProduct(Integer id) {
+		return productMapper.findOneProduct(id);
 	}
 	
 }

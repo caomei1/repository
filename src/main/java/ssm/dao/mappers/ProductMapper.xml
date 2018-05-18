@@ -12,4 +12,12 @@
 		#{smartMachine}, #{networkMode}, #{business})
 	</insert>
 	
+	<select id="findAllProduct" resultType="Product">
+		select * from product
+	</select>
+	
+	<select id="findOneProduct" resultType="Product">
+		select * from product where id = #{id}
+	</select>
+	
 </mapper>

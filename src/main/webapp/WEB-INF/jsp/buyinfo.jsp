@@ -24,7 +24,7 @@
    <ul class="topNav">
      <li><a href="${contextPath}/order">我的订单 </a></li>
     <li class="gouwuche"><a href="${contextPath}/car">购物车</a> <strong style="color:#C94E13;">3</strong></li>
-    <li class="shoucangjia"><a href="shoucang.html">收藏夹</a></li>
+    <li class="shoucangjia"><a href="${contextPath}/shoucang.html">收藏夹</a></li>
     <li class="kefus"><a href="#">联系客服</a></li>
     <li><a href="#" class="lan">中文</a></li>
     <li><a href="#" class="lan">English</a></li>
@@ -76,40 +76,39 @@
   <div class="buyDtl">
    <div class="buyDtlLeft">
     <div class="buyimgBig">
-     <img src="${contextPath}/assets/images/buyinfo1.jpg" width="360" height="360" />
-     <img src="${contextPath}/assets/images/buyinfo1.jpg" width="360" height="360" />
-     <img src="${contextPath}/assets/images/buyinfo1.jpg" width="360" height="360" />
-     <img src="${contextPath}/assets/images/buyinfo1.jpg" width="360" height="360" />
-     <img src="${contextPath}/assets/images/buyinfo1.jpg" width="360" height="360" />
+     <img src="${contextPath}/assets/images/iphone8plus1.png" width="360" height="360" />
+     <img src="${contextPath}/assets/images/iphone8plus2.png" width="360" height="360" />
+     <img src="${contextPath}/assets/images/iphone8plus3.png" width="360" height="360" />
+     <img src="${contextPath}/assets/images/iphone8plus4.png" width="360" height="360" />
+     <img src="${contextPath}/assets/images/iphone8plus5.png" width="360" height="360" />
     </div><!--buyimgBig/-->
     <ul class="buyimgsmall">
-     <li><img src="${contextPath}/assets/images/buyinfo-s1.jpg" width="50" height="50" /></li>
-     <li><img src="${contextPath}/assets/images/buyinfo-s2.jpg" width="50" height="50" /></li>
-     <li><img src="${contextPath}/assets/images/buyinfo-s3.jpg" width="50" height="50" /></li>
-     <li><img src="${contextPath}/assets/images/buyinfo-s4.jpg" width="50" height="50" /></li>
-     <li><img src="${contextPath}/assets/images/buyinfo-s5.jpg" width="50" height="50" /></li>
+     <li><img src="${contextPath}/assets/images/iphone8plus-1.png" width="50" height="50" /></li>
+     <li><img src="${contextPath}/assets/images/iphone8plus-2.png" width="50" height="50" /></li>
+     <li><img src="${contextPath}/assets/images/iphone8plus-3.png" width="50" height="50" /></li>
+     <li><img src="${contextPath}/assets/images/iphone8plus-4.png" width="50" height="50" /></li>
+     <li><img src="${contextPath}/assets/images/iphone8plus-5.png" width="50" height="50" /></li>
     </ul><!--buyimgsmall/-->
    </div><!--buyDtlLeft/-->
    <div class="buyDtlRight">
-    <h3>联想 A808T 黄金斗士</h3>
-    <h4>【赠送精品蓝牙耳机+超大容量移动电源】5.0英寸高清大屏 真八核1.7GHz 1300万像素主摄像头</h4>
-    <h5>价格：<span>￥</span><strong id="price_item_1">2999.00</strong></h5>
+    <h3>${proOne.brand} ${proOne.model}</h3>
+    <h4>${proOne.title}</h4>
+    <h5>价格：<span>￥</span><strong id="price_item_1">${proOne.price}</strong></h5>
     <table class="buyTable">
      <tr>
       <th width="70">商品编号</th>
-      <td>201410221013</td>
+      <td>${proOne.orderNumber}</td>
      </tr>
      <tr>
       <th width="70">运费</th>
-      <td>包邮</td>
+      <td>${proOne.freight}</td>
      </tr>
      <tr>
       <th width="70">机身颜色</th>
       <td>
        <ul class="buyji">
-        <li>黑色</li>
-        <li>灰色</li>
-        <li>银色</li>
+        <li>${proOne.bodyColor}</li>
+        <li>金色</li>
         <div class="clears"></div>
        </ul><!--buyji/-->
       </td>
@@ -118,17 +117,15 @@
       <th width="70">机身内存</th>
       <td>
        <ul class="buyji">
-        <li>8GB</li>
-        <li>16GB</li>
-        <li>32GB</li>
-        <li>64GB</li>
+        <li>${proOne.memory}</li>
+        <li>256GB</li>
         <div class="clears"></div>
        </ul><!--buyji/-->
       </td>
      </tr>
      <tr>
       <th width="70">手机库存</th>
-      <td>有货</td>
+      <td>${proOne.stock}</td>
      </tr>
      <tr>
       <th width="70">购买数量</th>
@@ -165,7 +162,7 @@
     <div class="clears"></div>	
    </ul><!--buydel2Eq/-->
    <div class="buydlList">
-    <table cellpadding="0" cellspacing="1" width="100%" border="0" class="Ptable"><tr><th class="tdTitle" colspan="2">主体</th><tr><tr><td class="tdTitle">品牌</td><td>三星（SAMSUNG）</td></tr><tr><td class="tdTitle">型号</td><td>Galaxy S5 G9008</td></tr><tr><td class="tdTitle">颜色</td><td>闪耀白</td></tr><tr><td class="tdTitle">上市年份</td><td>2014年</td></tr><tr><td class="tdTitle">输入方式</td><td>触控</td></tr><tr><td class="tdTitle">智能机</td><td>是</td></tr><tr><td class="tdTitle">3G视频通话</td><td>不支持</td></tr><tr><td class="tdTitle">操作系统版本</td><td>Android 4.4</td></tr><tr><td class="tdTitle">CPU品牌</td><td>骁龙</td></tr><tr><td class="tdTitle">CPU频率</td><td>2.5GHz</td></tr><tr><td class="tdTitle">CPU核数</td><td>四核</td></tr><tr><td class="tdTitle">运营商标志或内容</td><td>在外包装、在机身、在开机画面、在内置应用</td></tr><tr><th class="tdTitle" colspan="2">网络</th><tr><tr><td class="tdTitle">4G网络制式</td><td>移动4G(TD-LTE)</td></tr><tr><td class="tdTitle">3G网络制式</td><td>移动3G(TD-SCDMA)</td></tr><tr><td class="tdTitle">2G网络制式</td><td>移动2G/联通2G(GSM)</td></tr><tr><td class="tdTitle">网络制式</td><td>移动4G(TD-LTE)-移动3G(TD-SCDMA)-移动2G/联通2G(GSM)</td></tr><tr><td class="tdTitle">网络频率</td><td>TD-LTE(1900/2300/2600) TD-SCDMA(1880/2010) GSM/EDGE/GPRS (850/900/1800/1900 MHZ)</td></tr><tr><td class="tdTitle">数据业务</td><td>HSPA + ： 42 / 5.76 Mbps；TD-LTE</td></tr><tr><th class="tdTitle" colspan="2">存储</th><tr><tr><td class="tdTitle">机身内存</td><td>16GB ROM</td></tr><tr><td class="tdTitle">运行内存</td><td>2GB RAM</td></tr><tr><td class="tdTitle">储存卡类型</td><td>MicroSD(TF)</td></tr><tr><td class="tdTitle">最大存储扩展</td><td>128GB</td></tr><tr><td class="tdTitle">可用空间</td><td>操作系统和预置应用程序占用部分存储空间, 因此实际用户可用空间少于存储器标称容量。操作系统或软件版本的更新可能会导致用户可用空间发生变化。</td></tr><tr><th class="tdTitle" colspan="2">显示</th><tr><tr><td class="tdTitle">屏幕尺寸</td><td>5.1英寸</td></tr><tr><td class="tdTitle">触摸屏</td><td>电容屏，多点触控</td></tr><tr><td class="tdTitle">分辨率</td><td>1920×1080(FHD,1080P)</td></tr><tr><td class="tdTitle">屏幕材质</td><td>Super AMOLED</td></tr><tr><td class="tdTitle">屏幕色彩</td><td>1600万色 </td></tr><tr><th class="tdTitle" colspan="2">感应器</th><tr><tr><td class="tdTitle">GPS模块</td><td>支持</td></tr><tr><td class="tdTitle">重力感应</td><td>支持</td></tr><tr><td class="tdTitle">光线感应</td><td>支持</td></tr><tr><td class="tdTitle">距离感应</td><td>支持</td></tr><tr><th class="tdTitle" colspan="2">摄像功能</th><tr><tr><td class="tdTitle">摄像头</td><td>1600万像素</td></tr><tr><td class="tdTitle">副摄像头</td><td>200万像素</td></tr><tr><td class="tdTitle">传感器类型</td><td>CMOS</td></tr><tr><td class="tdTitle">闪光灯</td><td>LED补光灯</td></tr><tr><td class="tdTitle">变焦模式</td><td>数码变焦</td></tr><tr><td class="tdTitle">自动对焦</td><td>支持</td></tr><tr><th class="tdTitle" colspan="2">娱乐功能</th><tr><tr><td class="tdTitle">音乐播放</td><td>支持</td></tr><tr><td class="tdTitle">视频播放</td><td>支持</td></tr><tr><td class="tdTitle">电视播放</td><td>不支持</td></tr><tr><th class="tdTitle" colspan="2">传输功能</th><tr><tr><td class="tdTitle">Wi-Fi</td><td>支持</td></tr><tr><td class="tdTitle">蓝牙</td><td>支持</td></tr><tr><td class="tdTitle">WIFI热点</td><td>支持</td></tr><tr><th class="tdTitle" colspan="2">其他</th><tr><tr><td class="tdTitle">SIM卡尺寸</td><td>小卡</td></tr><tr><td class="tdTitle">电池类型</td><td>锂电池</td></tr><tr><td class="tdTitle">电池容量（mAh）</td><td>2800mA/h</td></tr><tr><td class="tdTitle">电池更换</td><td>支持</td></tr><tr><td class="tdTitle">数据线</td><td>Micro USB </td></tr><tr><td class="tdTitle">机身尺寸（mm）</td><td>142 x 72.5 x 8.1mm</td></tr><tr><td class="tdTitle">机身重量（g）</td><td>146.5g</td></tr></table>
+    <table cellpadding="0" cellspacing="1" width="100%" border="0" class="Ptable"><tr><th class="tdTitle" colspan="2">主体</th><tr><tr><td class="tdTitle">品牌</td><td>${proOne.brand}</td></tr><tr><td class="tdTitle">型号</td><td>${proOne.model}</td></tr><tr><td class="tdTitle">颜色</td><td>${proOne.bodyColor}</td></tr><tr><td class="tdTitle">上市年份</td><td>2014年</td></tr><tr><td class="tdTitle">输入方式</td><td>触控</td></tr><tr><td class="tdTitle">智能机</td><td>${proOne.smartMachine}</td></tr><tr><td class="tdTitle">视频通话</td><td>支持</td></tr><tr><td class="tdTitle">操作系统版本</td><td>ios</td></tr><tr><td class="tdTitle">CPU品牌</td><td>骁龙</td></tr><tr><td class="tdTitle">CPU频率</td><td>2.5GHz</td></tr><tr><td class="tdTitle">CPU核数</td><td>四核</td></tr><tr><td class="tdTitle">运营商标志或内容</td><td>在外包装、在机身、在开机画面、在内置应用</td></tr><tr><th class="tdTitle" colspan="2">网络</th><tr><tr><td class="tdTitle">4G网络制式</td><td>移动4G(TD-LTE)</td></tr><tr><td class="tdTitle">3G网络制式</td><td>移动3G(TD-SCDMA)</td></tr><tr><td class="tdTitle">2G网络制式</td><td>移动2G/联通2G(GSM)</td></tr><tr><td class="tdTitle">网络制式</td><td>移动4G(TD-LTE)-移动3G(TD-SCDMA)-移动2G/联通2G(GSM)</td></tr><tr><td class="tdTitle">网络频率</td><td>TD-LTE(1900/2300/2600) TD-SCDMA(1880/2010) GSM/EDGE/GPRS (850/900/1800/1900 MHZ)</td></tr><tr><td class="tdTitle">数据业务</td><td>HSPA + ： 42 / 5.76 Mbps；TD-LTE</td></tr><tr><th class="tdTitle" colspan="2">存储</th><tr><tr><td class="tdTitle">机身内存</td><td>16GB ROM</td></tr><tr><td class="tdTitle">运行内存</td><td>2GB RAM</td></tr><tr><td class="tdTitle">储存卡类型</td><td>MicroSD(TF)</td></tr><tr><td class="tdTitle">最大存储扩展</td><td>128GB</td></tr><tr><td class="tdTitle">可用空间</td><td>操作系统和预置应用程序占用部分存储空间, 因此实际用户可用空间少于存储器标称容量。操作系统或软件版本的更新可能会导致用户可用空间发生变化。</td></tr><tr><th class="tdTitle" colspan="2">显示</th><tr><tr><td class="tdTitle">屏幕尺寸</td><td>5.1英寸</td></tr><tr><td class="tdTitle">触摸屏</td><td>电容屏，多点触控</td></tr><tr><td class="tdTitle">分辨率</td><td>1920×1080(FHD,1080P)</td></tr><tr><td class="tdTitle">屏幕材质</td><td>Super AMOLED</td></tr><tr><td class="tdTitle">屏幕色彩</td><td>1600万色 </td></tr><tr><th class="tdTitle" colspan="2">感应器</th><tr><tr><td class="tdTitle">GPS模块</td><td>支持</td></tr><tr><td class="tdTitle">重力感应</td><td>支持</td></tr><tr><td class="tdTitle">光线感应</td><td>支持</td></tr><tr><td class="tdTitle">距离感应</td><td>支持</td></tr><tr><th class="tdTitle" colspan="2">摄像功能</th><tr><tr><td class="tdTitle">摄像头</td><td>1600万像素</td></tr><tr><td class="tdTitle">副摄像头</td><td>200万像素</td></tr><tr><td class="tdTitle">传感器类型</td><td>CMOS</td></tr><tr><td class="tdTitle">闪光灯</td><td>LED补光灯</td></tr><tr><td class="tdTitle">变焦模式</td><td>数码变焦</td></tr><tr><td class="tdTitle">自动对焦</td><td>支持</td></tr><tr><th class="tdTitle" colspan="2">娱乐功能</th><tr><tr><td class="tdTitle">音乐播放</td><td>支持</td></tr><tr><td class="tdTitle">视频播放</td><td>支持</td></tr><tr><td class="tdTitle">电视播放</td><td>不支持</td></tr><tr><th class="tdTitle" colspan="2">传输功能</th><tr><tr><td class="tdTitle">Wi-Fi</td><td>支持</td></tr><tr><td class="tdTitle">蓝牙</td><td>支持</td></tr><tr><td class="tdTitle">WIFI热点</td><td>支持</td></tr><tr><th class="tdTitle" colspan="2">其他</th><tr><tr><td class="tdTitle">SIM卡尺寸</td><td>小卡</td></tr><tr><td class="tdTitle">电池类型</td><td>锂电池</td></tr><tr><td class="tdTitle">电池容量（mAh）</td><td>2800mA/h</td></tr><tr><td class="tdTitle">电池更换</td><td>支持</td></tr><tr><td class="tdTitle">数据线</td><td>Micro USB </td></tr><tr><td class="tdTitle">机身尺寸（mm）</td><td>142 x 72.5 x 8.1mm</td></tr><tr><td class="tdTitle">机身重量（g）</td><td>146.5g</td></tr></table>
    </div><!--buydlList/-->
    <div class="buydlList">
     2

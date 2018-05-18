@@ -1,10 +1,13 @@
 package ssm.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -33,16 +36,19 @@ public class ShoppingController {
 		return "redirect:/vip-product";
 	}
 	
-	
 	//商品列表页
 	@RequestMapping(method = RequestMethod.GET, value = "/prolist")
-	public String prolist() {
+	public String prolist(@ModelAttribute Product product, Model model) {
+		List<Product> proList = productService.findAllProduct();
+		model.addAttribute("proList", proList);
 		return "prolist";
 	}
 	
 	//商品详情页
-	@RequestMapping(method = RequestMethod.GET, value = "/buyinfo")
-	public String buyinfo() {
+	@RequestMapping(method = RequestMethod.GET, value = "/buyinfo/{id}")
+	public String buyinfo(@PathVariable Integer id, Model model) {
+		Product proOne = productService.findOneProduct(id);
+		model.addAttribute("proOne", proOne);
 		return "buyinfo";
 	}
 	
