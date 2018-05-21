@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import ssm.dao.mappers.ProductMapper;
+import ssm.entity.Car;
 import ssm.entity.Product;
 
 @Repository
@@ -27,6 +28,16 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public Product findOneProduct(Integer id) {
 		return productMapper.findOneProduct(id);
+	}
+
+	@Override
+	public List<Car> findAllCar(Integer id) {
+		return productMapper.findAllCar(id);
+	}
+
+	@Override
+	public void addToCart(Integer userId, Integer id) {
+		productMapper.addToCart(userId, id);
 	}
 	
 }

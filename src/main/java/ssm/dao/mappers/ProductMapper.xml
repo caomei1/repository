@@ -20,4 +20,33 @@
 		select * from product where id = #{id}
 	</select>
 	
+	<insert id="addToCart" parameterType="Car">
+		insert into car(id, user_id, product_id, quantity) 
+		values(car_seq.nextval, #{userId}, #{productId}, 1)
+	</insert>
+	
+	<select id="findAllCar" resultMap="carMap">
+		select p.id product_id, p.price product_price, 
+		p.business product_business, p.stock product_stock, 
+		p.freight product_freight, p.brand product_brand, 
+		p.model product_model, p.body_color product_bodyColor, 
+		c.id car_id, c.quantity car_quantity 
+		from car c inner join product p on c.product_id = p.id 
+		where c.user_id = #{id}
+	</select>
+	<resultMap type="Car" id="carMap">
+		<id property="id" column="car_id"/>
+		<result property="quantity" column="car_quantity"/>
+		
+		<association property="product" javaType="Product">
+			<id property="id" column="product_id"/>
+			<result property="price" column="product_price"/>
+			<result property="business" column="product_business"/>
+			<result property="stock" column="product_stock"/>
+			<result property="freight" column="product_freight"/>
+			<result property="brand" column="product_brand"/>
+			<result property="model" column="product_model"/>
+			<result property="bodyColor" column="product_bodyColor"/>
+		</association>
+	</resultMap>
 </mapper>

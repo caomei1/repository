@@ -122,6 +122,7 @@
     </div><!--addList2/-->
    </div><!--address/-->
    <table class="orderList">
+   <c:forEach items="${products}" var="pro">
     <tr>
      <th width="20"></th>
      <th width="450">商品</th>
@@ -134,7 +135,7 @@
      <td><input type="checkbox" /></td>
      <td colspan="5" style="text-align:left;color:#930; font-weight:bold;">
       <img src="${contextPath}/assets/images/dianpu.gif" width="20" height="15" style="position:relative;top:2px;" />
-      店铺：unique VIP店铺 上海分店
+      店铺：${pro.product.business}
      </td>
     </tr>
     <tr>
@@ -142,56 +143,27 @@
      <td>
       <dl>
        <dt><a href="${contextPath}/proinfo"><img src="${contextPath}/assets/images/phone.png" width="85" height="85" /></a></dt>
-       <dd>全球最大的中文搜索引擎、致力于让网民更便捷<br /><span class="red">有货：</span>从上海出发</dd>
+       <dd style="font-weight: bolder;">${pro.product.brand} ${pro.product.model} ${pro.product.bodyColor}<br/><br/><span class="red">库存：</span>${pro.product.stock}</dd>
        <div class="clears"></div>
       </dl>
      </td>
-     <td><strong class="red">￥70.20</strong></td>
+     <td><strong class="red">￥${pro.product.price}</strong></td>
      <td>
      <div class="jia_jian">
       <img src="${contextPath}/assets/images/jian.jpg" width="21" height="25" class="jian" />
-      <input type="text" class="shuliang" value="1" />
+      <input type="text" class="shuliang" value="${pro.quantity}" />
       <img src="${contextPath}/assets/images/jia.jpg" width="21" height="25" class="jia" />
      </div>
      </td>
-     <td><strong class="red">￥70.20</strong></td>
+     <td><strong class="red">￥${pro.product.price*pro.quantity}</strong></td>
      <td><a href="#" class="green">收藏</a><br /><a href="#" class="green">删除</a></td>
     </tr>
-    <tr>
-     <td><input type="checkbox" /></td>
-     <td colspan="5" style="text-align:left;color:#930; font-weight:bold;">
-      <img src="${contextPath}/assets/images/dianpu.gif" width="20" height="15" style="position:relative;top:2px;" />
-      店铺：unique VIP店铺 北京分店
-     </td>
-    </tr>
-    <tr>
-     <td><input type="checkbox" /></td>
-     <td>
-      <dl>
-       <dt><a href="${contextPath}/proinfo"><img src="${contextPath}/assets/images/phone.png" width="85" height="85" /></a></dt>
-       <dd>全球最大的中文搜索引擎、致力于让网民更便捷<br /><span class="red">有货：</span>从上海出发</dd>
-       <div class="clears"></div>
-      </dl>
-     </td>
-     <td><strong class="red">￥70.20</strong></td>
-     <td>
-     <div class="jia_jian">
-      <img src="${contextPath}/assets/images/jian.jpg" width="21" height="25" class="jian" />
-      <input type="text" class="shuliang" value="1" />
-      <img src="${contextPath}/assets/images/jia.jpg" width="21" height="25" class="jia" />
-     </div>
-     </td>
-     <td><strong class="red">￥70.20</strong></td>
-     <td><a href="#" class="green">收藏</a><br /><a href="#" class="green">删除</a></td>
-    </tr>
-    
-    <tr>
-     <td colspan="6"><div class="shanchu"><img src="${contextPath}/assets/images/lajio.jpg" /> 全部删除</div></td>
-    </tr>
-   </table><!--orderList/-->
+    </c:forEach>
+   </table><!--orderList/--><br/>
+   <div class="shanchu"><img src="${contextPath}/assets/images/lajio.jpg" /> 全部删除</div>
    <div class="zongji">
-    <strong>所需运费：</strong>￥0.00 &nbsp;&nbsp;
-    <strong>总计(不含运费)：</strong><strong class="red">￥70.42</strong>
+    <strong>所需运费：</strong>￥ &nbsp;&nbsp;
+    <strong>总计(不含运费)：</strong><strong class="red">￥</strong>
    </div><!--zongji/-->
    <div class="jiesuan">
     <a href="${contextPath}/index" class="jie_1">继续购物&gt;&gt;</a>

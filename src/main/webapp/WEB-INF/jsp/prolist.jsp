@@ -499,7 +499,7 @@
       <span class="pad" style="color: red;">${pro.business}</span>
      </div><!--xiaoliang/-->
      <div class="jiaru-shoucang">
-      <span class="jiaruCar"><a href="${contextPath}/car">加入购物车</a></span>
+      <span class="jiaruCar"><a href="${contextPath}/car/${pro.id}">加入购物车</a></span>
       <span class="shoucangCar"><a href="quanjing/index.jsp">选用此模型</a></span>
       <div class="clears"></div>
      </div><!--jiaru-shoucang/-->

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ssm.dao.ProductDao;
+import ssm.entity.Car;
 import ssm.entity.Product;
 
 @Service
@@ -30,6 +31,18 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Product findOneProduct(Integer id) {
 		return productDao.findOneProduct(id);
+	}
+	
+	//通过用户id查询购物车
+	@Override
+	public List<Car> findAllCar(Integer id) {
+		return productDao.findAllCar(id);
+	}
+
+	//直接添加到购物车
+	@Override
+	public void addToCart(Integer userId, Integer id) {
+		productDao.addToCart(userId, id);
 	}
 
 }
