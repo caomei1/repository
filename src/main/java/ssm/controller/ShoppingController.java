@@ -66,12 +66,19 @@ public class ShoppingController {
 		return "car";
 	}
 	
-	//商品直接加入购物车
+	//商品加入购物车
 	@RequestMapping(method = RequestMethod.GET, value = "/car/{id}")
 	public String addToCar(@PathVariable Integer id, Model model, 
-			@AuthenticationPrincipal(expression = "user") User user){
+			@AuthenticationPrincipal(expression = "user") User user) {
 		productService.addToCart(user.getId(),id);
 		model.addAttribute("Success","加入购物车成功");
+		return "redirect:/car";
+	}
+	
+	//删除购物车订单
+	@RequestMapping(method = RequestMethod.GET, value = "/delete/{id}")
+	public String delete(@PathVariable Integer id) {
+		productService.delete(id);
 		return "redirect:/car";
 	}
 	

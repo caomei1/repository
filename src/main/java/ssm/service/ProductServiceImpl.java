@@ -39,10 +39,15 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.findAllCar(id);
 	}
 
-	//直接添加到购物车
+	//商品添加到购物车
 	@Override
 	public void addToCart(Integer userId, Integer id) {
 		productDao.addToCart(userId, id);
+	}
+
+	@Override
+	public void delete(Integer id) {
+		productDao.delete(id);
 	}
 
 }

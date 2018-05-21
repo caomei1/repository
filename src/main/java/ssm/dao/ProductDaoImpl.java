@@ -39,5 +39,10 @@ public class ProductDaoImpl implements ProductDao {
 	public void addToCart(Integer userId, Integer id) {
 		productMapper.addToCart(userId, id);
 	}
+
+	@Override
+	public void delete(Integer id) {
+		productMapper.delete(id);
+	}
 	
 }

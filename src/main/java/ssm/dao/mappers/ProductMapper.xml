@@ -25,6 +25,10 @@
 		values(car_seq.nextval, #{userId}, #{productId}, 1)
 	</insert>
 	
+	<delete id="delete" parameterType="Car">
+		delete from Car where id = #{id}
+	</delete>
+	
 	<select id="findAllCar" resultMap="carMap">
 		select p.id product_id, p.price product_price, 
 		p.business product_business, p.stock product_stock, 

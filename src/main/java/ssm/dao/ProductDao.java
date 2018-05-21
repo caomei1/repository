@@ -17,4 +17,6 @@ public interface ProductDao {
 
 	void addToCart(Integer userId, Integer id);
 
+	void delete(Integer id);
+
 }

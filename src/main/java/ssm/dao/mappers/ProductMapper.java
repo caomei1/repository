@@ -19,4 +19,6 @@ public interface ProductMapper {
 
 	void addToCart(@Param(value="userId")Integer userId, @Param(value="productId")Integer id);
 
+	void delete(Integer id);
+
 }

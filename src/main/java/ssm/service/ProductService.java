@@ -17,4 +17,6 @@ public interface ProductService {
 
 	void addToCart(Integer userId, Integer id);
 
+	void delete(Integer id);
+
 }

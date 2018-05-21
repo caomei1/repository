@@ -156,7 +156,7 @@
      </div>
      </td>
      <td><strong class="red">￥${pro.product.price*pro.quantity}</strong></td>
-     <td><a href="#" class="green">收藏</a><br /><a href="#" class="green">删除</a></td>
+     <td><a href="#" class="green">收藏</a><br /><a href="${contextPath}/delete/${pro.id}" class="green">删除</a></td>
     </tr>
     </c:forEach>
    </table><!--orderList/--><br/>
