@@ -22,7 +22,6 @@
    <a href="${contextPath}/login" style="color:#C94E13;">请登录</a> 
    <a href="${contextPath}/reg">注册</a>
    <ul class="topNav">
-    <li><a href="${contextPath}/order">我的订单 </a></li>
     <li class="gouwuche"><a href="${contextPath}/car">购物车</a> <strong style="color:#C94E13;">3</strong></li>
     <li class="shoucangjia"><a href="${contextPath}/shoucang">收藏夹</a></li>
     <li class="kefus"><a href="#">联系客服</a></li>
@@ -51,7 +50,7 @@
   </form><!--subBox/-->
   <div class="ding-gou">
    <div class="ding">
-    <a href="${contextPath}/order"><img src="${contextPath}/assets/images/dingdan.jpg" width="106" height="32" /></a>
+    <a href="${contextPath}/vipOrder"><img src="${contextPath}/assets/images/dingdan.jpg" width="106" height="32" /></a>
    </div><!--ding/-->
    <div class="gou">
     <a href="${contextPath}/car"><img src="${contextPath}/assets/images/gouwuche.jpg" width="126" height="32" /></a>
@@ -158,16 +157,17 @@
      <td><strong class="red">￥${pro.product.price*pro.quantity}</strong></td>
      <td><a href="#" class="green">收藏</a><br /><a href="${contextPath}/delete/${pro.id}" class="green">删除</a></td>
     </tr>
+    <c:set var="totalPrice" value="${totalPrice+ pro.product.price*pro.quantity}"></c:set>
     </c:forEach>
    </table><!--orderList/--><br/>
    <div class="shanchu"><img src="${contextPath}/assets/images/lajio.jpg" /> 全部删除</div>
    <div class="zongji">
-    <strong>所需运费：</strong>￥ &nbsp;&nbsp;
-    <strong>总计(不含运费)：</strong><strong class="red">￥</strong>
+    <strong>所需运费：</strong>￥0.00&nbsp;&nbsp;
+    <strong>总计(不含运费)：</strong><strong class="red">￥${totalPrice}</strong>
    </div><!--zongji/-->
    <div class="jiesuan">
-    <a href="${contextPath}/index" class="jie_1">继续购物&gt;&gt;</a>
-    <a href="${contextPath}/order" class="jie_2">立即结算&gt;&gt;</a>
+    <a href="${contextPath}/prolist" class="jie_1">继续购物&gt;&gt;</a>
+    <a href="${contextPath}/success" class="jie_2">立即结算&gt;&gt;</a>
     <div class="clears"></div>
    </div><!--jiesuan/-->
    <div class="clears"></div>
@@ -176,7 +176,7 @@
  <div class="footBox">
   <div class="footers">
    <div class="footersLeft">
-    <a href="index.html"><img src="${contextPath}/assets/images/ftlogo.jpg" width="240" height="64" /></a>
+    <a href="${contextPath}/index"><img src="${contextPath}/assets/images/ftlogo.jpg" width="240" height="64" /></a>
     <h3 class="ftphone">400 000 0000 </h3>
     <div class="ftKe">
      客服 7x24小时(全年无休)<br />

@@ -53,4 +53,5 @@
 			<result property="bodyColor" column="product_bodyColor"/>
 		</association>
 	</resultMap>
+	
 </mapper>

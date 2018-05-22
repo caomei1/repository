@@ -55,51 +55,63 @@
 	</delete>
 	
 	<select id="findAllOrder" resultMap="orderMap">
-		select r.id address_id, r.consignee address_name, v.id order_id, 
-		v.price order_price, v.payment_mode order_pay, v.creation_time order_time, 
-		v.state order_state 
+		select r.id address_id, r.consignee address_consignee, 
+		  v.id order_id, v.creation_time order_time, v.state order_state, 
+		  v.payment_mode order_pay, p.id product_id, p.price product_price 
 		from vip_orderlist v join receiving_address r on v.address_id = r.id 
+		  join product p on v.product_id = p.id 
 		where v.user_id = #{userId}
 	</select>
 	<resultMap type="Order" id="orderMap">
 		<id property="id" column="order_id"/>
-		<result property="price" column="order_price"/>
-		<result property="paymentMode" column="order_pay"/>
 		<result property="creationTime" column="order_time"/>
 		<result property="state" column="order_state"/>
+		<result property="payment" column="order_pay"/>
 				
 		<association property="receivingAddress" javaType="ReceivingAddress">
 			<id property="id" column="address_id"/>
-			<result property="consignee" column="address_name"/>
+			<result property="consignee" column="address_consignee"/>
 		</association>
+<!-- 		订单项的collection -->
+		<collection property="product" ofType="Product">
+			<id property="id" column="product_id"/>
+			<result property="price" column="product_price"/>
+		</collection>
 	</resultMap>
 	
 	<select id="Orderdetails" resultMap="orderDetailsMap">
-		select r.id address_id, r.consignee address_name, 
-		r.phone_number address_phone, r.where_city address_city, 
-		r.street_address address_street, r.postal_code address_code, 
-		v.id order_id, v.order_number order_num, v.commodity order_name, 
-		v.price order_price, v.business order_business, 
-		v.payment_mode order_pay, v.state order_state 
+		select p.id product_id, p.order_number product_number, 
+		  p.brand product_brand, p.model product_model, 
+		  p.price product_price, p.business product_business, 
+		  r.id address_id, r.consignee address_consignee, 
+		  r.phone_number address_phone, r.postal_code address_code, 
+		  r.where_city address_city, r.street_address address_street, 
+		  v.id order_id, v.payment_mode order_pay, v.state order_state 
 		from vip_orderlist v join receiving_address r on v.address_id = r.id 
+		 join product p on v.product_id = p.id 
 		where v.id = #{id}
 	</select>
 		<resultMap type="Order" id="orderDetailsMap">
 		<id property="id" column="order_id"/>
-		<result property="orderNumber" column="order_num"/>
-		<result property="commodity" column="order_name"/>
-		<result property="price" column="order_price"/>
-		<result property="business" column="order_business"/>
-		<result property="paymentMode" column="order_pay"/>
+		<result property="payment" column="order_pay"/>
 		<result property="state" column="order_state"/>
 				
 		<association property="receivingAddress" javaType="ReceivingAddress">
 			<id property="id" column="address_id"/>
-			<result property="consignee" column="address_name"/>
+			<result property="consignee" column="address_consignee"/>
 			<result property="phoneNumber" column="address_phone"/>
+			<result property="postalCode" column="address_code"/>
 			<result property="whereCity" column="address_city"/>
 			<result property="streetAddress" column="address_street"/>
-			<result property="postalCode" column="address_code"/>
 		</association>
+		<!-- 		订单项的collection -->
+		<collection property="product" ofType="Product">
+			<id property="id" column="product_id"/>
+			<result property="orderNumber" column="product_number"/>
+			<result property="brand" column="product_brand"/>
+			<result property="model" column="product_model"/>
+			<result property="price" column="product_price"/>
+			<result property="business" column="product_business"/>
+		</collection>
 	</resultMap>
 </mapper>

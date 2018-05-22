@@ -8,11 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import ssm.entity.Car;
 import ssm.entity.Product;
 import ssm.entity.User;
@@ -30,6 +27,7 @@ public class ShoppingController {
 		return "vip-product";
 	}
 	
+	//添加产品
 	@RequestMapping(method = RequestMethod.POST, value = "/vip-product")
 	public String addProduct(@ModelAttribute Product product, Model model, 
 			@AuthenticationPrincipal(expression = "user") User user) {
@@ -82,13 +80,7 @@ public class ShoppingController {
 		return "redirect:/car";
 	}
 	
-	//订单确认页
-	@RequestMapping(method = RequestMethod.GET, value = "/order")
-	public String order() {
-		return "order";
-	}
-	
-	//订单成功创建页
+	//创建订单成功页
 	@RequestMapping(method = RequestMethod.GET, value = "/success")
 	public String success() {
 		return "success";

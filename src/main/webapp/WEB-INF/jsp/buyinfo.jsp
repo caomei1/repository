@@ -22,7 +22,6 @@
    <a href="${contextPath}/login" style="color:#C94E13;">请登录</a> 
    <a href="${contextPath}/reg">注册</a>
    <ul class="topNav">
-     <li><a href="${contextPath}/order">我的订单 </a></li>
     <li class="gouwuche"><a href="${contextPath}/car">购物车</a> <strong style="color:#C94E13;">3</strong></li>
     <li class="shoucangjia"><a href="${contextPath}/shoucang.html">收藏夹</a></li>
     <li class="kefus"><a href="#">联系客服</a></li>
@@ -51,7 +50,7 @@
   </form><!--subBox/-->
   <div class="ding-gou">
    <div class="ding">
-    <a href="${contextPath}/order"><img src="${contextPath}/assets/images/dingdan.jpg" width="106" height="32" /></a>
+    <a href="${contextPath}/vipOrder"><img src="${contextPath}/assets/images/dingdan.jpg" width="106" height="32" /></a>
    </div><!--ding/-->
    <div class="gou">
     <a href="${contextPath}/car"><img src="${contextPath}/assets/images/gouwuche.jpg" width="126" height="32" /></a>

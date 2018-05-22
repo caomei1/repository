@@ -2,11 +2,11 @@ package ssm.entity;
 
 public class Car {
 	private Integer id;
-	private Integer userId;
-	private Integer productId;
-	private String quantity;
+	private Integer userId; //用户id
+	private Integer productId; //商品id
+	private String quantity; //数量
 	
-	private Product product;
+	private Product product; //商品
 	
 	public Product getProduct() {
 		return product;
