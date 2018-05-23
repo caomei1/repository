@@ -8,6 +8,24 @@ public class Car {
 	
 	private Product product; //商品
 	
+	private User user;
+	
+	private ReceivingAddress receivingAddress; //收货地址
+	
+	public ReceivingAddress getReceivingAddress() {
+		return receivingAddress;
+	}
+	public void setReceivingAddress(ReceivingAddress receivingAddress) {
+		this.receivingAddress = receivingAddress;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 	public Product getProduct() {
 		return product;
 	}

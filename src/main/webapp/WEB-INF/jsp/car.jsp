@@ -70,58 +70,69 @@
    <div class="clears"></div>
   </ul><!--nav/-->
  </div><!--navBox/-->
+ <div class="address">
+   <form action="${contextPath}/car" method="post">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    <div class="addList">
+     <label style="width: 18%"><span class="red">* </span>选择地区:</label>
+     <select name="whereCity">
+      <option>请选择省</option>
+      <option>湖南</option>
+     </select>
+     <select name="whereCity">
+      <option>请选择市</option>
+      <option>长沙</option>
+     </select>
+     <select name="whereCity">
+      <option>请选择地区</option>
+      <option>开福</option>
+     </select>
+    </div><!--addList-->
+    <div class="addList">
+     <label style="width: 18%"><span class="red">* </span>详细地址:</label>
+     <input type="text" name="streetAddress"/>
+    </div><!--addList-->
+    <div class="addList">
+     <label style="width: 18%"><span class="red">* </span>邮政编码:</label>
+     <input type="text" name="postalCode"/>
+    </div><!--addList-->
+    <div class="addList">
+     <label style="width: 18%"><span class="red">* </span>收件人:</label>
+     <input type="text" name="consignee"/>
+    </div><!--addList-->
+    <div class="addList">
+     <label style="width: 18%"><span class="red">* </span>电话号码:</label>
+     <input type="text" name="phoneNumber"/>
+    </div><!--addList--> 
+    <div class="addList2" style="margin-left:180px;">
+     <input name="" value=" 确 认 " type="submit" class="submit" />
+     <input type="reset" value="取消" />
+    </div><!--addList2/-->
+    </form>
+   </div><!--address/-->
+ <form action="${contextPath}/success" method="post">
+   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
  <div class="car">
   <div class="cont">
    <div class="carImg"><img src="${contextPath}/assets/images/car1.jpg" width="951" height="27" /></div>
-   <h4 class="orderTitle">收货地址</h4>
+   <h4 class="orderTitle" style="font-size: 15px">收货地址&nbsp;<span class="green add">【新增地址】</span></h4>
    <table class="ord">
+   <c:forEach items="${address}" var="Address">
     <tr>
-     <td width="30%">
-      <input type="radio" /> 张大炮
+     <td width="33%">
+      <input type="radio" name="addressId" value="${Address.id}" /> ${Address.consignee}
      </td>
-     <td width="50%">
-      上海,上海市,普陀区,曹杨路1040弄中友大厦一号楼19楼	,200000,13020129519
+     <td width="54%">
+      ${Address.whereCity}, ${Address.streetAddress}, ${Address.postalCode}, ${Address.phoneNumber}
      </td>
      <td>
-      <span class="green upd">[修改]</span> | <span class="green add">[添加]</span> 
+      <a href="${contextPath}/vipAddress/${Address.id}/updateVipAddress"><span class="green upd">[修改]</span></a>
      </td>
     </tr>
+    </c:forEach>
    </table><!--ord/-->
-   <div class="address">
-    <div class="addList">
-     <label><span class="red">* </span>选择地区:</label>
-     <select>
-      <option>请选择省</option>
-     </select>
-     <select>
-      <option>请选择市</option>
-     </select>
-     <select>
-      <option>请选择地区</option>
-     </select>
-    </div><!--addList-->
-    <div class="addList">
-     <label><span class="red">* </span>详细地址:</label>
-     <input type="text" />
-    </div><!--addList-->
-    <div class="addList">
-     <label><span class="red">* </span>邮政编码:</label>
-     <input type="text" />
-    </div><!--addList-->
-    <div class="addList">
-     <label><span class="red">* </span>收件人:</label>
-     <input type="text" />
-    </div><!--addList-->
-    <div class="addList">
-     <label><span class="red">* </span>手机号码:</label>
-     <input type="text" /> 或者固定电话 <input type="text" />
-    </div><!--addList--> 
-    <div class="addList2">
-     <input type="image" src="${contextPath}/assets/images/queren.jpg" width="100" height="32" />
-    </div><!--addList2/-->
-   </div><!--address/-->
+
    <table class="orderList">
-   <c:forEach items="${products}" var="pro">
     <tr>
      <th width="20"></th>
      <th width="450">商品</th>
@@ -130,6 +141,7 @@
      <th width="130">总金额</th>
      <th width="105">操作</th>
     </tr>
+   <c:forEach items="${products}" var="pro">
     <tr>
      <td><input type="checkbox" /></td>
      <td colspan="5" style="text-align:left;color:#930; font-weight:bold;">
@@ -138,7 +150,7 @@
      </td>
     </tr>
     <tr>
-     <td><input type="checkbox" /></td>
+     <td><input type="checkbox" name="productId" value="${pro.product.id}"/></td>
      <td>
       <dl>
        <dt><a href="${contextPath}/proinfo"><img src="${contextPath}/assets/images/phone.png" width="85" height="85" /></a></dt>
@@ -167,12 +179,13 @@
    </div><!--zongji/-->
    <div class="jiesuan">
     <a href="${contextPath}/prolist" class="jie_1">继续购物&gt;&gt;</a>
-    <a href="${contextPath}/success" class="jie_2">立即结算&gt;&gt;</a>
+    <input name="" value=" 立即结算&gt;&gt;" type="submit" class="jie_2" />
     <div class="clears"></div>
    </div><!--jiesuan/-->
    <div class="clears"></div>
   </div><!--cont/-->
  </div><!--car/-->
+ </form>
  <div class="footBox">
   <div class="footers">
    <div class="footersLeft">

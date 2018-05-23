@@ -10,8 +10,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import ssm.entity.Car;
+import ssm.entity.Order;
 import ssm.entity.Product;
+import ssm.entity.ReceivingAddress;
 import ssm.entity.User;
 import ssm.service.ProductService;
 
@@ -57,11 +61,21 @@ public class ShoppingController {
 	@RequestMapping(method = RequestMethod.GET, value = "/car")
 	public String findCar(@AuthenticationPrincipal(expression="user") User user,
 			Model model) {
-/*		List<ReceivingAddress> address = productService.findAllAddress(user.getId());
-		model.addAttribute("address", address);*/
+		List<ReceivingAddress> address = productService.findAllAddress(user.getId());
+		model.addAttribute("address", address);
 		List<Car> products = productService.findAllCar(user.getId());
 		model.addAttribute("products", products);
 		return "car";
+	}
+	
+	//增加收货地址
+	@RequestMapping(method = RequestMethod.POST, value = "/car")
+	public String addAddress(@ModelAttribute ReceivingAddress address, 
+			Model model, @AuthenticationPrincipal(expression = "user") User user){
+		address.setUserId(user.getId());
+		productService.addAddress(address);
+		model.addAttribute("Success","添加收货地址成功");
+		return "redirect:/car";
 	}
 	
 	//商品加入购物车
@@ -80,9 +94,33 @@ public class ShoppingController {
 		return "redirect:/car";
 	}
 	
-	//创建订单成功页
+	//显示提交订单页
 	@RequestMapping(method = RequestMethod.GET, value = "/success")
-	public String success() {
+	public String create(Model model, 
+			@AuthenticationPrincipal(expression = "user") User user) {
+		List<Order> orders = productService.findAllOrders(user.getId());
+		model.addAttribute("orders", orders);
 		return "success";
 	}
+	
+	//提交订单
+	@RequestMapping(method = RequestMethod.POST, value = "/success")
+	public String addAddress(@RequestParam Integer addressId, 
+			@RequestParam List<Integer> productId, Model model, 
+			@AuthenticationPrincipal(expression = "user") User user){
+		//订单创建
+		productService.createOrder(user.getId(), addressId, productId);
+		//提交订单后清空购物车
+		productService.deleteProduct(productId);
+		model.addAttribute("Success","提交订单成功");
+		return "redirect:/success";
+	}
+	
+	//删除我的订单
+	@RequestMapping(method = RequestMethod.GET, value = "/deleteOrder/{id}")
+	public String deleteOrder(@PathVariable Integer id) {
+		productService.deleteOrder(id);
+		return "redirect:/vipOrder";
+	}
+	
 }

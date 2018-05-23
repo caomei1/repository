@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import ssm.dao.ProductDao;
 import ssm.entity.Car;
+import ssm.entity.Order;
 import ssm.entity.Product;
+import ssm.entity.ReceivingAddress;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -33,6 +35,18 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.findOneProduct(id);
 	}
 	
+	//通过用户id查询地址
+	@Override
+	public List<ReceivingAddress> findAllAddress(Integer id) {
+		return productDao.findAllAddress(id);
+	}
+	
+	//增加地址
+	@Override
+	public void addAddress(ReceivingAddress address) {
+		productDao.addAddress(address);
+	}
+	
 	//通过用户id查询购物车
 	@Override
 	public List<Car> findAllCar(Integer id) {
@@ -45,9 +59,38 @@ public class ProductServiceImpl implements ProductService {
 		productDao.addToCart(userId, id);
 	}
 
+	//通过id删除商品
 	@Override
 	public void delete(Integer id) {
 		productDao.delete(id);
+	}
+	
+	//显示提交订单页
+	@Override
+	public List<Order> findAllOrders(Integer id) {
+		return productDao.findAllOrders(id);
+	}
+
+	//提交订单
+	@Override
+	public void createOrder(Integer userId, Integer addressId, List<Integer> productId) {		
+		for (Integer productIds : productId) {
+			productDao.createOrder(userId, addressId, productIds);
+		}
+	}
+	
+	//提交订单后清空购物车
+	@Override
+	public void deleteProduct(List<Integer> productId) {
+		for (Integer productIds : productId) {
+			productDao.deleteProduct(productIds);
+		}
+	}
+
+	//删除订单
+	@Override
+	public void deleteOrder(Integer id) {
+		productDao.deleteOrder(id);
 	}
 
 }

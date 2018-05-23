@@ -4,13 +4,32 @@ public class Order {
 	private Integer id;
 	private Integer userId; //用户id 
 	private Integer addressId; //收货地址id
+	private Integer productId; //商品id
 	private String payment; //支付方式
 	private String creationTime; //订单创建时间
 	private String state; //状态
 	
 	private Product product; //商品
 	
+	private User user;
+	
 	private ReceivingAddress receivingAddress; //收货地址
+
+	public Integer getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Integer productId) {
+		this.productId = productId;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public Integer getId() {
 		return id;

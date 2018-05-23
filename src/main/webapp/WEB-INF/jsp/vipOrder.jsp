@@ -104,7 +104,8 @@
       <td>${order.product.price}<br />${order.payment}</td>
       <td>${order.creationTime}</td>
       <td><a href="success.html"><strong>${order.state}</strong></a></td>
-      <td><a href="${contextPath}/vipXiaofei/${order.id}">查看</a></td>
+      <td><a href="${contextPath}/vipXiaofei/${order.id}" style="font-weight: bolder;">查看</a></td>
+      <td><a href="${contextPath}/deleteOrder/${order.id}" style="font-weight: bolder;">删除</a></td>
      </tr>
      </c:forEach>
     </table><!--vipOrder/-->

@@ -36,6 +36,15 @@ public class User {
 	
 	private List<Order> vipOrderList;//vip我的订单
 	
+	private Car car;
+	
+	public Car getCar() {
+		return car;
+	}
+	public void setCar(Car car) {
+		this.car = car;
+	}
+	
 	public List<Order> getVipOrderList() {
 		return vipOrderList;
 	}
@@ -146,7 +155,8 @@ public class User {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", phone_number=" + phone_number
 				+ ", email=" + email + ", role=" + role + ", realName=" + realName + ", city=" + city + ", sex=" + sex
 				+ ", idCard=" + idCard + ", introduce=" + introduce + ", picture=" + picture + ", permissions="
-				+ permissions + "]";
+				+ permissions + ", receivingAddress=" + receivingAddress + ", vipOrderList=" + vipOrderList + ", car="
+				+ car + "]";
 	}
 	
 }

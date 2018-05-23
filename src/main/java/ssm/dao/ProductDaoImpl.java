@@ -7,7 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import ssm.dao.mappers.ProductMapper;
 import ssm.entity.Car;
+import ssm.entity.Order;
 import ssm.entity.Product;
+import ssm.entity.ReceivingAddress;
 
 @Repository
 public class ProductDaoImpl implements ProductDao {
@@ -29,6 +31,16 @@ public class ProductDaoImpl implements ProductDao {
 	public Product findOneProduct(Integer id) {
 		return productMapper.findOneProduct(id);
 	}
+	
+	@Override
+	public List<ReceivingAddress> findAllAddress(Integer id) {
+		return productMapper.findAllAddress(id);
+	}
+	
+	@Override
+	public void addAddress(ReceivingAddress address) {
+		productMapper.addAddress(address);
+	}
 
 	@Override
 	public List<Car> findAllCar(Integer id) {
@@ -44,5 +56,25 @@ public class ProductDaoImpl implements ProductDao {
 	public void delete(Integer id) {
 		productMapper.delete(id);
 	}
+
+	@Override
+	public List<Order> findAllOrders(Integer id) {
+		return productMapper.findAllOrders(id);
+	}
+
+	@Override
+	public void createOrder(Integer userId, Integer addressId, Integer productIds) {
+		productMapper.createOrder(userId, addressId, productIds);
+	}
 	
+	@Override
+	public void deleteProduct(Integer productIds) {
+		productMapper.deleteProduct(productIds);
+	}
+
+	@Override
+	public void deleteOrder(Integer id) {
+		productMapper.deleteOrder(id);
+	}
+
 }

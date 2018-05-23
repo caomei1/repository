@@ -9,8 +9,10 @@
 	</select>
 	
 	<insert id="create">
-		insert into shopping_user(id, username, email, phone_number, password) 
-		values(shopping_user_seq.nextval, #{username}, #{email}, #{phone_number}, #{password})
+		insert into shopping_user(id, username, email, 
+		 phone_number, password) 
+		values(shopping_user_seq.nextval, #{username}, #{email}, 
+		#{phone_number}, #{password})
 	</insert>
 	
 	<update id="updatePassword" parameterType="User">
@@ -23,7 +25,8 @@
 	
 	<update id="updateVip">
 		update shopping_user set real_name = #{realName}, city = #{city}, 
-		sex = #{sex}, email = #{email},	id_card = #{idCard}, introduce = #{introduce} 
+		 sex = #{sex}, email = #{email},	id_card = #{idCard}, 
+		 introduce = #{introduce} 
 		where id = #{id}
 	</update>
 	
@@ -39,14 +42,15 @@
 	
 	<insert id="addAddress" parameterType="ReceivingAddress">
 		insert into receiving_address(id, user_id, consignee, where_city, 
-		street_address, postal_code, phone_number) 
-		values(receiving_address_seq.nextval, #{userId}, #{consignee}, #{whereCity}, #{streetAddress}, 
-		#{postalCode}, #{phoneNumber})
+		 street_address, postal_code, phone_number) 
+		values(receiving_address_seq.nextval, #{userId}, #{consignee}, 
+		 #{whereCity}, #{streetAddress}, #{postalCode}, #{phoneNumber})
 	</insert>
 	
 	<update id="updateAddress" parameterType="ReceivingAddress">
-		update receiving_address set consignee = #{consignee}, where_city = #{whereCity}, 
-		street_address = #{streetAddress}, postal_code = #{postalCode}, phone_number = #{phoneNumber} 
+		update receiving_address set consignee = #{consignee}, 
+		 where_city = #{whereCity}, street_address = #{streetAddress}, 
+		 postal_code = #{postalCode}, phone_number = #{phoneNumber} 
 		where id = #{id}
 	</update>
 	

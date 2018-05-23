@@ -36,7 +36,7 @@ public class MemberController {
 			@AuthenticationPrincipal(expression = "user") User user, 
 			Model model) {
 		// @AuthenticationPrincipal默认拿到的是principal(UserDetailsImpl)，所以需要.user获得实体User对象（来自dao层）
-		System.out.println("当前登录用户：" + user);
+		//System.out.println("当前登录用户：" + user);
 		User vipUser = userService.findPersonalData(user.getId());
 		model.addAttribute("vipUser", vipUser);
 		return "vip";
@@ -104,8 +104,8 @@ public class MemberController {
 	
 	//会员中心 -收货地址详情
 	@RequestMapping(method = RequestMethod.GET, value = "/vipAddress")
-	public String vipAddress(@AuthenticationPrincipal(expression = "user") User user, 
-			Model model) {
+	public String vipAddress(Model model, 
+			@AuthenticationPrincipal(expression = "user") User user) {
 		List<ReceivingAddress> vipAddress = userService.findAllAddress(user.getId());
 		model.addAttribute("vipAddress", vipAddress);
 		return "vipAddress";
