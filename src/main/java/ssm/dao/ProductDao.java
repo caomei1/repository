@@ -25,6 +25,8 @@ public interface ProductDao {
 
 	void delete(Integer id);
 	
+	void batchDelete(Integer productIds);
+	
 	List<Order> findAllOrders(Integer id);
 
 	void createOrder(Integer userId, Integer addressId, Integer productIds);

@@ -65,6 +65,14 @@ public class ProductServiceImpl implements ProductService {
 		productDao.delete(id);
 	}
 	
+	//批量删除
+	@Override
+	public void batchDelete(List<Integer> productId) {
+		for (Integer productIds : productId) {
+			productDao.batchDelete(productIds);
+		}
+	}
+	
 	//显示提交订单页
 	@Override
 	public List<Order> findAllOrders(Integer id) {

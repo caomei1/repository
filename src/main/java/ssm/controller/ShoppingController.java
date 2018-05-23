@@ -94,6 +94,13 @@ public class ShoppingController {
 		return "redirect:/car";
 	}
 	
+	//批量删除订单
+	@RequestMapping(method = RequestMethod.GET, value = "/batchDelete")
+	public String batchDelete(@RequestParam List<Integer> productId) {
+		productService.batchDelete(productId);
+		return "redirect:/car";
+	}
+	
 	//显示提交订单页
 	@RequestMapping(method = RequestMethod.GET, value = "/success")
 	public String create(Model model, 

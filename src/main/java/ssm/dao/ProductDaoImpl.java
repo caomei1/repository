@@ -56,6 +56,11 @@ public class ProductDaoImpl implements ProductDao {
 	public void delete(Integer id) {
 		productMapper.delete(id);
 	}
+	
+	@Override
+	public void batchDelete(Integer productIds) {
+		productMapper.batchDelete(productIds);
+	}
 
 	@Override
 	public List<Order> findAllOrders(Integer id) {

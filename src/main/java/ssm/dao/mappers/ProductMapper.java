@@ -27,6 +27,8 @@ public interface ProductMapper {
 
 	void delete(Integer id);
 	
+	void batchDelete(@Param(value="productId")Integer productIds);
+	
 	List<Order> findAllOrders(Integer id);
 
 	void createOrder(@Param(value="userId")Integer userId, 

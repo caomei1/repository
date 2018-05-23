@@ -77,7 +77,7 @@
    <dl class="vipNav">
     <dt class="vip_1 vipCur">买家中心</dt>
      <dd class="ddCur"><a href="${contextPath}/vipOrder">我的订单</a></dd>
-     <dd><a href="vipShoucang.html">收藏关注</a></dd>
+     <dd><a href="${contextPath}/vipShoucang">收藏关注</a></dd>
     <dt class="vip_2">账户设置</dt>
      <dd><a href="${contextPath}/vip">个人信息</a></dd>
      <dd><a href="${contextPath}/vipPwd">密码修改</a></dd>
@@ -103,7 +103,7 @@
       <td>${order.receivingAddress.consignee}</td>
       <td>${order.product.price}<br />${order.payment}</td>
       <td>${order.creationTime}</td>
-      <td><a href="success.html"><strong>${order.state}</strong></a></td>
+      <td><a href="${contextPath}/success"><strong>${order.state}</strong></a></td>
       <td><a href="${contextPath}/vipXiaofei/${order.id}" style="font-weight: bolder;">查看</a></td>
       <td><a href="${contextPath}/deleteOrder/${order.id}" style="font-weight: bolder;">删除</a></td>
      </tr>
@@ -115,7 +115,7 @@
  <div class="footBox">
   <div class="footers">
    <div class="footersLeft">
-    <a href="index.html"><img src="${contextPath}/assets/images/ftlogo.jpg" width="240" height="64" /></a>
+    <a href="${contextPath}/index"><img src="${contextPath}/assets/images/ftlogo.jpg" width="240" height="64" /></a>
     <h3 class="ftphone">400 000 0000 </h3>
     <div class="ftKe">
      客服 7x24小时(全年无休)<br />

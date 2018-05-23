@@ -131,10 +131,9 @@
     </tr>
     </c:forEach>
    </table><!--ord/-->
-
    <table class="orderList">
     <tr>
-     <th width="20"></th>
+     <th width="20"><input type="checkbox" name="checkall" onclick="checkAll(checkall)"/></th>
      <th width="450">商品</th>
      <th width="130">单价</th>
      <th width="130">数量</th>
@@ -143,7 +142,7 @@
     </tr>
    <c:forEach items="${products}" var="pro">
     <tr>
-     <td><input type="checkbox" /></td>
+     <td> </td>
      <td colspan="5" style="text-align:left;color:#930; font-weight:bold;">
       <img src="${contextPath}/assets/images/dianpu.gif" width="20" height="15" style="position:relative;top:2px;" />
       店铺：${pro.product.business}
@@ -172,7 +171,7 @@
     <c:set var="totalPrice" value="${totalPrice+ pro.product.price*pro.quantity}"></c:set>
     </c:forEach>
    </table><!--orderList/--><br/>
-   <div class="shanchu"><img src="${contextPath}/assets/images/lajio.jpg" /> 全部删除</div>
+   <div class="shanchu"><img src="${contextPath}/assets/images/lajio.jpg" /> <a href="${contextPath}/batchDelete" class="green">批量删除</a></div>
    <div class="zongji">
     <strong>所需运费：</strong>￥0.00&nbsp;&nbsp;
     <strong>总计(不含运费)：</strong><strong class="red">￥${totalPrice}</strong>
@@ -249,5 +248,24 @@
   <br />
   <span>&copy; 2014 Unqezi 使用前必读 沪ICP备 12007626号-1</span>
  </div><!--footer/-->
+ <script type="text/javascript">  
+        function checkAll(checkall) {    
+            arr = document.getElementsByName('productId');   
+            if (checkall.checked == true) {   
+                for(i=0;i<arr.length;i++){   
+                      
+                    arr[i].checked = true;   
+                }  
+  
+                }else{  
+                    for(i=0;i<arr.length;i++){   
+                        if((arr[i]).checked==false){  
+                            arr[i].checked = true;  
+                        }else  
+                        {arr[i].checked = false; }  
+                    }  
+                }  
+    }    
+ </script>
 </body>
 </html>

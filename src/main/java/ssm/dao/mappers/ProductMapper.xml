@@ -38,7 +38,11 @@
 	</insert>
 	
 	<delete id="delete" parameterType="Car">
-		delete from Car where id = #{id}
+		delete car where id = #{id}
+	</delete>
+	
+	<delete id="batchDelete" parameterType="Product">
+		delete car where product_id = #{productId}
 	</delete>
 	
 	<select id="findAllCar" resultMap="carMap">

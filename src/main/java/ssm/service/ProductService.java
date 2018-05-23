@@ -25,6 +25,8 @@ public interface ProductService {
 
 	void delete(Integer id);
 	
+	void batchDelete(List<Integer> productId);
+	
 	List<Order> findAllOrders(Integer id);
 
 	void createOrder(Integer userId, Integer addressId, List<Integer> productId);
