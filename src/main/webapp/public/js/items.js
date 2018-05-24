@@ -18,7 +18,7 @@ function checkAll(checkall) {
 	}
 }
 
-// 加减号
+//数量加减
 $(document).ready(function(){
 	//获得文本框对象
 	var t = $("#text_box");

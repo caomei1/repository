@@ -57,6 +57,16 @@ public class ShoppingController {
 		return "buyinfo";
 	}
 	
+	//商品详情页多个数量加入购物车
+	@RequestMapping(method = RequestMethod.GET, value = "/allTocar/{id}")
+	public String addToCar(@PathVariable Integer productId,
+			@PathVariable Integer quantity, Model model, 
+			@AuthenticationPrincipal(expression = "user") User user) {
+		productService.allTocar(user.getId(), productId, quantity);
+		model.addAttribute("Success","加入购物车成功");
+		return "redirect:/car";
+	}
+	
 	//购物车
 	@RequestMapping(method = RequestMethod.GET, value = "/car")
 	public String findCar(@AuthenticationPrincipal(expression="user") User user,
@@ -95,8 +105,9 @@ public class ShoppingController {
 	}
 	
 	//批量删除订单
-	@RequestMapping(method = RequestMethod.GET, value = "/batchDelete")
+	@RequestMapping(method = RequestMethod.POST, value = "/batchDelete")
 	public String batchDelete(@RequestParam List<Integer> productId) {
+		System.out.println(productId);
 		productService.batchDelete(productId);
 		return "redirect:/car";
 	}

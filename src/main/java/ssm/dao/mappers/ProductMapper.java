@@ -17,6 +17,10 @@ public interface ProductMapper {
 
 	Product findOneProduct(Integer id);
 	
+	void allTocar(@Param(value="userId")Integer userId, 
+			@Param(value="productId")Integer productId, 
+			@Param(value="quantity")Integer quantity);
+	
 	List<ReceivingAddress> findAllAddress(Integer id);
 	
 	void addAddress(ReceivingAddress address);

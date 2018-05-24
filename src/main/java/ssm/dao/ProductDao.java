@@ -15,6 +15,8 @@ public interface ProductDao {
 
 	Product findOneProduct(Integer id);
 	
+	void allTocar(Integer userId, Integer productId, Integer quantity);
+	
 	List<ReceivingAddress> findAllAddress(Integer id);
 	
 	void addAddress(ReceivingAddress address);

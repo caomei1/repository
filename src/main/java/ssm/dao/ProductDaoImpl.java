@@ -33,6 +33,11 @@ public class ProductDaoImpl implements ProductDao {
 	}
 	
 	@Override
+	public void allTocar(Integer userId, Integer productId, Integer quantity) {
+		productMapper.allTocar(userId, productId, quantity);
+	}
+	
+	@Override
 	public List<ReceivingAddress> findAllAddress(Integer id) {
 		return productMapper.findAllAddress(id);
 	}

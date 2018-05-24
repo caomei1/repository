@@ -15,6 +15,15 @@ public class Product {
 	private String networkMode; //网络制式
 	private String business; //商家
 	
+	private Car car;
+	
+	public Car getCar() {
+		return car;
+	}
+	public void setCar(Car car) {
+		this.car = car;
+	}
+	
 	public Integer getId() {
 		return id;
 	}

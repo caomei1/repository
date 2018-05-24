@@ -20,6 +20,11 @@
 		select * from product where id = #{id}
 	</select>
 	
+	<insert id="allTocar" parameterType="Car">
+		insert into car(id, user_id, product_id, quantity) 
+		values(car_seq.nextval, #{userId}, #{productId}, #{quantity})
+	</insert>
+	
 	<select id="findAllAddress" resultType="ReceivingAddress">
 		select * from receiving_address 
 		where user_id = #{user_id}

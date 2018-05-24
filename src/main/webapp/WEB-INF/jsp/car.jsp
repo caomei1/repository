@@ -16,6 +16,7 @@
 
 </head>
 <body>
+
  <div class="hrader" id="header">
   <div class="top">
   <%@ include file="header.jspf" %>
@@ -171,7 +172,10 @@
     <c:set var="totalPrice" value="${totalPrice+ pro.product.price*pro.quantity}"></c:set>
     </c:forEach>
    </table><!--orderList/--><br/>
-   <div class="shanchu"><img src="${contextPath}/assets/images/lajio.jpg" /> <a href="${contextPath}/batchDelete" class="green">批量删除</a></div>
+   <div class="shanchu"><img src="${contextPath}/assets/images/lajio.jpg" />
+    	<a href="#" class="green" id="batch-delete-btn">批量删除</a>
+    </div>
+    
    <div class="zongji">
     <strong>所需运费：</strong>￥0.00&nbsp;&nbsp;
     <strong>总计(不含运费)：</strong><strong class="red">￥${totalPrice}</strong>
@@ -248,5 +252,25 @@
   <br />
   <span>&copy; 2014 Unqezi 使用前必读 沪ICP备 12007626号-1</span>
  </div><!--footer/-->
+ 
+ 	<form style="display: none;" 
+ 		action="batchDelete" method="post" 
+ 		id="batch-delete-form">
+ 		    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+	</form>
+ 	<script>	
+ 		$('#batch-delete-btn').click(function() {
+ 			console.log('batch delete...');
+ 			var checkedProdIds = $('input[type=checkbox][name=productId]')
+ 				.filter(function() {
+ 					return this.checked;
+ 				});
+			console.log('checkedProdIds', checkedProdIds); 		
+			
+			if (checkedProdIds.length > 0) {
+				$('#batch-delete-form').append(checkedProdIds).submit();
+			}
+ 		});
+ 	</script>
 </body>
 </html>

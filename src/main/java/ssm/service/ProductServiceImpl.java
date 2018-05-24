@@ -35,6 +35,12 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.findOneProduct(id);
 	}
 	
+	//商品详情页多个数量加入购物车
+	@Override
+	public void allTocar(Integer userId, Integer productId, Integer quantity) {
+		productDao.allTocar(userId, productId, quantity);
+	}
+	
 	//通过用户id查询地址
 	@Override
 	public List<ReceivingAddress> findAllAddress(Integer id) {

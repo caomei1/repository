@@ -145,8 +145,8 @@
      </tr>
     </table><!--buyTable/-->
     <div class="goumai">
-     <a href="${contextPath}/car/${proOne.id}" class="buy-gou">立即购买</a>
-     <a href="${contextPath}/car/${proOne.id}" class="buy-mai">加入购物车</a>
+     <a href="${contextPath}/allTocar/${proOne.id}" class="buy-gou">立即购买</a>
+     <a href="${contextPath}/allTocar/${proOne.id}" class="buy-mai">加入购物车</a>
     </div><!--goumai/-->
    </div><!--buyDtlRight/-->
    <div class="clears"></div>
