@@ -107,7 +107,6 @@ public class ShoppingController {
 	//批量删除订单
 	@RequestMapping(method = RequestMethod.POST, value = "/batchDelete")
 	public String batchDelete(@RequestParam List<Integer> productId) {
-		System.out.println(productId);
 		productService.batchDelete(productId);
 		return "redirect:/car";
 	}

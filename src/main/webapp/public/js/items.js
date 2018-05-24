@@ -18,6 +18,7 @@ function checkAll(checkall) {
 	}
 }
 
+
 //数量加减
 $(document).ready(function(){
 	//获得文本框对象
@@ -44,4 +45,38 @@ $(document).ready(function(){
 	   $(".text_box[name='"+id+"']").val(Math.abs(parseInt( $(".text_box[name='"+id+"']").val()))-1);
 	 }
 	 })
-	});
+	 
+//批量删除
+$('#batch-delete-btn').click(function() {
+	console.log('batch delete...');
+	var checkedProdIds = $('input[type=checkbox][name=productId]')
+	.filter(function() {
+		return this.checked;
+		});
+	console.log('checkedProdIds', checkedProdIds); 		
+	 	 
+	 	if (checkedProdIds.length > 0) {
+	 		$('#batch-delete-form').append(checkedProdIds).submit();
+	 		}
+	 	});	 
+
+//表单必须选地址和商品才能提交
+$('#Immediate-settlement').submit(function() {
+	if ($('input[name=addressId]:checked', this).val() && 
+			$('input[name=productId]:checked', this).val()) {
+		return true;
+	} else if ($('input[name=addressId]:checked', this).val()) {
+		alert('请选择要购买的商品');
+		return false;
+	} else if ($('input[name=productId]:checked', this).val()) {
+		alert('请选择收货地址');
+		return false;
+	} else {
+		alert('请选择收货地址和商品');
+		return false;
+	}
+});
+
+
+
+});

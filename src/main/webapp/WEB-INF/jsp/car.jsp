@@ -111,7 +111,7 @@
     </div><!--addList2/-->
     </form>
    </div><!--address/-->
- <form action="${contextPath}/success" method="post">
+ <form action="${contextPath}/success" method="post" id="Immediate-settlement">
    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
  <div class="car">
   <div class="cont">
@@ -182,7 +182,7 @@
    </div><!--zongji/-->
    <div class="jiesuan">
     <a href="${contextPath}/prolist" class="jie_1">继续购物&gt;&gt;</a>
-    <input name="" value=" 立即结算&gt;&gt;" type="submit" class="jie_2" />
+    <input name="" value=" 立即结算&gt;&gt;" type="submit" class="jie_2" id="Immediate-settlement-input"/>
     <div class="clears"></div>
    </div><!--jiesuan/-->
    <div class="clears"></div>
@@ -258,19 +258,5 @@
  		id="batch-delete-form">
  		    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	</form>
- 	<script>	
- 		$('#batch-delete-btn').click(function() {
- 			console.log('batch delete...');
- 			var checkedProdIds = $('input[type=checkbox][name=productId]')
- 				.filter(function() {
- 					return this.checked;
- 				});
-			console.log('checkedProdIds', checkedProdIds); 		
-			
-			if (checkedProdIds.length > 0) {
-				$('#batch-delete-form').append(checkedProdIds).submit();
-			}
- 		});
- 	</script>
 </body>
 </html>
