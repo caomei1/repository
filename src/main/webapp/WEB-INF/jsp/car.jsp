@@ -12,9 +12,9 @@
 <link type="text/css" href="${contextPath}/assets/css/css.css" rel="stylesheet" />
 <script type="text/javascript" src="${contextPath}/assets/js/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/items.js"></script>
 
 </head>
-
 <body>
  <div class="hrader" id="header">
   <div class="top">
@@ -159,10 +159,10 @@
      </td>
      <td><strong class="red">￥${pro.product.price}</strong></td>
      <td>
-     <div class="jia_jian">
-      <img src="${contextPath}/assets/images/jian.jpg" width="21" height="25" class="jian" />
-      <input type="text" class="shuliang" value="${pro.quantity}" />
-      <img src="${contextPath}/assets/images/jia.jpg" width="21" height="25" class="jia" />
+     <div class="jia_jian" style="margin-left: 18px">
+     	<input class="min1" name="${pro.id}" type="button" value="&#8211"/> 
+		<input class="text_box" name="${pro.id}" type="text" value="${pro.quantity}" style="width:30px;text-align: center"/> 
+		<input class="add1" name="${pro.id}" type="button" value="+"/> 
      </div>
      </td>
      <td><strong class="red">￥${pro.product.price*pro.quantity}</strong></td>
@@ -248,24 +248,5 @@
   <br />
   <span>&copy; 2014 Unqezi 使用前必读 沪ICP备 12007626号-1</span>
  </div><!--footer/-->
- <script type="text/javascript">  
-        function checkAll(checkall) {    
-            arr = document.getElementsByName('productId');   
-            if (checkall.checked == true) {   
-                for(i=0;i<arr.length;i++){   
-                      
-                    arr[i].checked = true;   
-                }  
-  
-                }else{  
-                    for(i=0;i<arr.length;i++){   
-                        if((arr[i]).checked==false){  
-                            arr[i].checked = true;  
-                        }else  
-                        {arr[i].checked = false; }  
-                    }  
-                }  
-    }    
- </script>
 </body>
 </html>

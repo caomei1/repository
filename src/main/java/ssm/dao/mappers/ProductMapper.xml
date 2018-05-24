@@ -41,7 +41,7 @@
 		delete car where id = #{id}
 	</delete>
 	
-	<delete id="batchDelete" parameterType="Product">
+	<delete id="batchDelete" parameterType="Car">
 		delete car where product_id = #{productId}
 	</delete>
 	
@@ -81,7 +81,7 @@
 		 	 #{productId}, '支付宝', sysdate, '等待付款')
 	</insert>
 	
-	<delete id="deleteProduct" parameterType="Product">
+	<delete id="deleteProduct" parameterType="Car">
 		delete car where product_id = #{productId}
 	</delete>
 	
