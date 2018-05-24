@@ -42,6 +42,20 @@
 		values(car_seq.nextval, #{userId}, #{productId}, 1)
 	</insert>
 	
+	<select id="findOneCar" resultType="Car">
+		select c.id car_id, c.quantity car_quantity, 
+		 p.id product_id, p.brand product_brand, p.model product_model, 
+		 p.body_color product_color, p.price product_price, 
+		 p.business product_business 
+		from car c inner join product p on c.product_id = p.id 
+		where c.user_id = #{userId} and c.product_id = #{productId}
+	</select>
+	
+	<update id="addNumber" parameterType="Car">
+		update car set quantity = quantity+1 
+		where product_id = #{productId}
+	</update>
+	
 	<delete id="delete" parameterType="Car">
 		delete car where id = #{id}
 	</delete>

@@ -39,6 +39,12 @@ public interface ProductMapper {
 			@Param(value="addressId")Integer addressId, 
 			@Param(value="productId")Integer productIds);
 	
+	Car findOneCar(@Param(value="userId")Integer userId, 
+			@Param(value="productId")Integer productId);
+	
+	void addNumber(@Param(value="productId")Integer userId, 
+			@Param(value="productId")Integer productId);
+	
 	void deleteProduct(@Param("productId")Integer productIds);
 
 	void deleteOrder(Integer id);

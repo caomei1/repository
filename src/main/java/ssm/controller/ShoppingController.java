@@ -92,8 +92,16 @@ public class ShoppingController {
 	@RequestMapping(method = RequestMethod.GET, value = "/car/{id}")
 	public String addToCar(@PathVariable Integer id, Model model, 
 			@AuthenticationPrincipal(expression = "user") User user) {
-		productService.addToCart(user.getId(),id);
-		model.addAttribute("Success","加入购物车成功");
+		//查询到指定商品id
+		Car car = productService.findOneCar(user.getId(), id);
+		//判断商品 如果不存在则添加
+		if(car == null){
+			productService.addToCart(user.getId(), id);
+			model.addAttribute("Success","加入购物车成功");
+		} else {
+			//存在就增加数量
+			productService.addNumber(user.getId(), id);
+		}
 		return "redirect:/car";
 	}
 	

@@ -93,6 +93,18 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 	
+	//查询指定商品id
+	@Override
+	public Car findOneCar(Integer userId, Integer productId) {
+		return productDao.findOneCar(userId, productId);
+	}
+	
+	//增加数量
+	@Override
+	public void addNumber(Integer userId, Integer productId) {
+		productDao.addNumber(userId, productId);
+	}
+	
 	//提交订单后清空购物车
 	@Override
 	public void deleteProduct(List<Integer> productId) {

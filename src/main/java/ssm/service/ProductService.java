@@ -32,6 +32,10 @@ public interface ProductService {
 	List<Order> findAllOrders(Integer id);
 
 	void createOrder(Integer userId, Integer addressId, List<Integer> productId);
+	
+	Car findOneCar(Integer userId, Integer productId);
+
+	void addNumber(Integer userId, Integer productId);
 
 	void deleteProduct(List<Integer> productId);
 	
