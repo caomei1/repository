@@ -98,11 +98,15 @@
     </tr>
     <tr>
      <th>商品名称</th>
-     <td>${orderDetails.product.brand} ${orderDetails.product.model}</td>
+     <td>${orderDetails.product.brand} 
+     	${orderDetails.product.model} ${orderDetails.product.bodyColor}
+     </td>
     </tr>
     <tr>
      <th>订单价钱</th>
-     <td>${orderDetails.product.price}</td>
+     <td style="font-weight: bolder;">
+     	${orderDetails.product.price} * ${orderDetails.quantity}
+     </td>
     </tr>
     <tr>
      <th>订单信息</th>
@@ -125,6 +129,12 @@
     <tr>
      <th>支付状态</th>
      <td>${orderDetails.state}</td>
+    </tr>
+    <tr>
+     <th>总计</th>
+     <td style="font-weight: bolder;">
+     	￥${orderDetails.product.price*orderDetails.quantity}
+     </td>
     </tr>
    </table> 
   </div><!--vipRight/-->

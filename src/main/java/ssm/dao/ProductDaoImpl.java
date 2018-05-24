@@ -73,8 +73,9 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public void createOrder(Integer userId, Integer addressId, Integer productIds) {
-		productMapper.createOrder(userId, addressId, productIds);
+	public void createOrder(Integer userId, Integer addressId, 
+			Integer productIds, Integer quantity) {
+		productMapper.createOrder(userId, addressId, productIds, quantity);
 	}
 	
 	@Override

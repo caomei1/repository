@@ -101,7 +101,7 @@
      <tr>
       <td><a href="proinfo.html"><img src="${contextPath}/assets/images/phone.png" width="60" height="55"></a></td>
       <td>${order.receivingAddress.consignee}</td>
-      <td>${order.product.price}<br />${order.payment}</td>
+      <td>￥${order.product.price*order.quantity}<br />${order.payment}</td>
       <td>${order.creationTime}</td>
       <td><a href="${contextPath}/success"><strong>${order.state}</strong></a></td>
       <td><a href="${contextPath}/vipXiaofei/${order.id}" style="font-weight: bolder;">查看</a></td>

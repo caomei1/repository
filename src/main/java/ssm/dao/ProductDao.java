@@ -31,7 +31,8 @@ public interface ProductDao {
 	
 	List<Order> findAllOrders(Integer id);
 
-	void createOrder(Integer userId, Integer addressId, Integer productIds);
+	void createOrder(Integer userId, Integer addressId, 
+			Integer productIds, Integer quantity);
 	
 	Car findOneCar(Integer userId, Integer productId);
 	

@@ -42,7 +42,7 @@
 		values(car_seq.nextval, #{userId}, #{productId}, 1)
 	</insert>
 	
-	<select id="findOneCar" resultType="Car">
+	<select id="findOneCar" resultMap="carMap1">
 		select c.id car_id, c.quantity car_quantity, 
 		 p.id product_id, p.brand product_brand, p.model product_model, 
 		 p.body_color product_color, p.price product_price, 
@@ -50,6 +50,18 @@
 		from car c inner join product p on c.product_id = p.id 
 		where c.user_id = #{userId} and c.product_id = #{productId}
 	</select>
+	<resultMap type="Car" id="carMap1">
+		<id property="id" column="car_id"/>
+		<result property="quantity" column="car_quantity"/>
+		<association property="product" javaType="Product">
+			<id property="id" column="product_id"/>
+			<result property="price" column="product_price"/>
+			<result property="business" column="product_business"/>
+			<result property="brand" column="product_brand"/>
+			<result property="model" column="product_model"/>
+			<result property="bodyColor" column="product_bodyColor"/>
+		</association>
+	</resultMap>
 	
 	<update id="addNumber" parameterType="Car">
 		update car set quantity = quantity+1 
@@ -95,9 +107,9 @@
 	
 	<insert id="createOrder" parameterType="Order">
 			insert into vip_orderlist(id, user_id, address_id, product_id, 
-		 	 payment_mode, creation_time, state) 
+		 	 payment_mode, creation_time, state, quantity) 
 			values(vip_orderlist_seq.nextval, #{userId}, #{addressId}, 
-		 	 #{productId}, '支付宝', sysdate, '等待付款')
+		 	 #{productId}, '支付宝', sysdate, '等待付款', #{quantity})
 	</insert>
 	
 	<delete id="deleteProduct" parameterType="Car">

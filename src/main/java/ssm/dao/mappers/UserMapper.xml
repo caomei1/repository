@@ -61,7 +61,8 @@
 	<select id="findAllOrder" resultMap="orderMap">
 		select r.id address_id, r.consignee address_consignee, 
 		  v.id order_id, v.creation_time order_time, v.state order_state, 
-		  v.payment_mode order_pay, p.id product_id, p.price product_price 
+		  v.payment_mode order_pay, v.quantity order_quantity, 
+		  p.id product_id, p.price product_price 
 		from vip_orderlist v join receiving_address r on v.address_id = r.id 
 		  join product p on v.product_id = p.id 
 		where v.user_id = #{userId}
@@ -71,6 +72,7 @@
 		<result property="creationTime" column="order_time"/>
 		<result property="state" column="order_state"/>
 		<result property="payment" column="order_pay"/>
+		<result property="quantity" column="order_quantity"/>
 				
 		<association property="receivingAddress" javaType="ReceivingAddress">
 			<id property="id" column="address_id"/>
@@ -86,11 +88,13 @@
 	<select id="Orderdetails" resultMap="orderDetailsMap">
 		select p.id product_id, p.order_number product_number, 
 		  p.brand product_brand, p.model product_model, 
+		  p.body_color product_color, 
 		  p.price product_price, p.business product_business, 
 		  r.id address_id, r.consignee address_consignee, 
 		  r.phone_number address_phone, r.postal_code address_code, 
 		  r.where_city address_city, r.street_address address_street, 
-		  v.id order_id, v.payment_mode order_pay, v.state order_state 
+		  v.id order_id, v.payment_mode order_pay, v.state order_state, 
+		  v.quantity order_quantity 
 		from vip_orderlist v join receiving_address r on v.address_id = r.id 
 		 join product p on v.product_id = p.id 
 		where v.id = #{id}
@@ -99,6 +103,7 @@
 		<id property="id" column="order_id"/>
 		<result property="payment" column="order_pay"/>
 		<result property="state" column="order_state"/>
+		<result property="quantity" column="order_quantity"/>
 				
 		<association property="receivingAddress" javaType="ReceivingAddress">
 			<id property="id" column="address_id"/>
@@ -116,6 +121,7 @@
 			<result property="model" column="product_model"/>
 			<result property="price" column="product_price"/>
 			<result property="business" column="product_business"/>
+			<result property="bodyColor" column="product_color"/>
 		</collection>
 	</resultMap>
 </mapper>

@@ -29,7 +29,7 @@ $(document).ready(function(){
 	 $(".add1").click(function(){ 
 	  // 给获取的val加上绝对值，避免出现负数
 	  var id = $(this).attr("name");
-	  $(".text_box[name='"+id+"']").val(Math.abs(parseInt( $(".text_box[name='"+id+"']").val()))+1);
+	  $(".text_box[aa='"+id+"']").val(Math.abs(parseInt( $(".text_box[aa='"+id+"']").val()))+1);
 	  /* t.val(Math.abs(parseInt(t.val()))+1); */
 	  if (parseInt(t.val())!=1){
 	  $('.min1').attr('disabled',false);
@@ -39,10 +39,10 @@ $(document).ready(function(){
 	 $(".min1").click(function(){
 	  var id = $(this).attr("name");
 	/*  t.val(Math.abs(parseInt(t.val()))-1); */
-	 if (parseInt($(".text_box[name='"+id+"']").val())<=2){
+	 if (parseInt($(".text_box[aa='"+id+"']").val())<=2){
 	 $(".min1[name='"+id+"']").attr('disabled',true);
-	 };if (parseInt($(".text_box[name='"+id+"']").val())>=2){
-	   $(".text_box[name='"+id+"']").val(Math.abs(parseInt( $(".text_box[name='"+id+"']").val()))-1);
+	 };if (parseInt($(".text_box[aa='"+id+"']").val())>=2){
+	   $(".text_box[aa='"+id+"']").val(Math.abs(parseInt( $(".text_box[aa='"+id+"']").val()))-1);
 	 }
 	 })
 	 

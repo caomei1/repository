@@ -131,10 +131,11 @@ public class ShoppingController {
 	//提交订单
 	@RequestMapping(method = RequestMethod.POST, value = "/success")
 	public String addAddress(@RequestParam Integer addressId, 
-			@RequestParam List<Integer> productId, Model model, 
+			@RequestParam List<Integer> productId, 
+			@RequestParam Integer quantity, Model model, 
 			@AuthenticationPrincipal(expression = "user") User user){
 		//订单创建
-		productService.createOrder(user.getId(), addressId, productId);
+		productService.createOrder(user.getId(), addressId, productId, quantity);
 		//提交订单后清空购物车
 		productService.deleteProduct(productId);
 		model.addAttribute("Success","提交订单成功");

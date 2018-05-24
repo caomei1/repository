@@ -31,7 +31,8 @@ public interface ProductService {
 	
 	List<Order> findAllOrders(Integer id);
 
-	void createOrder(Integer userId, Integer addressId, List<Integer> productId);
+	void createOrder(Integer userId, Integer addressId, 
+			List<Integer> productId, Integer quantity);
 	
 	Car findOneCar(Integer userId, Integer productId);
 

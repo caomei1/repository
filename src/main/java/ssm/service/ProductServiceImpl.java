@@ -87,9 +87,12 @@ public class ProductServiceImpl implements ProductService {
 
 	//提交订单
 	@Override
-	public void createOrder(Integer userId, Integer addressId, List<Integer> productId) {		
+	public void createOrder(Integer userId, Integer addressId, 
+			List<Integer> productId, Integer quantity) {		
 		for (Integer productIds : productId) {
-			productDao.createOrder(userId, addressId, productIds);
+			Car car = productDao.findOneCar(userId, productIds);
+			System.err.println(car);
+			productDao.createOrder(userId, addressId, productIds, car.getQuantity());
 		}
 	}
 	

@@ -37,7 +37,8 @@ public interface ProductMapper {
 
 	void createOrder(@Param(value="userId")Integer userId, 
 			@Param(value="addressId")Integer addressId, 
-			@Param(value="productId")Integer productIds);
+			@Param(value="productId")Integer productIds, 
+			@Param(value="quantity")Integer quantity);
 	
 	Car findOneCar(@Param(value="userId")Integer userId, 
 			@Param(value="productId")Integer productId);

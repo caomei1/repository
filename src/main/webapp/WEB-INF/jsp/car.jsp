@@ -162,7 +162,7 @@
      <td>
      <div class="jia_jian" style="margin-left: 18px">
      	<input class="min1" name="${pro.id}" type="button" value="&#8211"/> 
-		<input class="text_box" name="${pro.id}" type="text" value="${pro.quantity}" style="width:30px;text-align: center"/> 
+		<input class="text_box" name="quantity" aa="${pro.id}"type="text" value="${pro.quantity}" style="width:30px;text-align: center"/> 
 		<input class="add1" name="${pro.id}" type="button" value="+"/> 
      </div>
      </td>

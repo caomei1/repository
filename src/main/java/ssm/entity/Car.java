@@ -4,7 +4,7 @@ public class Car {
 	private Integer id;
 	private Integer userId; //用户id
 	private Integer productId; //商品id
-	private String quantity; //数量
+	private Integer quantity; //数量
 	
 	private Product product; //商品
 	
@@ -51,10 +51,10 @@ public class Car {
 	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
-	public String getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(String quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 	

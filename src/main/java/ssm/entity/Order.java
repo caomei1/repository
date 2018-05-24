@@ -8,12 +8,20 @@ public class Order {
 	private String payment; //支付方式
 	private String creationTime; //订单创建时间
 	private String state; //状态
+	private Integer quantity; //数量
 	
 	private Product product; //商品
 	
 	private User user;
 	
 	private ReceivingAddress receivingAddress; //收货地址
+	
+	public Integer getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
 
 	public Integer getProductId() {
 		return productId;
