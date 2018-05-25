@@ -1,7 +1,11 @@
 package ssm.config;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.sql.DataSource;
 
+import org.apache.commons.io.FileUtils;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
@@ -24,6 +28,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import com.alipay.api.AlipayClient;
+import com.alipay.api.DefaultAlipayClient;
 
 
 @Configuration 
@@ -54,7 +61,6 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 		return ds;
 	}
 	
-	
 	@Bean
 	public JdbcTemplate jdbcTemplate(DataSource dataSource) {
 		return new JdbcTemplate(dataSource);
@@ -75,6 +81,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 		return mr;
 	}
 	
+	//resources
 	@Bean
 	public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource) {
 		SqlSessionFactoryBean sf = new SqlSessionFactoryBean();
@@ -88,8 +95,25 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 		return new DataSourceTransactionManager(dataSource);
 	}
 	
+	//密码加密
     @Bean
     public PasswordEncoder passwordEncoder(){
 		return new BCryptPasswordEncoder();
     }
+    
+    //开通支付宝支付功能
+    @Bean
+    public AlipayClient alipayClient() throws IOException {
+		return new DefaultAlipayClient(
+				"https://openapi.alipay.com/gateway.do", 
+				"2018052360246120", 
+				FileUtils.readFileToString(
+						new File("C:/liweili/alipay/app-prikey.txt"), "UTF-8"), 
+				"json", "UTF-8", 
+				FileUtils.readFileToString(
+						new File("C:/liweili/alipay/alipay-pubkey.txt"), "UTF-8"), 
+				"RSA2"
+				);
+    }
+    
 }

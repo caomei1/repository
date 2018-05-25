@@ -132,7 +132,8 @@
     </tr>
     </c:forEach>
    </table><!--ord/-->
-   <table class="orderList">
+ <div>
+ 	<table class="orderList">
     <tr>
      <th width="20"><input type="checkbox" name="checkall" onclick="checkAll(checkall)"/></th>
      <th width="450">商品</th>
@@ -172,6 +173,7 @@
     <c:set var="totalPrice" value="${totalPrice+ pro.product.price*pro.quantity}"></c:set>
     </c:forEach>
    </table><!--orderList/--><br/>
+ </div>
    <div class="shanchu"><img src="${contextPath}/assets/images/lajio.jpg" />
     	<a href="#" class="green" id="batch-delete-btn">批量删除</a>
     </div>

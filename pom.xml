@@ -110,9 +110,15 @@
 		</dependency>
 
 		<dependency>
-		<groupId>com.oracle</groupId>
-		<artifactId>ojdbc6</artifactId>
-		<version>1</version>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>1</version>
+		</dependency>
+		
+		<dependency>
+   			 <groupId>com.alipay.sdk</groupId>
+   			 <artifactId>alipay-sdk-java</artifactId>
+   			 <version>3.0.1</version>
 		</dependency>
 	</dependencies>
 

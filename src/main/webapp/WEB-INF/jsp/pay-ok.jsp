@@ -72,13 +72,9 @@
  <div class="car">
   <div class="cont">
    <div class="chenggong">
-    <h3>下单成功</h3>
-    <div class="zhifu">
-     您选择的支付方式是 <strong class="red">支付宝</strong><br />
-     <form action="${contextPath}/alipay/pay" method="post">
-     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-     <button type="submit"><img src="${contextPath}/assets/images/zhifu.png" width="133" height="35" /></button>
-    </form>
+    <h3 style="color: red;">支付成功！</h3>
+    <div class="zhifusuccess">
+    	<a href="${contextPath}/vipOrder">查看我的订单</a>
     </div><!--zhifu/-->
    </div><!--chenggong/-->
   </div><!--cont/-->
