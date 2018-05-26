@@ -142,35 +142,44 @@
      <th width="130">总金额</th>
      <th width="105">操作</th>
     </tr>
-   <c:forEach items="${products}" var="pro">
+   <c:forEach items="${cars}" var="car">
     <tr>
      <td> </td>
      <td colspan="5" style="text-align:left;color:#930; font-weight:bold;">
       <img src="${contextPath}/assets/images/dianpu.gif" width="20" height="15" style="position:relative;top:2px;" />
-      店铺：${pro.product.business}
+      店铺：${car.product.business}
      </td>
     </tr>
     <tr>
-     <td><input type="checkbox" name="productId" value="${pro.product.id}"/></td>
+     <td><input type="checkbox" name="id" value="${car.product.id}"/></td>
      <td>
       <dl>
        <dt><a href="${contextPath}/proinfo"><img src="${contextPath}/assets/images/phone.png" width="85" height="85" /></a></dt>
-       <dd style="font-weight: bolder;">${pro.product.brand} ${pro.product.model} ${pro.product.bodyColor}<br/><br/><span class="red">库存：</span>${pro.product.stock}</dd>
+       <dd style="font-weight: bolder;">${car.product.brand} ${car.product.model} ${car.product.bodyColor}<br/><br/><span class="red">库存：</span>${car.product.stock}</dd>
        <div class="clears"></div>
       </dl>
      </td>
-     <td><strong class="red">￥${pro.product.price}</strong></td>
+     <td><strong class="red">￥${car.product.price}</strong></td>
      <td>
      <div class="jia_jian" style="margin-left: 18px">
-     	<input class="min1" name="${pro.id}" type="button" value="&#8211"/> 
-		<input class="text_box" name="quantity" aa="${pro.id}"type="text" value="${pro.quantity}" style="width:30px;text-align: center"/> 
-		<input class="add1" name="${pro.id}" type="button" value="+"/> 
+<%--    <input id="reduce-number-btn" class="min1" name="${pro.product.id}" type="button" value="&#8211"/>  
+		<input class="text_box" name="quantity" aa="${pro.product.id}"type="text" value="${pro.quantity}" style="width:30px;text-align: center"/> 
+ 		<input id="increase-number-btn" class="add1" name="${pro.product.id}" type="button" value="+"/>  --%>
+		
+		<a href="#" id="reduce-number-btn" class="min1" name="${car.product.id}" 
+		type="button"><img src="${contextPath}/assets/images/jian.jpg" />
+		</a>&nbsp;
+		<input class="text_box" name="quantity" aa="${car.product.id}" 
+		type="text" value="${car.quantity}" style="width:30px;text-align: center;position: relative; top: -8px;"/>&nbsp;
+		<a href="#" id="increase-number-btn" class="add1" name="${car.product.id}" 
+		type="button"><img src="${contextPath}/assets/images/jia.jpg" />
+		</a>
      </div>
      </td>
-     <td><strong class="red">￥${pro.product.price*pro.quantity}</strong></td>
-     <td><a href="#" class="green">收藏</a><br /><a href="${contextPath}/delete/${pro.id}" class="green">删除</a></td>
+     <td><strong class="red">￥${car.product.price*car.quantity}</strong></td>
+     <td><a href="#" class="green">收藏</a><br /><a href="${contextPath}/delete/${car.id}" class="green">删除</a></td>
     </tr>
-    <c:set var="totalPrice" value="${totalPrice+ pro.product.price*pro.quantity}"></c:set>
+    <c:set var="totalPrice" value="${totalPrice+ car.product.price*car.quantity}"></c:set>
     </c:forEach>
    </table><!--orderList/--><br/>
  </div>
@@ -256,9 +265,17 @@
  </div><!--footer/-->
  
  	<form style="display: none;" 
- 		action="batchDelete" method="post" 
- 		id="batch-delete-form">
+ 		action="batchDelete" method="post" id="batch-delete-form">
  		    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+	</form>
+	
+	<form style="display: none;" 
+		action="reduceCar" method="post" id="reduce-number-form">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+	</form>
+	<form style="display: none;" 
+		action="addCar" method="post" id="add-number-form">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	</form>
 </body>
 </html>

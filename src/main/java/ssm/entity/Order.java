@@ -1,5 +1,7 @@
 package ssm.entity;
 
+import java.util.List;
+
 public class Order {
 	private Integer id;
 	private Integer userId; //用户id 

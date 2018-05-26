@@ -34,7 +34,7 @@ public class User {
 	
 	private List<ReceivingAddress> receivingAddress;//收货地址
 	
-	private List<Order> vipOrderList;//vip我的订单
+	private Order vipOrderList;//vip我的订单
 	
 	private Car car;
 	
@@ -45,10 +45,10 @@ public class User {
 		this.car = car;
 	}
 	
-	public List<Order> getVipOrderList() {
+	public Order getVipOrderList() {
 		return vipOrderList;
 	}
-	public void setVipOrderList(List<Order> vipOrderList) {
+	public void setVipOrderList(Order vipOrderList) {
 		this.vipOrderList = vipOrderList;
 	}
 	

@@ -10,6 +10,7 @@ import ssm.entity.Car;
 import ssm.entity.Order;
 import ssm.entity.Product;
 import ssm.entity.ReceivingAddress;
+import ssm.entity.User;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -73,9 +74,9 @@ public class ProductServiceImpl implements ProductService {
 	
 	//批量删除
 	@Override
-	public void batchDelete(List<Integer> productId) {
+	public void batchDelete(List<Integer> productId, User user) {
 		for (Integer productIds : productId) {
-			productDao.batchDelete(productIds);
+			productDao.batchDelete(productIds, user.getId());
 		}
 	}
 	
@@ -90,8 +91,8 @@ public class ProductServiceImpl implements ProductService {
 	public void createOrder(Integer userId, Integer addressId, 
 			List<Integer> productId, Integer quantity) {		
 		for (Integer productIds : productId) {
+			
 			Car car = productDao.findOneCar(userId, productIds);
-			System.err.println(car);
 			productDao.createOrder(userId, addressId, productIds, car.getQuantity());
 		}
 	}
@@ -104,22 +105,26 @@ public class ProductServiceImpl implements ProductService {
 	
 	//增加数量
 	@Override
-	public void addNumber(Integer userId, Integer productId) {
-		productDao.addNumber(userId, productId);
-	}
-	
-	//提交订单后清空购物车
-	@Override
-	public void deleteProduct(List<Integer> productId) {
-		for (Integer productIds : productId) {
-			productDao.deleteProduct(productIds);
-		}
+	public void addNumber(Integer productId) {
+		productDao.addNumber(productId);
 	}
 
 	//删除订单
 	@Override
 	public void deleteOrder(Integer id) {
 		productDao.deleteOrder(id);
+	}
+
+	//通过商品id更新购物车数量
+	@Override
+	public void updateCartNumber(Integer productId, Integer quantity) {
+		productDao.updateCartNumber(productId, quantity);
+	}
+
+	//购物车数量减一
+	@Override
+	public void reduceNumber(Integer quantity) {
+		productDao.reduceNumber(quantity);
 	}
 
 }

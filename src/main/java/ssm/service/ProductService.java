@@ -6,6 +6,7 @@ import ssm.entity.Car;
 import ssm.entity.Order;
 import ssm.entity.Product;
 import ssm.entity.ReceivingAddress;
+import ssm.entity.User;
 
 public interface ProductService {
 
@@ -27,7 +28,7 @@ public interface ProductService {
 
 	void delete(Integer id);
 	
-	void batchDelete(List<Integer> productId);
+	void batchDelete(List<Integer> productId, User user);
 	
 	List<Order> findAllOrders(Integer id);
 
@@ -36,10 +37,12 @@ public interface ProductService {
 	
 	Car findOneCar(Integer userId, Integer productId);
 
-	void addNumber(Integer userId, Integer productId);
-
-	void deleteProduct(List<Integer> productId);
+	void addNumber(Integer productId);
 	
 	void deleteOrder(Integer id);
+
+	void updateCartNumber(Integer productId, Integer quantity);
+
+	void reduceNumber(Integer quantity);
 
 }

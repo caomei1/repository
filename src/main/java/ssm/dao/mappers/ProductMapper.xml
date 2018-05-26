@@ -73,7 +73,7 @@
 	</delete>
 	
 	<delete id="batchDelete" parameterType="Car">
-		delete car where product_id = #{productId}
+		delete car where user_id = #{userId} and product_id = #{productId}
 	</delete>
 	
 	<select id="findAllCar" resultMap="carMap">
@@ -112,12 +112,18 @@
 		 	 #{productId}, '支付宝', sysdate, '等待付款', #{quantity})
 	</insert>
 	
-	<delete id="deleteProduct" parameterType="Car">
-		delete car where product_id = #{productId}
-	</delete>
-	
 	<delete id="deleteOrder" parameterType="Order">
 		delete vip_orderlist where id = #{id}
 	</delete>
+	
+	<update id="updateCartNumber" parameterType="Car">
+		update car set quantity = #{quantity} 
+		where product_id = #{productId}
+	</update>
+	
+	<update id="reduceNumber" parameterType="Car">
+		update car set quantity = quantity-1 
+		where product_id = #{productId}
+	</update>
 	
 </mapper>

@@ -1,7 +1,11 @@
 package ssm.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,6 +15,8 @@ import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 
+import ssm.entity.Order;
+import ssm.entity.User;
 import ssm.service.ProductService;
 
 @Controller
@@ -21,14 +27,25 @@ public class AlipayController {
 	
 	@Autowired
 	private ProductService productService;
-
+	
+	//显示提交订单页
+	@RequestMapping(method = RequestMethod.GET, value = "/success")
+	public String create(Model model, 
+			@AuthenticationPrincipal(expression = "user") User user) {
+		List<Order> orders = productService.findAllOrders(user.getId());
+		model.addAttribute("orders", orders);
+		return "success";
+	}
+	
 	@RequestMapping(method = RequestMethod.POST, value = "/alipay/pay", produces = "text/html; charset=UTF-8")
 	@ResponseBody
-	public String pay() throws AlipayApiException {
+	public String pay(
+			@AuthenticationPrincipal(expression = "user") User user) 
+					throws AlipayApiException {
 		AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();// 创建API对应的request
 		alipayRequest.setReturnUrl("http://paytest.utb.me/alipay/cb/sync"); // 当前端页面完成了支付跳转回商户的地址
 		alipayRequest.setNotifyUrl("http://paytest.utb.me/alipay/cb/async");// 当支付宝服务端确认支付完成时通知的地址
-
+		
 		// 填充业务参数
 		alipayRequest.setBizContent("{" +
 		// 商户订单号
@@ -50,14 +67,14 @@ public class AlipayController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/alipay/cb/sync")
-	public String payOk(@RequestParam(name = "out_trade_no") Integer productId) {
+	public String payOk(@RequestParam(name = "out_trade_no") Integer orderId) {
 		// 当前端支付结束后，浏览器被支付宝跳回到该页面
 		return "pay-ok";
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/alipay/cb/async")
 	@ResponseBody // 响应内容应该是text/plain
-	public String payOkAsync(@RequestParam(name = "out_trade_no") Integer productId) {
+	public String payOkAsync(@RequestParam(name = "out_trade_no") Integer orderId) {
 		// 支付宝系统发给商户的支付结果异步通知，以此为准
 		// 应该把该订单的状态改为"已支付"
 		

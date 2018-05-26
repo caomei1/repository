@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import ssm.entity.Car;
-import ssm.entity.Order;
 import ssm.entity.Product;
 import ssm.entity.ReceivingAddress;
 import ssm.entity.User;
@@ -73,8 +72,8 @@ public class ShoppingController {
 			Model model) {
 		List<ReceivingAddress> address = productService.findAllAddress(user.getId());
 		model.addAttribute("address", address);
-		List<Car> products = productService.findAllCar(user.getId());
-		model.addAttribute("products", products);
+		List<Car> cars = productService.findAllCar(user.getId());
+		model.addAttribute("cars", cars);
 		return "car";
 	}
 	
@@ -100,7 +99,7 @@ public class ShoppingController {
 			model.addAttribute("Success","加入购物车成功");
 		} else {
 			//存在就增加数量
-			productService.addNumber(user.getId(), id);
+			productService.addNumber(id);
 		}
 		return "redirect:/car";
 	}
@@ -114,30 +113,22 @@ public class ShoppingController {
 	
 	//批量删除订单
 	@RequestMapping(method = RequestMethod.POST, value = "/batchDelete")
-	public String batchDelete(@RequestParam List<Integer> productId) {
-		productService.batchDelete(productId);
-		return "redirect:/car";
-	}
-	
-	//显示提交订单页
-	@RequestMapping(method = RequestMethod.GET, value = "/success")
-	public String create(Model model, 
+	public String batchDelete(@RequestParam(name = "id") List<Integer> productId, 
 			@AuthenticationPrincipal(expression = "user") User user) {
-		List<Order> orders = productService.findAllOrders(user.getId());
-		model.addAttribute("orders", orders);
-		return "success";
+		productService.batchDelete(productId, user);
+		return "redirect:/car";
 	}
 	
 	//提交订单
 	@RequestMapping(method = RequestMethod.POST, value = "/success")
 	public String addAddress(@RequestParam Integer addressId, 
-			@RequestParam List<Integer> productId, 
+			@RequestParam(name = "id") List<Integer> id, 
 			@RequestParam Integer quantity, Model model, 
 			@AuthenticationPrincipal(expression = "user") User user){
 		//订单创建
-		productService.createOrder(user.getId(), addressId, productId, quantity);
+		productService.createOrder(user.getId(), addressId, id, quantity);
 		//提交订单后清空购物车
-		productService.deleteProduct(productId);
+		productService.batchDelete(id, user);
 		model.addAttribute("Success","提交订单成功");
 		return "redirect:/success";
 	}
@@ -147,6 +138,28 @@ public class ShoppingController {
 	public String deleteOrder(@PathVariable Integer id) {
 		productService.deleteOrder(id);
 		return "redirect:/vipOrder";
+	}
+	
+	//通过商品id更新购物车数量
+	@RequestMapping(method = RequestMethod.POST, value = "/updateCar")
+	public String updateCartNumber(@PathVariable Integer productId, 
+			@PathVariable Integer quantity) {
+		productService.updateCartNumber(productId, quantity);
+		return "car";
+	}
+	
+	//购物车数量减一
+	@RequestMapping(method = RequestMethod.POST, value = "/reduceCar")
+	public String reduceCarNumber(@PathVariable Integer quantity) {
+		productService.reduceNumber(quantity);
+		return "car";
+	}
+	
+	//购物车数量加一
+	@RequestMapping(method = RequestMethod.POST, value = "/addCar")
+	public String addCarNumber(@PathVariable Integer id) {
+		productService.addNumber(id);
+		return "car";
 	}
 	
 }

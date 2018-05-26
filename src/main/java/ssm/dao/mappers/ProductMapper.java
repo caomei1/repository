@@ -27,11 +27,13 @@ public interface ProductMapper {
 
 	List<Car> findAllCar(Integer id);
 
-	void addToCart(@Param(value="userId")Integer userId, @Param(value="productId")Integer id);
+	void addToCart(@Param(value="userId")Integer userId, 
+			@Param(value="productId")Integer id);
 
 	void delete(Integer id);
 	
-	void batchDelete(@Param(value="productId")Integer productIds);
+	void batchDelete(@Param(value="productId")Integer productIds, 
+			@Param(value="userId") Integer userId);
 	
 	List<Order> findAllOrders(Integer id);
 
@@ -43,11 +45,13 @@ public interface ProductMapper {
 	Car findOneCar(@Param(value="userId")Integer userId, 
 			@Param(value="productId")Integer productId);
 	
-	void addNumber(@Param(value="productId")Integer userId, 
-			@Param(value="productId")Integer productId);
-	
-	void deleteProduct(@Param("productId")Integer productIds);
+	void addNumber(Integer productId);
 
 	void deleteOrder(Integer id);
+
+	void updateCartNumber(@Param("productId")Integer productId, 
+			@Param(value="quantity")Integer quantity);
+
+	void reduceNumber(Integer quantity);
 
 }

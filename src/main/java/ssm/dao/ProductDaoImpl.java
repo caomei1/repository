@@ -63,8 +63,8 @@ public class ProductDaoImpl implements ProductDao {
 	}
 	
 	@Override
-	public void batchDelete(Integer productIds) {
-		productMapper.batchDelete(productIds);
+	public void batchDelete(Integer productIds, Integer userId) {
+		productMapper.batchDelete(productIds, userId);
 	}
 
 	@Override
@@ -84,18 +84,23 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public void addNumber(Integer userId, Integer productId) {
-		productMapper.addNumber(userId, productId);
-	}
-	
-	@Override
-	public void deleteProduct(Integer productIds) {
-		productMapper.deleteProduct(productIds);
+	public void addNumber(Integer productId) {
+		productMapper.addNumber(productId);
 	}
 
 	@Override
 	public void deleteOrder(Integer id) {
 		productMapper.deleteOrder(id);
+	}
+
+	@Override
+	public void updateCartNumber(Integer productId, Integer quantity) {
+		productMapper.updateCartNumber(productId, quantity);
+	}
+
+	@Override
+	public void reduceNumber(Integer quantity) {
+		productMapper.reduceNumber(quantity);
 	}
 
 }

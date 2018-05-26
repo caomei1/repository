@@ -1,6 +1,6 @@
 //全选框
 function checkAll(checkall) {
-	arr = document.getElementsByName('productId');
+	arr = document.getElementsByName('id');
 	if (checkall.checked == true) {
 		for (i = 0; i < arr.length; i++) {
 
@@ -49,7 +49,7 @@ $(document).ready(function(){
 //批量删除
 $('#batch-delete-btn').click(function() {
 	console.log('batch delete...');
-	var checkedProdIds = $('input[type=checkbox][name=productId]')
+	var checkedProdIds = $('input[type=checkbox][name=id]')
 	.filter(function() {
 		return this.checked;
 		});
@@ -63,12 +63,12 @@ $('#batch-delete-btn').click(function() {
 //表单必须选地址和商品才能提交
 $('#Immediate-settlement').submit(function() {
 	if ($('input[name=addressId]:checked', this).val() && 
-			$('input[name=productId]:checked', this).val()) {
+			$('input[name=id]:checked', this).val()) {
 		return true;
 	} else if ($('input[name=addressId]:checked', this).val()) {
 		alert('请选择要购买的商品');
 		return false;
-	} else if ($('input[name=productId]:checked', this).val()) {
+	} else if ($('input[name=id]:checked', this).val()) {
 		alert('请选择收货地址');
 		return false;
 	} else {
