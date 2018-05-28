@@ -121,10 +121,22 @@ public class ProductServiceImpl implements ProductService {
 		productDao.updateCartNumber(productId, quantity);
 	}
 
-	//购物车数量减一
+	//减少购物车数量
 	@Override
-	public void reduceNumber(Integer quantity) {
-		productDao.reduceNumber(quantity);
+	public void reduceCarNumber(Integer id) {
+		productDao.reduceCarNumber(id);
+	}
+
+	//增加购物车数量
+	@Override
+	public void addCarNumber(Integer id) {
+		productDao.addCarNumber(id);
+	}
+
+	//通过购物车id查询
+	@Override
+	public Car findCarId(Integer id) {
+		return productDao.findCarId(id);
 	}
 
 }

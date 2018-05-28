@@ -43,6 +43,10 @@ public interface ProductDao {
 
 	void updateCartNumber(Integer productId, Integer quantity);
 
-	void reduceNumber(Integer quantity);
+	void reduceCarNumber(Integer id);
+
+	void addCarNumber(Integer id);
+
+	Car findCarId(Integer id);
 	
 }

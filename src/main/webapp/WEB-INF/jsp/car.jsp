@@ -162,21 +162,15 @@
      <td><strong class="red">￥${car.product.price}</strong></td>
      <td>
      <div class="jia_jian" style="margin-left: 18px">
-<%--    <input id="reduce-number-btn" class="min1" name="${pro.product.id}" type="button" value="&#8211"/>  
-		<input class="text_box" name="quantity" aa="${pro.product.id}"type="text" value="${pro.quantity}" style="width:30px;text-align: center"/> 
- 		<input id="increase-number-btn" class="add1" name="${pro.product.id}" type="button" value="+"/>  --%>
-		
-		<a href="#" id="reduce-number-btn" class="min1" name="${car.product.id}" 
-		type="button"><img src="${contextPath}/assets/images/jian.jpg" />
-		</a>&nbsp;
-		<input class="text_box" name="quantity" aa="${car.product.id}" 
-		type="text" value="${car.quantity}" style="width:30px;text-align: center;position: relative; top: -8px;"/>&nbsp;
-		<a href="#" id="increase-number-btn" class="add1" name="${car.product.id}" 
-		type="button"><img src="${contextPath}/assets/images/jia.jpg" />
-		</a>
+		<img src="${contextPath}/assets/images/jian.jpg" width="21" height="25" 
+		class="jian" name="${car.id}" />
+		<input type="text" class="shuliang" value="${car.quantity}" 
+		name="quantity" aa="${car.id}"/>
+		<img src="${contextPath}/assets/images/jia.jpg" width="21" height="25" 
+		class="jia" name="${car.id}"/>
      </div>
      </td>
-     <td><strong class="red">￥${car.product.price*car.quantity}</strong></td>
+     <td><strong class="red" name="${car.id}" >￥${car.product.price*car.quantity}</strong></td>
      <td><a href="#" class="green">收藏</a><br /><a href="${contextPath}/delete/${car.id}" class="green">删除</a></td>
     </tr>
     <c:set var="totalPrice" value="${totalPrice+ car.product.price*car.quantity}"></c:set>
@@ -189,7 +183,7 @@
     
    <div class="zongji">
     <strong>所需运费：</strong>￥0.00&nbsp;&nbsp;
-    <strong>总计(不含运费)：</strong><strong class="red">￥${totalPrice}</strong>
+    <strong>总计(不含运费)：</strong><strong class="red" name="all">￥${totalPrice}</strong>
    </div><!--zongji/-->
    <div class="jiesuan">
     <a href="${contextPath}/prolist" class="jie_1">继续购物&gt;&gt;</a>
@@ -269,13 +263,5 @@
  		    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	</form>
 	
-	<form style="display: none;" 
-		action="reduceCar" method="post" id="reduce-number-form">
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-	</form>
-	<form style="display: none;" 
-		action="addCar" method="post" id="add-number-form">
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-	</form>
 </body>
 </html>

@@ -52,6 +52,10 @@ public interface ProductMapper {
 	void updateCartNumber(@Param("productId")Integer productId, 
 			@Param(value="quantity")Integer quantity);
 
-	void reduceNumber(Integer quantity);
+	void reduceCarNumber(Integer id);
+
+	void addCarNumber(Integer id);
+
+	Car findCarId(Integer id);
 
 }

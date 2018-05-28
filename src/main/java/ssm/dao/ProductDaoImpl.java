@@ -99,8 +99,18 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public void reduceNumber(Integer quantity) {
-		productMapper.reduceNumber(quantity);
+	public void reduceCarNumber(Integer id) {
+		productMapper.reduceCarNumber(id);
+	}
+
+	@Override
+	public void addCarNumber(Integer id) {
+		productMapper.addCarNumber(id);
+	}
+
+	@Override
+	public Car findCarId(Integer id) {
+		return productMapper.findCarId(id);
 	}
 
 }

@@ -121,9 +121,23 @@
 		where product_id = #{productId}
 	</update>
 	
-	<update id="reduceNumber" parameterType="Car">
+	<update id="reduceCarNumber" parameterType="Car">
 		update car set quantity = quantity-1 
-		where product_id = #{productId}
+		where id = #{id}
 	</update>
+	
+	<update id="addCarNumber" parameterType="Car">
+		update car set quantity = quantity+1 
+		where id = #{id}
+	</update>
+	
+	<select id="findCarId" resultMap="carMap1">
+		select c.id car_id, c.quantity car_quantity, 
+		 p.id product_id, p.brand product_brand, p.model product_model, 
+		 p.body_color product_color, p.price product_price, 
+		 p.business product_business 
+		from car c inner join product p on c.product_id = p.id 
+		where c.id = #{id}
+	</select>
 	
 </mapper>

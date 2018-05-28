@@ -18,33 +18,61 @@ function checkAll(checkall) {
 	}
 }
 
-
 //数量加减
-$(document).ready(function(){
-	//获得文本框对象
-	var t = $("#text_box");
-	//初始化数量,并失效减
-	/* $('.min1').attr('disabled',true); */
-	 //数量增加操作
-	 $(".add1").click(function(){ 
-	  // 给获取的val加上绝对值，避免出现负数
-	  var id = $(this).attr("name");
-	  $(".text_box[aa='"+id+"']").val(Math.abs(parseInt( $(".text_box[aa='"+id+"']").val()))+1);
-	  /* t.val(Math.abs(parseInt(t.val()))+1); */
-	  if (parseInt(t.val())!=1){
-	  $('.min1').attr('disabled',false);
-	  };
-	 }) 
-	 //数量减少操作
-	 $(".min1").click(function(){
-	  var id = $(this).attr("name");
-	/*  t.val(Math.abs(parseInt(t.val()))-1); */
-	 if (parseInt($(".text_box[aa='"+id+"']").val())<=2){
-	 $(".min1[name='"+id+"']").attr('disabled',true);
-	 };if (parseInt($(".text_box[aa='"+id+"']").val())>=2){
-	   $(".text_box[aa='"+id+"']").val(Math.abs(parseInt( $(".text_box[aa='"+id+"']").val()))-1);
-	 }
-	 })
+$(function(){
+/*	// 获取meta中的csrf token
+	var token = $("meta[name='_csrf']").attr("content");
+	var header = $("meta[name='_csrf_header']").attr("content");
+	// 将token作为请求头发送
+	var headers = {};
+	headers[header] = token;*/
+	$(".jian").click(function(){
+		var id1 = $(this).attr("name");
+		if ($(".shuliang[aa='"+id1+"']").val() < 2) {
+			alert('删除');
+			return true;
+		} else {
+			console.log($(".shuliang[aa='"+id1+"']").val());
+			$.ajax({			
+				url:"/MobileShopping/reduceCar",
+				type:"GET",
+				data:{id:id1,quantity:$(".shuliang[aa='"+id1+"']").val()},
+				success:function(car){
+					console.log($("strong.red[name='"+id1+"']")[0]);	
+				if(!car){
+						$(".car"+id1).remove();
+					}else{
+//						console.log($(".shuliang").val());
+//						console.log(parseInt(($("strong.red[name='"+id1+"']")[0].innerHTML).substr(1)));
+//						console.log($("."+id1+"").val());
+						
+						$(".shuliang[aa='"+id1+"']").val(car.quantity);
+						$("strong.red[name='"+id1+"']")[0].innerHTML="￥"+(car.product.price * car.quantity);
+						$("strong.red[name='all']")[0].innerHTML="￥"+(parseInt(($("strong.red[name='all']")[0].innerHTML).substr(1))-car.product.price);
+					}
+				},
+			});
+			return false;
+		}
+		
+	});
+	
+	$(".jia").click(function(){
+		var id1 = $(this).attr("name");
+	    $.ajax({
+			url:"/MobileShopping/addCar",
+			type:"GET",
+			data:{id:id1,goodscount:$(".shuliang[aa='"+id1+"']").val()},
+		success:function(car){
+			/*console.log(carStr);
+			console.log($(".shuliang[name='"+id1+"']"));
+			console.log($("strong.red[name='"+id1+"']")[0]);*/
+		$(".shuliang[aa='"+id1+"']").val(car.quantity);
+		$("strong.red[name='"+id1+"']")[0].innerHTML="￥"+(car.product.price * car.quantity);
+		$("strong.red[name='all']")[0].innerHTML="￥"+(parseInt(($("strong.red[name='all']")[0].innerHTML).substr(1))+parseInt(car.product.price));
+					}
+				});
+		});
 	 
 //批量删除
 $('#batch-delete-btn').click(function() {
