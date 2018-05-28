@@ -33,8 +33,8 @@ public class ProductDaoImpl implements ProductDao {
 	}
 	
 	@Override
-	public void allTocar(Integer userId, Integer productId, Integer quantity) {
-		productMapper.allTocar(userId, productId, quantity);
+	public void addOriginal(Integer userId, Integer productId, Integer quantity) {
+		productMapper.addOriginal(userId, productId, quantity);
 	}
 	
 	@Override
@@ -91,11 +91,6 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public void deleteOrder(Integer id) {
 		productMapper.deleteOrder(id);
-	}
-
-	@Override
-	public void updateCartNumber(Integer productId, Integer quantity) {
-		productMapper.updateCartNumber(productId, quantity);
 	}
 
 	@Override

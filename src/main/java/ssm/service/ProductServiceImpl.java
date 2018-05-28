@@ -18,13 +18,13 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductDao productDao;
 
-	//增加产品
+	//添加产品
 	@Override
 	public void addProduct(Product product) {
 		productDao.addProduct(product);
 	}
 
-	//查询所有产品
+	//查询所有商品
 	@Override
 	public List<Product> findAllProduct() {
 		return productDao.findAllProduct();
@@ -36,10 +36,10 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.findOneProduct(id);
 	}
 	
-	//商品详情页多个数量加入购物车
+	//商品详情页-增加购物车原有的商品数量
 	@Override
-	public void allTocar(Integer userId, Integer productId, Integer quantity) {
-		productDao.allTocar(userId, productId, quantity);
+	public void addOriginal(Integer userId, Integer productId, Integer quantity) {
+		productDao.addOriginal(userId, productId, quantity);
 	}
 	
 	//通过用户id查询地址
@@ -66,7 +66,7 @@ public class ProductServiceImpl implements ProductService {
 		productDao.addToCart(userId, id);
 	}
 
-	//通过id删除商品
+	//通过购物车id删除商品
 	@Override
 	public void delete(Integer id) {
 		productDao.delete(id);
@@ -91,13 +91,12 @@ public class ProductServiceImpl implements ProductService {
 	public void createOrder(Integer userId, Integer addressId, 
 			List<Integer> productId, Integer quantity) {		
 		for (Integer productIds : productId) {
-			
 			Car car = productDao.findOneCar(userId, productIds);
 			productDao.createOrder(userId, addressId, productIds, car.getQuantity());
 		}
 	}
 	
-	//查询指定商品id
+	//通过用户id，商品id查询到指定商品
 	@Override
 	public Car findOneCar(Integer userId, Integer productId) {
 		return productDao.findOneCar(userId, productId);
@@ -109,16 +108,10 @@ public class ProductServiceImpl implements ProductService {
 		productDao.addNumber(productId);
 	}
 
-	//删除订单
+	//删除我的订单
 	@Override
 	public void deleteOrder(Integer id) {
 		productDao.deleteOrder(id);
-	}
-
-	//通过商品id更新购物车数量
-	@Override
-	public void updateCartNumber(Integer productId, Integer quantity) {
-		productDao.updateCartNumber(productId, quantity);
 	}
 
 	//减少购物车数量
@@ -133,7 +126,7 @@ public class ProductServiceImpl implements ProductService {
 		productDao.addCarNumber(id);
 	}
 
-	//通过购物车id查询
+	//通过购物车id查询商品
 	@Override
 	public Car findCarId(Integer id) {
 		return productDao.findCarId(id);

@@ -17,7 +17,7 @@ public interface ProductMapper {
 
 	Product findOneProduct(Integer id);
 	
-	void allTocar(@Param(value="userId")Integer userId, 
+	void addOriginal(@Param(value="userId")Integer userId, 
 			@Param(value="productId")Integer productId, 
 			@Param(value="quantity")Integer quantity);
 	
@@ -48,9 +48,6 @@ public interface ProductMapper {
 	void addNumber(Integer productId);
 
 	void deleteOrder(Integer id);
-
-	void updateCartNumber(@Param("productId")Integer productId, 
-			@Param(value="quantity")Integer quantity);
 
 	void reduceCarNumber(Integer id);
 

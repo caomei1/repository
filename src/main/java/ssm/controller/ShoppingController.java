@@ -58,13 +58,21 @@ public class ShoppingController {
 		return "buyinfo";
 	}
 	
-	//商品详情页多个数量加入购物车
-	@RequestMapping(method = RequestMethod.GET, value = "/allTocar/{id}")
-	public String addToCar1(@PathVariable Integer productId,
+	//商品详情页-加入购物车
+	@RequestMapping(method = RequestMethod.GET, value = "/addCart/{id}/{quantity}")
+	public String AddCart(@PathVariable Integer id, 
 			@PathVariable Integer quantity, Model model, 
 			@AuthenticationPrincipal(expression = "user") User user) {
-		productService.allTocar(user.getId(), productId, quantity);
-		model.addAttribute("Success","加入购物车成功");
+		//查询到指定商品id
+		Car car = productService.findOneCar(user.getId(), id);
+		//判断商品 如果不存在则添加
+		if(car == null){
+			productService.addToCart(user.getId(), id);
+			model.addAttribute("Success","加入购物车成功");
+		} else {
+			//若存在就在原有的数量上增加
+			productService.addOriginal(user.getId(), id, quantity);
+			}
 		return "redirect:/car";
 	}
 	
@@ -100,7 +108,7 @@ public class ShoppingController {
 			productService.addToCart(user.getId(), id);
 			model.addAttribute("Success","加入购物车成功");
 		} else {
-			//存在就增加数量
+			//存在数量就增加一
 			productService.addNumber(id);
 		}
 		return "redirect:/car";
@@ -142,20 +150,12 @@ public class ShoppingController {
 		return "redirect:/vipOrder";
 	}
 	
-	//通过商品id更新购物车数量
-	@RequestMapping(method = RequestMethod.POST, value = "/updateCar")
-	public String updateCartNumber(@PathVariable Integer productId, 
-			@PathVariable Integer quantity) {
-		productService.updateCartNumber(productId, quantity);
-		return "car";
-	}
-	
 	//减少购物车数量
 	@RequestMapping(method = RequestMethod.GET, value = "/reduceCar")
 	@ResponseBody
 	public Car reduceCarNumber(@RequestParam Integer id) { 
 		productService.reduceCarNumber(id);
-		//通过购物车id查询
+		//通过购物车id查询商品
 		Car car = productService.findCarId(id);
 		return car;
 	}

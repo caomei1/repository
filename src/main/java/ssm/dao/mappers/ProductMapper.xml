@@ -17,13 +17,14 @@
 	</select>
 	
 	<select id="findOneProduct" resultType="Product">
-		select * from product where id = #{id}
+		select * from product 
+		where id = #{id}
 	</select>
 	
-	<insert id="allTocar" parameterType="Car">
-		insert into car(id, user_id, product_id, quantity) 
-		values(car_seq.nextval, #{userId}, #{productId}, #{quantity})
-	</insert>
+	<update id="addOriginal" parameterType="Car">
+		update car set quantity =  quantity + #{quantity} 
+		where user_id = #{userId} and product_id = #{productId}
+	</update>
 	
 	<select id="findAllAddress" resultType="ReceivingAddress">
 		select * from receiving_address 
@@ -115,11 +116,6 @@
 	<delete id="deleteOrder" parameterType="Order">
 		delete vip_orderlist where id = #{id}
 	</delete>
-	
-	<update id="updateCartNumber" parameterType="Car">
-		update car set quantity = #{quantity} 
-		where product_id = #{productId}
-	</update>
 	
 	<update id="reduceCarNumber" parameterType="Car">
 		update car set quantity = quantity-1 

@@ -18,7 +18,7 @@ function checkAll(checkall) {
 	}
 }
 
-//数量加减
+//购物车数量加减
 $(function(){
 /*	// 获取meta中的csrf token
 	var token = $("meta[name='_csrf']").attr("content");
@@ -28,31 +28,30 @@ $(function(){
 	headers[header] = token;*/
 	$(".jian").click(function(){
 		var id1 = $(this).attr("name");
-		if ($(".shuliang[aa='"+id1+"']").val() < 2) {
-			alert('删除');
-			return true;
-		} else {
-			console.log($(".shuliang[aa='"+id1+"']").val());
+		if ($(".shuliang[aa='"+id1+"']").val() >1 ) {
+			console.log($(".shuliang[aa='"+id1+"']").val()-1);
 			$.ajax({			
 				url:"/MobileShopping/reduceCar",
 				type:"GET",
 				data:{id:id1,quantity:$(".shuliang[aa='"+id1+"']").val()},
 				success:function(car){
-					console.log($("strong.red[name='"+id1+"']")[0]);	
-				if(!car){
-						$(".car"+id1).remove();
-					}else{
+//					console.log($("strong.red[name='"+id1+"']")[0]);	
+//				if(!car){
+//						$(".car"+id1).remove();
+//					}else{
 //						console.log($(".shuliang").val());
 //						console.log(parseInt(($("strong.red[name='"+id1+"']")[0].innerHTML).substr(1)));
 //						console.log($("."+id1+"").val());
 						
 						$(".shuliang[aa='"+id1+"']").val(car.quantity);
-						$("strong.red[name='"+id1+"']")[0].innerHTML="￥"+(car.product.price * car.quantity);
-						$("strong.red[name='all']")[0].innerHTML="￥"+(parseInt(($("strong.red[name='all']")[0].innerHTML).substr(1))-car.product.price);
-					}
+						$("strong.red[name='"+id1+"']")[0].innerHTML="￥"+(car.product.price * car.quantity)+".0";
+						$("strong.red[name='all']")[0].innerHTML="￥"+(parseInt(($("strong.red[name='all']")[0].innerHTML).substr(1))-car.product.price)+".0";
+//					}
 				},
 			});
 			return false;
+		} else {
+			return true;
 		}
 		
 	});
@@ -68,8 +67,8 @@ $(function(){
 			console.log($(".shuliang[name='"+id1+"']"));
 			console.log($("strong.red[name='"+id1+"']")[0]);*/
 		$(".shuliang[aa='"+id1+"']").val(car.quantity);
-		$("strong.red[name='"+id1+"']")[0].innerHTML="￥"+(car.product.price * car.quantity);
-		$("strong.red[name='all']")[0].innerHTML="￥"+(parseInt(($("strong.red[name='all']")[0].innerHTML).substr(1))+parseInt(car.product.price));
+		$("strong.red[name='"+id1+"']")[0].innerHTML="￥"+(car.product.price * car.quantity+".0");
+		$("strong.red[name='all']")[0].innerHTML="￥"+(parseInt(($("strong.red[name='all']")[0].innerHTML).substr(1))+parseInt(car.product.price)+".0");
 					}
 				});
 		});
@@ -105,6 +104,14 @@ $('#Immediate-settlement').submit(function() {
 	}
 });
 
+//把商品当前的数量传入购物车
+$(".buy-gou").click(function(){
+	var shuliang = $("#qty_item_1").val();
+	var aURL = $(this).attr("href");
+	console.log(aURL);
+	console.log(shuliang);
+	$(this).attr("href",aURL+"/"+shuliang);
+});
 
 
 });

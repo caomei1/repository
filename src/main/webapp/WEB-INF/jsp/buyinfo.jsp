@@ -13,6 +13,7 @@
 <script type="text/javascript" src="${contextPath}/assets/js/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
 <script type="text/javascript" src="${contextPath}/assets/js/payfor.js"></script>
+<script type="text/javascript" src="${contextPath}/assets/js/items.js"></script>
 </head>
 
 <body>
@@ -145,8 +146,8 @@
      </tr>
     </table><!--buyTable/-->
     <div class="goumai">
-     <a href="${contextPath}/allTocar/${proOne.id}" class="buy-gou">立即购买</a>
-     <a href="${contextPath}/allTocar/${proOne.id}" class="buy-mai">加入购物车</a>
+     <a href="${contextPath}/addCart/${proOne.id}" class="buy-gou">立即购买</a>
+     <a href="${contextPath}/addCart/${proOne.id}" class="buy-gou">加入购物车</a>
     </div><!--goumai/-->
    </div><!--buyDtlRight/-->
    <div class="clears"></div>

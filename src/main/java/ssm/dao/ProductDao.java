@@ -6,7 +6,6 @@ import ssm.entity.Car;
 import ssm.entity.Order;
 import ssm.entity.Product;
 import ssm.entity.ReceivingAddress;
-import ssm.entity.User;
 
 public interface ProductDao {
 
@@ -16,7 +15,7 @@ public interface ProductDao {
 
 	Product findOneProduct(Integer id);
 	
-	void allTocar(Integer userId, Integer productId, Integer quantity);
+	void addOriginal(Integer userId, Integer productId, Integer quantity);
 	
 	List<ReceivingAddress> findAllAddress(Integer id);
 	
@@ -40,8 +39,6 @@ public interface ProductDao {
 	void addNumber(Integer productId);
 
 	void deleteOrder(Integer id);
-
-	void updateCartNumber(Integer productId, Integer quantity);
 
 	void reduceCarNumber(Integer id);
 
