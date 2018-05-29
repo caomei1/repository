@@ -72,9 +72,9 @@ public class ShoppingController {
 			@AuthenticationPrincipal(expression = "user") User user) {
 		//查询到指定商品id
 		Car car = productService.findOneCar(user.getId(), id);
-		//判断商品 如果不存在则添加
+		//判断商品 如果不存在则添加当前选择的数量
 		if(car == null){
-			productService.addToCart(user.getId(), id);
+			productService.addToAllCart(user.getId(), id, quantity);
 			model.addAttribute("Success","加入购物车成功");
 		} else {
 			//若存在就在原有的数量上增加

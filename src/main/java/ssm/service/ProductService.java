@@ -49,4 +49,6 @@ public interface ProductService {
 
 	List<Product> findAllProductDesc();
 
+	void addToAllCart(Integer userId, Integer productId, Integer quantity);
+
 }

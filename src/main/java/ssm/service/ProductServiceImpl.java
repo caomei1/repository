@@ -138,4 +138,10 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.findAllProductDesc();
 	}
 
+	@Override
+	public void addToAllCart(Integer userId, Integer productId, 
+			Integer quantity) {
+		productDao.addToAllCart(userId, productId, quantity);
+	}
+
 }

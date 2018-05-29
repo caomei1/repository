@@ -57,4 +57,8 @@ public interface ProductMapper {
 
 	List<Product> findAllProductDesc();
 
+	void addToAllCart(@Param(value="userId")Integer userId, 
+			@Param(value="productId")Integer productId, 
+			@Param(value="quantity")Integer quantity);
+
 }

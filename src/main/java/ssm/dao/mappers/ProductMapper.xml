@@ -140,4 +140,9 @@
 		where c.id = #{id}
 	</select>
 	
+	<insert id="addToAllCart" parameterType="Car">
+		insert into car(id, user_id, product_id, quantity) 
+		values(car_seq.nextval, #{userId}, #{productId}, #{quantity})
+	</insert>
+	
 </mapper>

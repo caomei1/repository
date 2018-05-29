@@ -113,4 +113,10 @@ public class ProductDaoImpl implements ProductDao {
 		return productMapper.findAllProductDesc();
 	}
 
+	@Override
+	public void addToAllCart(Integer userId, Integer productId, 
+			Integer quantity) {
+		productMapper.addToAllCart(userId, productId, quantity);
+	}
+
 }
