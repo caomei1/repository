@@ -55,4 +55,6 @@ public interface ProductMapper {
 
 	Car findCarId(Integer id);
 
+	List<Product> findAllProductDesc();
+
 }

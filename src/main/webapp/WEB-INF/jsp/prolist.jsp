@@ -477,10 +477,10 @@
   </table><!--proDSel/-->
   <div style="height:15px;">&nbsp;</div>
   <ul class="proSelect">
-   <li>综合</li>
+   <a href="${contextPath}/prolist"><li>综合</li></a>
    <li>销量 ↑</li>
    <li>评论 ↑</li>
-   <li>价格 ↑</li>
+   <a href="${contextPath}/prolist/desc"><li>价格 ↑</li></a>
    <div class="clears"></div>
   </ul><!--proSelect/-->
   

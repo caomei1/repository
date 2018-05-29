@@ -108,4 +108,9 @@ public class ProductDaoImpl implements ProductDao {
 		return productMapper.findCarId(id);
 	}
 
+	@Override
+	public List<Product> findAllProductDesc() {
+		return productMapper.findAllProductDesc();
+	}
+
 }

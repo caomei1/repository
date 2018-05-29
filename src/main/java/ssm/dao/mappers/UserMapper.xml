@@ -65,7 +65,7 @@
 		  p.id product_id, p.price product_price 
 		from vip_orderlist v join receiving_address r on v.address_id = r.id 
 		  join product p on v.product_id = p.id 
-		where v.user_id = #{userId}
+		where v.user_id = #{userId} order by v.creation_time desc
 	</select>
 	<resultMap type="Order" id="orderMap">
 		<id property="id" column="order_id"/>

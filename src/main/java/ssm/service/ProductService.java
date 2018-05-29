@@ -47,4 +47,6 @@ public interface ProductService {
 
 	Car findCarId(Integer id);
 
+	List<Product> findAllProductDesc();
+
 }

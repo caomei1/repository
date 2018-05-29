@@ -132,4 +132,10 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.findCarId(id);
 	}
 
+	//价格排序
+	@Override
+	public List<Product> findAllProductDesc() {
+		return productDao.findAllProductDesc();
+	}
+
 }

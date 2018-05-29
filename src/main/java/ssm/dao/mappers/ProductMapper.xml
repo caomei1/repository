@@ -16,6 +16,10 @@
 		select * from product
 	</select>
 	
+	<select id="findAllProductDesc" resultType="Product">
+		select * from product order by price desc
+	</select>
+	
 	<select id="findOneProduct" resultType="Product">
 		select * from product 
 		where id = #{id}
@@ -84,7 +88,7 @@
 		  p.model product_model, p.body_color product_bodyColor, 
 		  c.id car_id, c.quantity car_quantity 
 		from car c inner join product p on c.product_id = p.id 
-		 where c.user_id = #{id}
+		 where c.user_id = #{id} order by c.id desc
 	</select>
 	<resultMap type="Car" id="carMap">
 		<id property="id" column="car_id"/>

@@ -44,13 +44,14 @@ $(function(){
 //						console.log($("."+id1+"").val());
 						
 						$(".shuliang[aa='"+id1+"']").val(car.quantity);
-						$("strong.red[name='"+id1+"']")[0].innerHTML="￥"+(car.product.price * car.quantity)+".0";
-						$("strong.red[name='all']")[0].innerHTML="￥"+(parseInt(($("strong.red[name='all']")[0].innerHTML).substr(1))-car.product.price)+".0";
+						$("strong.red[name='"+id1+"']")[0].innerHTML="￥"+(car.product.price * car.quantity).toFixed(1);
+						$("strong.red[name='all']")[0].innerHTML="￥"+(parseInt(($("strong.red[name='all']")[0].innerHTML).substr(1))-car.product.price).toFixed(1);
 //					}
 				},
 			});
 			return false;
 		} else {
+			alert('数量最小为1!');
 			return true;
 		}
 		
@@ -67,8 +68,8 @@ $(function(){
 			console.log($(".shuliang[name='"+id1+"']"));
 			console.log($("strong.red[name='"+id1+"']")[0]);*/
 		$(".shuliang[aa='"+id1+"']").val(car.quantity);
-		$("strong.red[name='"+id1+"']")[0].innerHTML="￥"+(car.product.price * car.quantity+".0");
-		$("strong.red[name='all']")[0].innerHTML="￥"+(parseInt(($("strong.red[name='all']")[0].innerHTML).substr(1))+parseInt(car.product.price)+".0");
+		$("strong.red[name='"+id1+"']")[0].innerHTML="￥"+(car.product.price * car.quantity).toFixed(1);
+		$("strong.red[name='all']")[0].innerHTML="￥"+(parseInt(($("strong.red[name='all']")[0].innerHTML).substr(1))+parseInt(car.product.price)).toFixed(1);
 					}
 				});
 		});
@@ -115,3 +116,5 @@ $(".buy-gou").click(function(){
 
 
 });
+
+

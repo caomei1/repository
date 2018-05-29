@@ -13,7 +13,6 @@
 <script type="text/javascript" src="${contextPath}/assets/js/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="${contextPath}/assets/js/js.js"></script>
 <script type="text/javascript" src="${contextPath}/assets/js/items.js"></script>
-
 </head>
 <body>
 
@@ -123,7 +122,7 @@
      <td width="33%">
       <input type="radio" name="addressId" value="${Address.id}" /> ${Address.consignee}
      </td>
-     <td width="54%">
+     <td width="53%">
       ${Address.whereCity}, ${Address.streetAddress}, ${Address.postalCode}, ${Address.phoneNumber}
      </td>
      <td>
@@ -132,16 +131,18 @@
     </tr>
     </c:forEach>
    </table><!--ord/-->
- <div>
- 	<table class="orderList">
-    <tr>
-     <th width="20"><input type="checkbox" name="checkall" onclick="checkAll(checkall)"/></th>
-     <th width="450">商品</th>
+   <table>
+   	<tr>
+     <th width="25"><input type="checkbox" name="checkall" onclick="checkAll(checkall)"/></th>
+     <th width="445">商品</th>
      <th width="130">单价</th>
      <th width="130">数量</th>
      <th width="130">总金额</th>
      <th width="105">操作</th>
     </tr>
+   </table>
+ <div style="height: 320px; width:980px ;overflow: scroll;">
+ 	<table class="orderList">
    <c:forEach items="${cars}" var="car">
     <tr>
      <td> </td>
@@ -151,27 +152,27 @@
      </td>
     </tr>
     <tr>
-     <td><input type="checkbox" name="id" value="${car.product.id}"/></td>
-     <td>
+     <td width="20"><input type="checkbox" name="id" value="${car.product.id}"/></td>
+     <td width="450">
       <dl>
        <dt><a href="${contextPath}/proinfo"><img src="${contextPath}/assets/images/phone.png" width="85" height="85" /></a></dt>
        <dd style="font-weight: bolder;">${car.product.brand} ${car.product.model} ${car.product.bodyColor}<br/><br/><span class="red">库存：</span>${car.product.stock}</dd>
        <div class="clears"></div>
       </dl>
      </td>
-     <td><strong class="red">￥${car.product.price}</strong></td>
-     <td>
+     <td width="115"><strong class="red">￥${car.product.price}</strong></td>
+     <td width="115">
      <div class="jia_jian" style="margin-left: 18px">
 		<img src="${contextPath}/assets/images/jian.jpg" width="21" height="25" 
 		class="jian" name="${car.id}" />
 		<input type="text" class="shuliang" value="${car.quantity}" 
-		name="quantity" aa="${car.id}"/>
+		name="quantity" aa="${car.id}" id=""/>
 		<img src="${contextPath}/assets/images/jia.jpg" width="21" height="25" 
 		class="jia" name="${car.id}"/>
      </div>
      </td>
-     <td><strong class="red" name="${car.id}" >￥${car.product.price*car.quantity}</strong></td>
-     <td><a href="#" class="green">收藏</a><br /><a href="${contextPath}/delete/${car.id}" class="green">删除</a></td>
+     <td width="150"><strong class="red" name="${car.id}" >￥${car.product.price*car.quantity}</strong></td>
+     <td width="80"><a href="#" class="green">收藏</a><br /><a href="${contextPath}/delete/${car.id}" class="green">删除</a></td>
     </tr>
     <c:set var="totalPrice" value="${totalPrice+ car.product.price*car.quantity}"></c:set>
     </c:forEach>

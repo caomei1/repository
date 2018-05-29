@@ -45,5 +45,7 @@ public interface ProductDao {
 	void addCarNumber(Integer id);
 
 	Car findCarId(Integer id);
+
+	List<Product> findAllProductDesc();
 	
 }
